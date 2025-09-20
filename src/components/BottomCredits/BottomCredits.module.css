@@ -24,7 +24,7 @@
   padding: 0;
   text-align: left;
   letter-spacing: 0.05em;
-  color: #ff264a;
+  color: #ff6b35;
   margin: 0;
 }
 
@@ -35,7 +35,7 @@
 }
 
 .bottomCreditsLeadColor {
-  color: #ff264a;
+  color: #ff6b35;
 }
 
 .bottomCredits a,
@@ -51,6 +51,6 @@
   padding: 0;
   text-align: left;
   letter-spacing: 0.05em;
-  color: #ff264a;
+  color: #ff6b35;
   text-decoration: none;
 }

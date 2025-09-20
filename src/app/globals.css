@@ -86,6 +86,42 @@ button:focus, input:focus, select:focus, textarea:focus {
   box-shadow: none;
 }
 
+/* Убираем подсвечивание кнопок при нажатии */
+button:active,
+button:focus,
+input[type="button"]:active,
+input[type="button"]:focus,
+input[type="submit"]:active,
+input[type="submit"]:focus {
+  outline: none;
+  box-shadow: none;
+  background: inherit;
+  color: inherit;
+}
+
+/* Убираем подсвечивание в WebKit браузерах */
+button,
+input[type="button"],
+input[type="submit"],
+a {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Убираем подсвечивание ссылок при нажатии */
+a:active,
+a:focus {
+  outline: none;
+  box-shadow: none;
+  background: inherit;
+  color: inherit;
+}
+
 /* Сброс для всех браузеров */
 button::-webkit-focus-ring-color,
 input::-webkit-focus-ring-color,
@@ -120,7 +156,7 @@ body {
 }
 
 a {
-  color: #ff264a;
+  color: #ff6b35;
   text-decoration: none;
   outline: none;
   -webkit-font-smoothing: antialiased;
@@ -143,7 +179,7 @@ a:hover,
 a:visited,
 a:active,
 a:focus {
-  color: #ff264a;
+  color: #ff6b35;
   text-decoration: none;
   outline: none;
   font-weight: 600;
@@ -180,7 +216,7 @@ p {
 
 p a,
 p a:hover {
-  color: #ff264a;
+  color: #ff6b35;
   text-decoration: none;
   outline: none;
   font-weight: 600;
@@ -198,12 +234,12 @@ strong {
 }
 
 ::-moz-selection {
-  background: #ff264a;
+  background: #ff6b35;
   color: #fff;
 }
 
 ::selection {
-  background: #ff264a;
+  background: #ff6b35;
   color: #fff;
 }
 
