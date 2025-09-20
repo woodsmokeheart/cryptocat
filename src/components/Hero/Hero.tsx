@@ -172,7 +172,7 @@ const Hero = () => {
                   opacity: index === currentSlide ? 1 : 0
                 }}
               >
-                <div className={styles.overlay}></div>
+                <div className={`${styles.overlay} ${styles.overlayDark}`}></div>
                 <div className={styles.coverAll}></div>
               </div>
             ))}
