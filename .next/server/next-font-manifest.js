@@ -1,0 +1,1 @@
+self.__NEXT_FONT_MANIFEST="{\"pages\":{},\"app\":{\"/Users/deniskukobin/cryptocat/src/app/layout\":[\"static/media/7f06be3f780a819a-s.p.woff2\",\"static/media/630c17af355fa44e-s.p.woff2\"]},\"appUsingSizeAdjust\":true,\"pagesUsingSizeAdjust\":false}"

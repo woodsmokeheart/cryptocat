@@ -1,0 +1,84 @@
+.main {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 6rem 0 2rem 0; /* Добавляем отступ сверху для фиксированного хедера */
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  line-height: 1.2;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.description {
+  font-size: 1.2rem;
+  color: #b0b0b5;
+  line-height: 1.5;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Адаптивность для планшетов */
+@media (max-width: 1024px) {
+  .title {
+    font-size: 2.5rem;
+  }
+  
+  .description {
+    font-size: 1.1rem;
+    max-width: 500px;
+  }
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+  .main {
+    padding: 1.5rem 0;
+  }
+  
+  .title {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .description {
+    font-size: 1rem;
+    max-width: 400px;
+  }
+}
+
+/* Адаптивность для маленьких экранов */
+@media (max-width: 480px) {
+  .main {
+    padding: 1rem 0;
+    min-height: 100vh;
+  }
+  
+  .title {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .description {
+    font-size: 0.95rem;
+    max-width: 320px;
+  }
+}
+
+/* Адаптивность для очень маленьких экранов */
+@media (max-width: 320px) {
+  .title {
+    font-size: 1.5rem;
+  }
+  
+  .description {
+    font-size: 0.9rem;
+    max-width: 280px;
+  }
+}

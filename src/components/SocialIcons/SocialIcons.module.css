@@ -1,0 +1,77 @@
+/* Social icons styles based on Ultimex template */
+
+.socialIcons {
+  position: fixed;
+  width: 300px;
+  height: 48px;
+  line-height: 48px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-size-adjust: 100%;
+  z-index: 1;
+  margin-top: -10px;
+  left: -84px;
+  top: 50%;
+  transform: rotate(-90deg);
+}
+
+@media only screen and (max-width: 768px) {
+  .socialIcons {
+    display: none;
+    visibility: hidden;
+  }
+}
+
+.socialIcons ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.socialIcons li {
+  display: inline;
+  padding-left: 10px;
+}
+
+
+
+.socialLink {
+  font-family: var(--font-oswald), 'Oswald', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  font-style: normal;
+  text-transform: uppercase;
+  text-align: center;
+  color: #fff;
+  text-decoration: none;
+  outline: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-size-adjust: 100%;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease;
+}
+
+.socialLink:hover {
+  color: #ff264a;
+  font-weight: 400;
+}
+
+.socialIcon {
+  margin-right: 5px;
+  color: #ff264a;
+}
+
+.socialIcons li span {
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.socialLink:hover span {
+  color: #ff264a;
+  font-weight: 400;
+}
