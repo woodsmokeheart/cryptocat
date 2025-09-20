@@ -1,7 +1,7 @@
 /*!*************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./src/components/BottomCredits/BottomCredits.module.css ***!
   \*************************************************************************************************************************************************************************************************************************************************************************************************/
-/* Bottom credits styles based on Ultimex template */
+/* Bottom credits styles */
 
 .BottomCredits_bottomCredits__EozyK {
   position: absolute;
@@ -61,7 +61,7 @@
 /*!*******************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./src/components/Hero/Hero.module.css ***!
   \*******************************************************************************************************************************************************************************************************************************************************************************/
-/* Hero component styles based on Ultimex template */
+/* Hero component styles */
 
 .Hero_heroFullscreen__aLrxc {
   position: absolute;
@@ -623,7 +623,7 @@
 /*!*************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./src/components/VerticalLines/VerticalLines.module.css ***!
   \*************************************************************************************************************************************************************************************************************************************************************************************************/
-/* Vertical lines component styles based on Ultimex template */
+/* Vertical lines component styles */
 
 .VerticalLines_verticalLinesWrapper__uUj_A {
   position: fixed;

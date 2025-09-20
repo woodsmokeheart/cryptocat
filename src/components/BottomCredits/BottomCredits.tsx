@@ -7,7 +7,7 @@ const BottomCredits = () => {
   return (
     <div className={styles.bottomCredits}>
       <h4 className={`${styles.bottomCreditsLead} ${styles.bottomCreditsLeadColor}`}>
-        <a href="mailto:ultimex@ultimex.com">ultimex@ultimex.com</a>
+        <a href="mailto:cryptocat@cryptocat.com">cryptocat@cryptocat.com</a>
       </h4>
     </div>
   )

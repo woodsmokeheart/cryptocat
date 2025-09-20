@@ -143,7 +143,7 @@ const HeroSlider = () => {
           <span className={styles.contactLabel}>(+1) 234 56 789</span>
         </div>
         <div className={styles.contactItem}>
-          <span className={styles.contactAccent}>ULTIMEX@ULTIMEX.COM</span>
+          <span className={styles.contactAccent}>CRYPTOCAT@CRYPTOCAT.COM</span>
         </div>
       </div>
     </div>
