@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
+import { FaPlay, FaPause, FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import styles from './HeroSlider.module.css'
 
 interface Slide {
@@ -107,21 +108,21 @@ const HeroSlider = () => {
           onClick={togglePlayPause}
           aria-label={isPlaying ? 'Pause' : 'Play'}
         >
-          {isPlaying ? '⏸' : '▶'}
+          {isPlaying ? <FaPause /> : <FaPlay />}
         </button>
         <button 
           className={styles.controlButton}
           onClick={goToPrevious}
           aria-label="Previous slide"
         >
-          ←
+          <FaChevronLeft />
         </button>
         <button 
           className={styles.controlButton}
           onClick={goToNext}
           aria-label="Next slide"
         >
-          →
+          <FaChevronRight />
         </button>
       </div>
 
