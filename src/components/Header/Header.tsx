@@ -2,13 +2,23 @@
 
 import React, { useState } from 'react'
 import Image from 'next/image'
+import { useModal } from '../../hooks/useModal'
 import styles from './Header.module.css'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const aboutModal = useModal('about')
+  const servicesModal = useModal('services')
+  const worksModal = useModal('works')
+  const newsModal = useModal('news')
+  const contactModal = useModal('contact')
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
+  }
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   return (
@@ -51,22 +61,52 @@ const Header = () => {
               {/* Navigation menu */}
               <ul className={`${styles.navbarNav} ${isMenuOpen ? styles.show : ''}`}>
                 <li>
-                  <a className={`${styles.linkUnderlineMenu} ${styles.active}`} href="#home">Home</a>
+                  <button 
+                    className={`${styles.linkUnderlineMenu} ${styles.active}`} 
+                    onClick={scrollToTop}
+                  >
+                    Home
+                  </button>
                 </li>
                 <li>
-                  <a className={styles.linkUnderlineMenu} href="#about">About</a>
+                  <button 
+                    className={styles.linkUnderlineMenu} 
+                    onClick={aboutModal.openModal}
+                  >
+                    About
+                  </button>
                 </li>
                 <li>
-                  <a className={styles.linkUnderlineMenu} href="#services">Services</a>
+                  <button 
+                    className={styles.linkUnderlineMenu} 
+                    onClick={servicesModal.openModal}
+                  >
+                    Services
+                  </button>
                 </li>
                 <li>
-                  <a className={styles.linkUnderlineMenu} href="#works">Works</a>
+                  <button 
+                    className={styles.linkUnderlineMenu} 
+                    onClick={worksModal.openModal}
+                  >
+                    Works
+                  </button>
                 </li>
                 <li>
-                  <a className={styles.linkUnderlineMenu} href="#news">News</a>
+                  <button 
+                    className={styles.linkUnderlineMenu} 
+                    onClick={newsModal.openModal}
+                  >
+                    News
+                  </button>
                 </li>
                 <li>
-                  <a className={styles.linkUnderlineMenu} href="#contact">Contact</a>
+                  <button 
+                    className={styles.linkUnderlineMenu} 
+                    onClick={contactModal.openModal}
+                  >
+                    Contact
+                  </button>
                 </li>
               </ul>
             </div>

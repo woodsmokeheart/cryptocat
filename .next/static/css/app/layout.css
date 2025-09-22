@@ -974,7 +974,8 @@ margin-top: 10px;
   margin: 0;
 }
 
-.Header_navbarNav__fyKbk li a {
+.Header_navbarNav__fyKbk li a,
+.Header_navbarNav__fyKbk li button {
   position: relative;
   font-family: var(--font-oswald), 'Oswald', sans-serif;
   font-style: normal;
@@ -988,10 +989,16 @@ margin-top: 10px;
   right: 50px;
   transition: all 0.4s ease-out;
   display: block;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
 }
 
 @media only screen and (max-width: 995px) {
-  .Header_navbarNav__fyKbk li a {
+  .Header_navbarNav__fyKbk li a,
+  .Header_navbarNav__fyKbk li button {
     color: #fff;
     padding: 10px 15px;
     right: auto;
@@ -1010,7 +1017,9 @@ margin-top: 10px;
 }
 
 .Header_navbarNav__fyKbk li a:hover,
-.Header_navbarNav__fyKbk li a:focus {
+.Header_navbarNav__fyKbk li a:focus,
+.Header_navbarNav__fyKbk li button:hover,
+.Header_navbarNav__fyKbk li button:focus {
   color: #fff;
   background: none;
   transition: all 0.4s ease-out;
@@ -1113,6 +1122,373 @@ margin-top: 10px;
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/*!*********************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./src/components/Modal/Modal.module.css ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************/
+.Modal_modalOverlay__pyT5_ {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 1000;
+  pointer-events: auto;
+  animation: Modal_fadeIn__Oj_FH 0.3s ease-out;
+}
+
+.Modal_modalContent__HnkSt {
+  background: #000;
+  width: 100%;
+  max-width: 100vw;
+  height: 30vh;
+  min-height: 300px;
+  border-radius: 20px 20px 0 0;
+  position: relative;
+  animation: Modal_slideUp__TznsY 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.Modal_modalHeader__OeXI3 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  border-bottom: 1px solid #333;
+  flex-shrink: 0;
+}
+
+.Modal_modalTitle__khdg1 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.Modal_closeButton__7VSKG {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.Modal_closeButton__7VSKG:hover {
+  background: #333;
+  color: #FF7A3D;
+}
+
+.Modal_modalBody__2_aM7 {
+  flex: 1 1;
+  padding: 30px;
+  overflow-y: auto;
+  color: #fff;
+}
+
+/* Mobile styles */
+@media only screen and (max-width: 768px) {
+  .Modal_modalContent__HnkSt {
+    height: calc(100vh - 90px); /* До нераскрытого хэдера */
+    border-radius: 0;
+    width: 100vw;
+    max-width: 100vw;
+  }
+  
+  .Modal_modalHeader__OeXI3 {
+    padding: 15px 20px;
+  }
+  
+  .Modal_modalTitle__khdg1 {
+    font-size: 1.25rem;
+  }
+  
+  .Modal_modalBody__2_aM7 {
+    padding: 20px;
+  }
+}
+
+/* Tablet styles */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .Modal_modalContent__HnkSt {
+    height: 40vh;
+    min-height: 400px;
+    width: 100vw;
+    max-width: 100vw;
+  }
+}
+
+/* Animations */
+@keyframes Modal_fadeIn__Oj_FH {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes Modal_slideUp__TznsY {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/*!*************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./src/components/pages/AboutPage.module.css ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************/
+.AboutPage_aboutPage__SXwUB {
+  height: 100%;
+  overflow-y: auto;
+}
+
+.AboutPage_content__RTrCx {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.AboutPage_title__3WyMV {
+  font-family: 'Oswald', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #FF7A3D;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-align: center;
+}
+
+.AboutPage_section__SS7bE {
+  margin-bottom: 2.5rem;
+}
+
+.AboutPage_sectionTitle__T6EvY {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.AboutPage_text__KkE7H {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #ccc;
+  margin-bottom: 1rem;
+}
+
+.AboutPage_services__2DpqD {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 1.5rem;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.AboutPage_serviceItem__AsNNO {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 122, 61, 0.2);
+  transition: all 0.3s ease;
+}
+
+.AboutPage_serviceItem__AsNNO:hover {
+  background: rgba(255, 122, 61, 0.1);
+  border-color: #FF7A3D;
+  transform: translateY(-2px);
+}
+
+.AboutPage_serviceItem__AsNNO h3 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #FF7A3D;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.AboutPage_serviceItem__AsNNO p {
+  font-size: 0.9rem;
+  color: #ccc;
+  margin: 0;
+}
+
+@media only screen and (max-width: 768px) {
+  .AboutPage_title__3WyMV {
+    font-size: 2rem;
+  }
+  
+  .AboutPage_sectionTitle__T6EvY {
+    font-size: 1.25rem;
+  }
+  
+  .AboutPage_services__2DpqD {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .AboutPage_serviceItem__AsNNO {
+    padding: 1rem;
+  }
+}
+
+/*!****************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./src/components/pages/ServicesPage.module.css ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************/
+.ServicesPage_servicesPage__wkjiC {
+  height: 100%;
+  overflow-y: auto;
+}
+
+.ServicesPage_content__1KhrJ {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.ServicesPage_title__mFnO6 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #FF7A3D;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-align: center;
+}
+
+.ServicesPage_servicesGrid__oyuBz {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 2rem;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.ServicesPage_serviceCard__Tbo1V {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 122, 61, 0.2);
+  border-radius: 15px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.ServicesPage_serviceCard__Tbo1V::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #FF7A3D, #ff9d6b);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.ServicesPage_serviceCard__Tbo1V:hover::before {
+  transform: scaleX(1);
+}
+
+.ServicesPage_serviceCard__Tbo1V:hover {
+  background: rgba(255, 122, 61, 0.1);
+  border-color: #FF7A3D;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(255, 122, 61, 0.2);
+}
+
+.ServicesPage_serviceIcon__PclX9 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.ServicesPage_serviceTitle__AphcR {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.ServicesPage_serviceDescription__j_Cko {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #ccc;
+  margin-bottom: 1.5rem;
+}
+
+.ServicesPage_serviceList__suSGR {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ServicesPage_serviceList__suSGR li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #ccc;
+  font-size: 0.9rem;
+}
+
+.ServicesPage_serviceList__suSGR li::before {
+  content: '▶';
+  position: absolute;
+  left: 0;
+  color: #FF7A3D;
+  font-size: 0.8rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .ServicesPage_title__mFnO6 {
+    font-size: 2rem;
+  }
+  
+  .ServicesPage_servicesGrid__oyuBz {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .ServicesPage_serviceCard__Tbo1V {
+    padding: 1.5rem;
+  }
+  
+  .ServicesPage_serviceIcon__PclX9 {
+    font-size: 2.5rem;
+  }
+  
+  .ServicesPage_serviceTitle__AphcR {
+    font-size: 1.25rem;
   }
 }
 

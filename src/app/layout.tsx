@@ -3,6 +3,7 @@ import { Raleway, Oswald } from 'next/font/google'
 import Header from '@/components/Header/Header'
 import SocialIcons from '@/components/SocialIcons/SocialIcons'
 import Preloader from '@/components/Preloader/Preloader'
+import ModalManager from '@/components/ModalManager/ModalManager'
 import './globals.css'
 
 const raleway = Raleway({
@@ -68,6 +69,7 @@ export default function RootLayout({
           <Header />
           <SocialIcons />
           {children}
+          <ModalManager />
         </div>
       </body>
     </html>
