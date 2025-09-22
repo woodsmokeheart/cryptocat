@@ -1,12 +1,13 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import { useModal } from '../../hooks/useModal'
 import styles from './Header.module.css'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const menuRef = useRef<HTMLDivElement>(null)
   const aboutModal = useModal('about')
   const servicesModal = useModal('services')
   const worksModal = useModal('works')
@@ -17,9 +18,31 @@ const Header = () => {
     setIsMenuOpen(!isMenuOpen)
   }
 
+  const closeMenu = () => {
+    setIsMenuOpen(false)
+  }
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
+    closeMenu()
   }
+
+  // Закрытие меню при клике вне его области
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        closeMenu()
+      }
+    }
+
+    if (isMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside)
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [isMenuOpen])
 
   return (
     <>
@@ -46,7 +69,7 @@ const Header = () => {
             </div>
 
             {/* Main navigation */}
-            <div className={styles.mainNavigation}>
+            <div className={styles.mainNavigation} ref={menuRef}>
               {/* Mobile toggle */}
               <button 
                 className={styles.navbarToggle}
@@ -71,7 +94,10 @@ const Header = () => {
                 <li>
                   <button 
                     className={styles.linkUnderlineMenu} 
-                    onClick={aboutModal.openModal}
+                    onClick={() => {
+                      aboutModal.openModal()
+                      closeMenu()
+                    }}
                   >
                     About
                   </button>
@@ -79,7 +105,10 @@ const Header = () => {
                 <li>
                   <button 
                     className={styles.linkUnderlineMenu} 
-                    onClick={servicesModal.openModal}
+                    onClick={() => {
+                      servicesModal.openModal()
+                      closeMenu()
+                    }}
                   >
                     Services
                   </button>
@@ -87,7 +116,10 @@ const Header = () => {
                 <li>
                   <button 
                     className={styles.linkUnderlineMenu} 
-                    onClick={worksModal.openModal}
+                    onClick={() => {
+                      worksModal.openModal()
+                      closeMenu()
+                    }}
                   >
                     Works
                   </button>
@@ -95,7 +127,10 @@ const Header = () => {
                 <li>
                   <button 
                     className={styles.linkUnderlineMenu} 
-                    onClick={newsModal.openModal}
+                    onClick={() => {
+                      newsModal.openModal()
+                      closeMenu()
+                    }}
                   >
                     News
                   </button>
@@ -103,7 +138,10 @@ const Header = () => {
                 <li>
                   <button 
                     className={styles.linkUnderlineMenu} 
-                    onClick={contactModal.openModal}
+                    onClick={() => {
+                      contactModal.openModal()
+                      closeMenu()
+                    }}
                   >
                     Contact
                   </button>
