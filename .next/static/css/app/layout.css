@@ -732,7 +732,7 @@ a:focus {
   color: #FF7A3D;
   text-decoration: none;
   outline: none;
-  font-weight: 600;
+  font-weight: 400;
   transition: all 0.5s linear;
   transform: translate3d(0, 0, 0);
 }
@@ -764,7 +764,7 @@ p a:hover {
   color: #FF7A3D;
   text-decoration: none;
   outline: none;
-  font-weight: 600;
+  font-weight: 400;
   transition: all 0.5s linear;
   transform: translate3d(0, 0, 0);
 }
