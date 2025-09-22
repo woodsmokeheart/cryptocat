@@ -98,7 +98,7 @@
 }
 
 .serviceList li::before {
-  content: '▶';
+  content: '\25B6';
   position: absolute;
   left: 0;
   color: #FF7A3D;

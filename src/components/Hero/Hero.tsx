@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
+import { FaPlay, FaPause, FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import styles from './Hero.module.css'
 
 interface Slide {
@@ -185,14 +186,14 @@ const Hero = () => {
               onClick={goToPrevious}
               aria-label="Previous slide"
             >
-              ←
+              <FaChevronLeft />
             </button>
             <button 
               className={`${styles.swiperSlideControls} ${styles.slideNext}`}
               onClick={goToNext}
               aria-label="Next slide"
             >
-              →
+              <FaChevronRight />
             </button>
           </div>
 
@@ -202,7 +203,7 @@ const Hero = () => {
             onClick={togglePlayPause}
             aria-label={isPlaying ? 'Pause' : 'Play'}
           >
-            {isPlaying ? '⏸' : '▶'}
+            {isPlaying ? <FaPause /> : <FaPlay />}
           </button>
 
           {/* Swiper slider pagination */}

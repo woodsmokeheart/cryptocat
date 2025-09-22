@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import { FaLink, FaGlobe, FaDollarSign, FaPalette } from 'react-icons/fa'
 import styles from './ServicesPage.module.css'
 
 const ServicesPage: React.FC = () => {
@@ -11,7 +12,7 @@ const ServicesPage: React.FC = () => {
         
         <div className={styles.servicesGrid}>
           <div className={styles.serviceCard}>
-            <div className={styles.serviceIcon}>🔗</div>
+            <div className={styles.serviceIcon}><FaLink /></div>
             <h3 className={styles.serviceTitle}>Blockchain Development</h3>
             <p className={styles.serviceDescription}>
               Smart contracts, DApps, DeFi protocols, and custom blockchain solutions 
@@ -26,7 +27,7 @@ const ServicesPage: React.FC = () => {
           </div>
 
           <div className={styles.serviceCard}>
-            <div className={styles.serviceIcon}>🌐</div>
+            <div className={styles.serviceIcon}><FaGlobe /></div>
             <h3 className={styles.serviceTitle}>Web Development</h3>
             <p className={styles.serviceDescription}>
               Modern, responsive websites and web applications built with the latest 
@@ -41,7 +42,7 @@ const ServicesPage: React.FC = () => {
           </div>
 
           <div className={styles.serviceCard}>
-            <div className={styles.serviceIcon}>💰</div>
+            <div className={styles.serviceIcon}><FaDollarSign /></div>
             <h3 className={styles.serviceTitle}>Cryptocurrency Consulting</h3>
             <p className={styles.serviceDescription}>
               Strategic guidance for crypto projects, tokenomics design, and 
@@ -56,7 +57,7 @@ const ServicesPage: React.FC = () => {
           </div>
 
           <div className={styles.serviceCard}>
-            <div className={styles.serviceIcon}>🎨</div>
+            <div className={styles.serviceIcon}><FaPalette /></div>
             <h3 className={styles.serviceTitle}>UI/UX Design</h3>
             <p className={styles.serviceDescription}>
               Beautiful, intuitive user interfaces and experiences that engage 

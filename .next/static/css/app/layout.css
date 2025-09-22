@@ -1462,7 +1462,7 @@ margin-top: 10px;
 }
 
 .ServicesPage_serviceList__suSGR li::before {
-  content: '▶';
+  content: '\25B6';
   position: absolute;
   left: 0;
   color: #FF7A3D;

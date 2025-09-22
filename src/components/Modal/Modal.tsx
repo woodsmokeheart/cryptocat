@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useEffect } from 'react'
+import { FaTimes } from 'react-icons/fa'
 import Portal from '../Portal/Portal'
 import styles from './Modal.module.css'
 
@@ -46,7 +47,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children, title }) => {
               onClick={onClose}
               aria-label="Close modal"
             >
-              ×
+              <FaTimes />
             </button>
           </div>
           <div className={styles.modalBody}>
