@@ -38,7 +38,7 @@ const ModalManager: React.FC = () => {
       >
         <div style={{ padding: '2rem', textAlign: 'center' }}>
           <h2 style={{ color: '#FF7A3D', marginBottom: '1rem' }}>Our Portfolio</h2>
-          <p style={{ color: '#ccc' }}>Coming soon! We're working on showcasing our amazing projects.</p>
+          <p style={{ color: '#ccc' }}>Coming soon! We&apos;re working on showcasing our amazing projects.</p>
         </div>
       </Modal>
 
