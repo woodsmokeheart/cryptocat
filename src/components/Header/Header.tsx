@@ -25,10 +25,11 @@ const Header = () => {
               <a className={styles.logoBrand} href="#">
                 <Image 
                   className={styles.logoImg} 
-                  alt="EX Logo" 
-                  src="/img/logo-light.png"
-                  width={59}
-                  height={35}
+                  alt="CryptoCat Logo" 
+                  src="/img/textLogo.png"
+                  width={40}
+                  height={40}
+                  sizes="100vw"
                   priority
                 />
               </a>

@@ -27,7 +27,7 @@
   padding: 0;
   text-align: left;
   letter-spacing: 0.05em;
-  color: #ff6b35;
+  color: #FF7A3D;
   margin: 0;
 }
 
@@ -38,7 +38,7 @@
 }
 
 .BottomCredits_bottomCreditsLeadColor__o4bEq {
-  color: #ff6b35;
+  color: #FF7A3D;
 }
 
 .BottomCredits_bottomCredits__EozyK a,
@@ -54,7 +54,7 @@
   padding: 0;
   text-align: left;
   letter-spacing: 0.05em;
-  color: #ff6b35;
+  color: #FF7A3D;
   text-decoration: none;
 }
 
@@ -313,7 +313,7 @@
 }
 
 .Hero_postTitleColor__QJiut {
-  color: #ff6b35;
+  color: #FF7A3D;
 }
 
 .Hero_postTxt__D_dYk {
@@ -348,7 +348,7 @@
 .Hero_linkUnderline__LiMLY {
   position: relative;
   display: inline-block;
-  color: #ff6b35;
+  color: #FF7A3D;
   text-decoration: none;
 }
 
@@ -359,7 +359,7 @@
   left: 0;
   width: 100%;
   height: 1px;
-  background: #ff6b35;
+  background: #FF7A3D;
   transform-origin: right center;
   transform: scale(0, 1);
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -405,19 +405,19 @@
 }
 
 .Hero_bgImg1__b22g6 {
-  background-image: url('/img/background/hero-bg-1.jpg');
+  background-image: url('/img/cover4.png');
 }
 
 .Hero_bgImg2__fljkr {
-  background-image: url('/img/background/hero-bg-2.jpg');
+  background-image: url('/img/cover2.png');
 }
 
 .Hero_bgImg3__bzzk0 {
-  background-image: url('/img/background/hero-bg-3.jpg');
+  background-image: url('/img/cover3.png');
 }
 
 .Hero_bgImg4__6jLDo {
-  background-image: url('/img/background/hero-bg-4.jpg');
+  background-image: url('/img/cover1.png');
 }
 
 .Hero_overlay__Vle1u {
@@ -621,7 +621,7 @@
 .Hero_swiperPaginationBullet__NUdMi.Hero_active__60To0::after {
   transition: all 0.5s linear;
   transform: scale(1.8);
-  background: #ff6b35;
+  background: #FF7A3D;
 }
 
 /*!*************************************************************************************************************************************************************************************************************************************************************************************************!*\

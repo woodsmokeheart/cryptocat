@@ -156,7 +156,7 @@ body {
 }
 
 a {
-  color: #ff6b35;
+  color: #FF7A3D;
   text-decoration: none;
   outline: none;
   -webkit-font-smoothing: antialiased;
@@ -179,7 +179,7 @@ a:hover,
 a:visited,
 a:active,
 a:focus {
-  color: #ff6b35;
+  color: #FF7A3D;
   text-decoration: none;
   outline: none;
   font-weight: 600;
@@ -216,7 +216,7 @@ p {
 
 p a,
 p a:hover {
-  color: #ff6b35;
+  color: #FF7A3D;
   text-decoration: none;
   outline: none;
   font-weight: 600;
@@ -234,12 +234,12 @@ strong {
 }
 
 ::-moz-selection {
-  background: #ff6b35;
+  background: #FF7A3D;
   color: #fff;
 }
 
 ::selection {
-  background: #ff6b35;
+  background: #FF7A3D;
   color: #fff;
 }
 

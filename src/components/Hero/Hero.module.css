@@ -250,7 +250,7 @@
 }
 
 .postTitleColor {
-  color: #ff6b35;
+  color: #FF7A3D;
 }
 
 .postTxt {
@@ -284,7 +284,7 @@
 .linkUnderline {
   position: relative;
   display: inline-block;
-  color: #ff6b35;
+  color: #FF7A3D;
   text-decoration: none;
 }
 
@@ -295,7 +295,7 @@
   left: 0;
   width: 100%;
   height: 1px;
-  background: #ff6b35;
+  background: #FF7A3D;
   transform-origin: right center;
   transform: scale(0, 1);
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -341,19 +341,19 @@
 }
 
 .bgImg1 {
-  background-image: url('/img/background/hero-bg-1.jpg');
+  background-image: url('/img/cover4.png');
 }
 
 .bgImg2 {
-  background-image: url('/img/background/hero-bg-2.jpg');
+  background-image: url('/img/cover2.png');
 }
 
 .bgImg3 {
-  background-image: url('/img/background/hero-bg-3.jpg');
+  background-image: url('/img/cover3.png');
 }
 
 .bgImg4 {
-  background-image: url('/img/background/hero-bg-4.jpg');
+  background-image: url('/img/cover1.png');
 }
 
 .overlay {
@@ -557,5 +557,5 @@
 .swiperPaginationBullet.active::after {
   transition: all 0.5s linear;
   transform: scale(1.8);
-  background: #ff6b35;
+  background: #FF7A3D;
 }

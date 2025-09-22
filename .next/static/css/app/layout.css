@@ -711,7 +711,7 @@ body {
 }
 
 a {
-  color: #ff6b35;
+  color: #FF7A3D;
   text-decoration: none;
   outline: none;
   -webkit-font-smoothing: antialiased;
@@ -729,7 +729,7 @@ a:hover,
 a:visited,
 a:active,
 a:focus {
-  color: #ff6b35;
+  color: #FF7A3D;
   text-decoration: none;
   outline: none;
   font-weight: 600;
@@ -761,7 +761,7 @@ p {
 
 p a,
 p a:hover {
-  color: #ff6b35;
+  color: #FF7A3D;
   text-decoration: none;
   outline: none;
   font-weight: 600;
@@ -774,7 +774,7 @@ strong {
 }
 
 ::selection {
-  background: #ff6b35;
+  background: #FF7A3D;
   color: #fff;
 }
 
@@ -922,13 +922,13 @@ strong {
 .Header_logo__1FRrW {
   margin-left: 13px;
   transition: all 0.4s ease-out;
+margin-top: 10px;
 }
 
 
 
 .Header_logoImg__ES4Yi {
-  max-height: 35px;
-  max-width: 59px;
+  object-fit: contain;
 }
 
 .Header_mainNavigation__ZCZKD {
@@ -1242,13 +1242,13 @@ strong {
 }
 
 .SocialIcons_socialLink__2891H:hover {
-  color: #ff6b35;
+  color: #FF7A3D;
   font-weight: 400;
 }
 
 .SocialIcons_socialIcon__U0_oA {
   margin-right: 5px;
-  color: #ff6b35;
+  color: #FF7A3D;
 }
 
 .SocialIcons_socialIcons__rgGAu li span {
@@ -1257,6 +1257,6 @@ strong {
 }
 
 .SocialIcons_socialLink__2891H:hover span {
-  color: #ff6b35;
+  color: #FF7A3D;
   font-weight: 400;
 }

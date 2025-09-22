@@ -57,13 +57,13 @@
 }
 
 .socialLink:hover {
-  color: #ff6b35;
+  color: #FF7A3D;
   font-weight: 400;
 }
 
 .socialIcon {
   margin-right: 5px;
-  color: #ff6b35;
+  color: #FF7A3D;
 }
 
 .socialIcons li span {
@@ -72,6 +72,6 @@
 }
 
 .socialLink:hover span {
-  color: #ff6b35;
+  color: #FF7A3D;
   font-weight: 400;
 }
