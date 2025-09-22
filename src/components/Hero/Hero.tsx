@@ -19,35 +19,35 @@ const slides: Slide[] = [
     heading: "The Company",
     title: "Simplicity is",
     titleAccent: "complex",
-    description: "Lorem Ipsum has been the industry's standard dummy text ever",
-    descriptionAccent: "since the 1500s.",
+    description: "We provide relevant solutions for every day, regardless of the",
+    descriptionAccent: "market stage.",
     bgImage: styles.bgImg1
   },
   {
     id: 2,
-    heading: "The Brand",
-    title: "Design is a",
+    heading: "The Сommunity",
+    title: "Trading is a",
     titleAccent: "process",
-    description: "Creating digital experiences that push boundaries and inspire",
-    descriptionAccent: "the future of web.",
+    description: "The most active and successful community consisting of more than 10,000 traders",
+    descriptionAccent: "from all over the world.",
     bgImage: styles.bgImg2
   },
   {
     id: 3,
-    heading: "The Legacy",
-    title: "Aesthetic is a",
+    heading: "The Team",
+    title: "Composure is a",
     titleAccent: "decision",
-    description: "Crafting elegant solutions with clean, maintainable code",
-    descriptionAccent: "that speaks volumes.",
+    description: "The team is worthy of being called the",
+    descriptionAccent: "best in their field.",
     bgImage: styles.bgImg3
   },
   {
     id: 4,
     heading: "The Future",
-    title: "Style is",
-    titleAccent: "everything",
-    description: "Building tomorrow's digital experiences today with innovation",
-    descriptionAccent: "and precision.",
+    title: "Achievements that",
+    titleAccent: "are impressive",
+    description: "The uniqueness of the approaches combined with mentoring and modern technologies",
+    descriptionAccent: "can surprise you.",
     bgImage: styles.bgImg4
   }
 ]
