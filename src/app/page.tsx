@@ -1,5 +1,6 @@
 import React from 'react'
 import type { Metadata } from 'next'
+import BaseLayout from './layouts/BaseLayout'
 import Hero from '@/components/Hero/Hero'
 import VerticalLines from '@/components/VerticalLines/VerticalLines'
 import BottomCredits from '@/components/BottomCredits/BottomCredits'
@@ -11,10 +12,12 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <main>
-      <Hero />
-      <VerticalLines />
-      <BottomCredits />
-    </main>
+    <BaseLayout>
+      <main>
+        <Hero />
+        <VerticalLines />
+        <BottomCredits />
+      </main>
+    </BaseLayout>
   )
 }

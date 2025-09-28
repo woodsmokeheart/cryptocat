@@ -1,9 +1,11 @@
 import React from 'react'
+import ShopLayout from '../layouts/ShopLayout'
 import styles from './page.module.css'
 
 const ShopPage: React.FC = () => {
   return (
-    <div className={styles.container}>
+    <ShopLayout>
+      <div className={styles.container}>
       <div className={styles.content}>
         <h1 className={styles.title}>CryptoCat Store</h1>
         <div className={styles.placeholder}>
@@ -35,8 +37,10 @@ const ShopPage: React.FC = () => {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    </ShopLayout>
   )
 }
 
 export default ShopPage
+
