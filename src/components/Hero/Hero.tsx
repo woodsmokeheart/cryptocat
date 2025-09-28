@@ -17,38 +17,38 @@ interface Slide {
 const slides: Slide[] = [
   {
     id: 1,
-    heading: "The Company",
-    title: "Simplicity is",
-    titleAccent: "complex",
-    description: "We provide relevant solutions for every day, regardless of the",
-    descriptionAccent: "market stage.",
+    heading: "Компания",
+    title: "Простота это",
+    titleAccent: "сложность",
+    description: "Мы предоставляем актуальные решения для каждого дня, независимо от",
+    descriptionAccent: "стадии рынка.",
     bgImage: styles.bgImg1
   },
   {
     id: 2,
-    heading: "The Сommunity",
-    title: "Trading is a",
-    titleAccent: "process",
-    description: "The most active and successful community consisting of more than 10,000 traders",
-    descriptionAccent: "from all over the world.",
+    heading: "Сообщество",
+    title: "Трейдинг - это",
+    titleAccent: "процесс",
+    description: "Самое активное и успешное сообщество, состоящее из более чем 10 000 трейдеров",
+    descriptionAccent: "со всего мира.",
     bgImage: styles.bgImg2
   },
   {
     id: 3,
-    heading: "The Team",
-    title: "Composure is a",
-    titleAccent: "decision",
-    description: "The team is worthy of being called the",
-    descriptionAccent: "best in their field.",
+    heading: "Команда",
+    title: "Спокойствие - это",
+    titleAccent: "решение",
+    description: "Команда достойна называться",
+    descriptionAccent: "лучшей в своей области.",
     bgImage: styles.bgImg3
   },
   {
     id: 4,
-    heading: "The Future",
-    title: "Achievements that",
-    titleAccent: "are impressive",
-    description: "The uniqueness of the approaches combined with mentoring and modern technologies",
-    descriptionAccent: "can surprise you.",
+    heading: "Будущее",
+    title: "Достижения, которые",
+    titleAccent: "впечатляют",
+    description: "Уникальность подходов в сочетании с наставничеством и современными технологиями",
+    descriptionAccent: "могут вас удивить.",
     bgImage: styles.bgImg4
   }
 ]
@@ -184,14 +184,14 @@ const Hero = () => {
             <button 
               className={`${styles.swiperSlideControls} ${styles.slidePrev}`}
               onClick={goToPrevious}
-              aria-label="Previous slide"
+              aria-label="Предыдущий слайд"
             >
               <FaChevronLeft />
             </button>
             <button 
               className={`${styles.swiperSlideControls} ${styles.slideNext}`}
               onClick={goToNext}
-              aria-label="Next slide"
+              aria-label="Следующий слайд"
             >
               <FaChevronRight />
             </button>
@@ -201,7 +201,7 @@ const Hero = () => {
           <button 
             className={styles.swiperSlideControlsPlayPause}
             onClick={togglePlayPause}
-            aria-label={isPlaying ? 'Pause' : 'Play'}
+            aria-label={isPlaying ? 'Пауза' : 'Воспроизвести'}
           >
             {isPlaying ? <FaPause /> : <FaPlay />}
           </button>
@@ -213,7 +213,7 @@ const Hero = () => {
                 key={index}
                 className={`${styles.swiperPaginationBullet} ${index === currentSlide ? styles.active : ''}`}
                 onClick={() => goToSlide(index)}
-                aria-label={`Go to slide ${index + 1}`}
+                aria-label={`Перейти к слайду ${index + 1}`}
               />
             ))}
           </div>

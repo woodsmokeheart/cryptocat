@@ -28,7 +28,7 @@ const SliderControls: React.FC<SliderControlsProps> = ({
       <button
         className={styles.controlButton}
         onClick={onPrevious}
-        aria-label="Previous slide"
+        aria-label="Предыдущий слайд"
         type="button"
       >
         <FaChevronLeft />
@@ -43,7 +43,7 @@ const SliderControls: React.FC<SliderControlsProps> = ({
       <button
         className={styles.controlButton}
         onClick={onNext}
-        aria-label="Next slide"
+        aria-label="Следующий слайд"
         type="button"
       >
         <FaChevronRight />

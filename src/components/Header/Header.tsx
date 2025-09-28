@@ -74,7 +74,7 @@ const Header = () => {
               <button 
                 className={styles.navbarToggle}
                 onClick={toggleMenu}
-                aria-label="Toggle navigation"
+                aria-label="Переключить навигацию"
               >
                 <span className={styles.iconBar}></span>
                 <span className={styles.iconBar}></span>
@@ -88,7 +88,7 @@ const Header = () => {
                     className={`${styles.linkUnderlineMenu} ${styles.active}`} 
                     onClick={scrollToTop}
                   >
-                    Home
+                    Главная
                   </button>
                 </li>
                 <li>
@@ -99,7 +99,7 @@ const Header = () => {
                       closeMenu()
                     }}
                   >
-                    About
+                    О нас
                   </button>
                 </li>
                 <li>
@@ -110,7 +110,7 @@ const Header = () => {
                       closeMenu()
                     }}
                   >
-                    Services
+                    Услуги
                   </button>
                 </li>
                 <li>
@@ -121,7 +121,7 @@ const Header = () => {
                       closeMenu()
                     }}
                   >
-                    Works
+                    Работы
                   </button>
                 </li>
                 <li>
@@ -132,7 +132,7 @@ const Header = () => {
                       closeMenu()
                     }}
                   >
-                    News
+                    Новости
                   </button>
                 </li>
                 <li>
@@ -143,7 +143,7 @@ const Header = () => {
                       closeMenu()
                     }}
                   >
-                    Contact
+                    Контакты
                   </button>
                 </li>
               </ul>

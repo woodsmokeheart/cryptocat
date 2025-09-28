@@ -7,12 +7,12 @@ export const aboutSlides: SlideContent[] = [
     content: (
       <div style={{ textAlign: 'center', padding: '40px', color: '#fff' }}>
         <h3 style={{ color: '#FF7A3D', fontSize: '2rem', marginBottom: '20px', textTransform: 'uppercase' }}>
-          Our Mission
+          Наша Миссия
         </h3>
         <p style={{ fontSize: '1.1rem', lineHeight: '1.8', maxWidth: '600px', margin: '0 auto' }}>
-          We are a cutting-edge digital agency specializing in blockchain technology, 
-          cryptocurrency solutions, and innovative web development. Our mission is to 
-          bridge the gap between traditional business and the decentralized future.
+          Мы - передовое цифровое агентство, специализирующееся на блокчейн технологиях, 
+          криптовалютных решениях и инновационной веб-разработке. Наша миссия - 
+          объединить традиционный бизнес с децентрализованным будущим.
         </p>
       </div>
     )
@@ -22,19 +22,19 @@ export const aboutSlides: SlideContent[] = [
     content: (
       <div style={{ textAlign: 'center', padding: '40px', color: '#fff' }}>
         <h3 style={{ color: '#FF7A3D', fontSize: '2rem', marginBottom: '20px', textTransform: 'uppercase' }}>
-          Our Values
+          Наши Ценности
         </h3>
         <div style={{ display: 'grid', gap: '20px', maxWidth: '600px', margin: '0 auto' }}>
           <div style={{ padding: '20px', border: '1px solid #333', borderRadius: '8px' }}>
-            <h4 style={{ color: '#FF7A3D', marginBottom: '10px' }}>Innovation</h4>
+            <h4 style={{ color: '#FF7A3D', marginBottom: '10px' }}>Инновации</h4>
             <p style={{ fontSize: '1rem', lineHeight: '1.6' }}>
-              We stay at the forefront of technology, constantly exploring new possibilities in blockchain and web development.
+              Мы находимся на передовой технологий, постоянно исследуя новые возможности в блокчейн и веб-разработке.
             </p>
           </div>
           <div style={{ padding: '20px', border: '1px solid #333', borderRadius: '8px' }}>
-            <h4 style={{ color: '#FF7A3D', marginBottom: '10px' }}>Transparency</h4>
+            <h4 style={{ color: '#FF7A3D', marginBottom: '10px' }}>Прозрачность</h4>
             <p style={{ fontSize: '1rem', lineHeight: '1.6' }}>
-              We believe in open communication and transparent processes throughout every project.
+              Мы верим в открытое общение и прозрачные процессы на протяжении каждого проекта.
             </p>
           </div>
         </div>
@@ -46,12 +46,12 @@ export const aboutSlides: SlideContent[] = [
     content: (
       <div style={{ textAlign: 'center', padding: '40px', color: '#fff' }}>
         <h3 style={{ color: '#FF7A3D', fontSize: '2rem', marginBottom: '20px', textTransform: 'uppercase' }}>
-          Our Team
+          Наша Команда
         </h3>
         <p style={{ fontSize: '1.1rem', lineHeight: '1.8', maxWidth: '600px', margin: '0 auto' }}>
-          Our diverse team of blockchain experts, developers, and designers work together 
-          to deliver exceptional results. We combine technical expertise with creative 
-          vision to bring your ideas to life.
+          Наша разнообразная команда блокчейн экспертов, разработчиков и дизайнеров работает вместе, 
+          чтобы обеспечить исключительные результаты. Мы сочетаем техническую экспертизу с творческим 
+          видением, чтобы воплотить ваши идеи в жизнь.
         </p>
       </div>
     )
@@ -65,11 +65,11 @@ export const servicesSlides: SlideContent[] = [
     content: (
       <div style={{ textAlign: 'center', padding: '40px', color: '#fff' }}>
         <h3 style={{ color: '#FF7A3D', fontSize: '2rem', marginBottom: '20px', textTransform: 'uppercase' }}>
-          Blockchain Development
+          Блокчейн Разработка
         </h3>
         <p style={{ fontSize: '1.1rem', lineHeight: '1.8', maxWidth: '600px', margin: '0 auto' }}>
-          Smart contracts, DApps, and custom blockchain solutions tailored to your business needs. 
-          We help you leverage the power of decentralized technology.
+          Смарт-контракты, DApps и индивидуальные блокчейн решения, адаптированные под ваши бизнес-потребности. 
+          Мы помогаем вам использовать силу децентрализованных технологий.
         </p>
       </div>
     )
@@ -79,11 +79,11 @@ export const servicesSlides: SlideContent[] = [
     content: (
       <div style={{ textAlign: 'center', padding: '40px', color: '#fff' }}>
         <h3 style={{ color: '#FF7A3D', fontSize: '2rem', marginBottom: '20px', textTransform: 'uppercase' }}>
-          Web Development
+          Веб-Разработка
         </h3>
         <p style={{ fontSize: '1.1rem', lineHeight: '1.8', maxWidth: '600px', margin: '0 auto' }}>
-          Modern, responsive web applications built with the latest technologies. 
-          From simple websites to complex web platforms.
+          Современные, адаптивные веб-приложения, созданные с использованием новейших технологий. 
+          От простых сайтов до сложных веб-платформ.
         </p>
       </div>
     )
@@ -93,11 +93,11 @@ export const servicesSlides: SlideContent[] = [
     content: (
       <div style={{ textAlign: 'center', padding: '40px', color: '#fff' }}>
         <h3 style={{ color: '#FF7A3D', fontSize: '2rem', marginBottom: '20px', textTransform: 'uppercase' }}>
-          Consulting
+          Консультирование
         </h3>
         <p style={{ fontSize: '1.1rem', lineHeight: '1.8', maxWidth: '600px', margin: '0 auto' }}>
-          Strategic guidance on blockchain implementation, cryptocurrency integration, 
-          and digital transformation for your business.
+          Стратегическое руководство по внедрению блокчейн технологий, интеграции криптовалют 
+          и цифровой трансформации для вашего бизнеса.
         </p>
       </div>
     )
@@ -111,11 +111,11 @@ export const worksSlides: SlideContent[] = [
     content: (
       <div style={{ textAlign: 'center', padding: '40px', color: '#fff' }}>
         <h3 style={{ color: '#FF7A3D', fontSize: '2rem', marginBottom: '20px', textTransform: 'uppercase' }}>
-          Coming Soon
+          Скоро
         </h3>
         <p style={{ fontSize: '1.1rem', lineHeight: '1.8', maxWidth: '600px', margin: '0 auto' }}>
-          We&apos;re currently working on showcasing our amazing projects. 
-          Stay tuned for our portfolio of blockchain and web development projects.
+          Мы в настоящее время работаем над демонстрацией наших удивительных проектов. 
+          Следите за обновлениями нашего портфолио блокчейн и веб-разработки.
         </p>
       </div>
     )
@@ -129,11 +129,11 @@ export const newsSlides: SlideContent[] = [
     content: (
       <div style={{ textAlign: 'center', padding: '40px', color: '#fff' }}>
         <h3 style={{ color: '#FF7A3D', fontSize: '2rem', marginBottom: '20px', textTransform: 'uppercase' }}>
-          Latest Updates
+          Последние Обновления
         </h3>
         <p style={{ fontSize: '1.1rem', lineHeight: '1.8', maxWidth: '600px', margin: '0 auto' }}>
-          Stay tuned for the latest news and updates from CryptoCat! 
-          We&apos;re always working on exciting new projects and partnerships.
+          Следите за последними новостями и обновлениями от CryptoCat! 
+          Мы всегда работаем над захватывающими новыми проектами и партнерствами.
         </p>
       </div>
     )
@@ -147,7 +147,7 @@ export const contactSlides: SlideContent[] = [
     content: (
       <div style={{ textAlign: 'center', padding: '40px', color: '#fff' }}>
         <h3 style={{ color: '#FF7A3D', fontSize: '2rem', marginBottom: '30px', textTransform: 'uppercase' }}>
-          Get In Touch
+          Связаться С Нами
         </h3>
         <div style={{ display: 'grid', gap: '30px', maxWidth: '600px', margin: '0 auto' }}>
           <div style={{ padding: '20px', border: '1px solid #333', borderRadius: '8px' }}>
@@ -160,7 +160,7 @@ export const contactSlides: SlideContent[] = [
             </a>
           </div>
           <div style={{ padding: '20px', border: '1px solid #333', borderRadius: '8px' }}>
-            <h4 style={{ color: '#FF7A3D', marginBottom: '10px' }}>Phone</h4>
+            <h4 style={{ color: '#FF7A3D', marginBottom: '10px' }}>Телефон</h4>
             <a 
               href="tel:+123456789" 
               style={{ color: '#fff', textDecoration: 'none', fontSize: '1.1rem' }}

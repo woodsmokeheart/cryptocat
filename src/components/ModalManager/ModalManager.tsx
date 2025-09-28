@@ -23,40 +23,40 @@ const ModalManager: React.FC = () => {
       <ModalLayout 
         isOpen={aboutModal.isOpen} 
         onClose={aboutModal.closeModal}
-        title="ABOUT CRYPTOCAT"
-        description="Discover our mission, values, and the team behind CryptoCat's innovative blockchain solutions."
+        title="О CRYPTOCAT"
+        description="Узнайте о нашей миссии, ценностях и команде, стоящей за инновационными блокчейн решениями CryptoCat."
         slides={aboutSlides}
       />
 
       <ModalLayout 
         isOpen={servicesModal.isOpen} 
         onClose={servicesModal.closeModal}
-        title="OUR SERVICES"
-        description="Explore our comprehensive range of blockchain development, web solutions, and consulting services."
+        title="НАШИ УСЛУГИ"
+        description="Изучите наш полный спектр услуг по разработке блокчейн решений, веб-разработке и консультированию."
         slides={servicesSlides}
       />
 
       <ModalLayout 
         isOpen={worksModal.isOpen} 
         onClose={worksModal.closeModal}
-        title="OUR WORKS"
-        description="Take a look at our portfolio of successful blockchain and web development projects."
+        title="НАШИ РАБОТЫ"
+        description="Посмотрите наше портфолио успешных проектов по разработке блокчейн решений и веб-разработке."
         slides={worksSlides}
       />
 
       <ModalLayout 
         isOpen={newsModal.isOpen} 
         onClose={newsModal.closeModal}
-        title="LATEST NEWS"
-        description="Stay updated with the latest news, announcements, and insights from the CryptoCat team."
+        title="ПОСЛЕДНИЕ НОВОСТИ"
+        description="Будьте в курсе последних новостей, объявлений и инсайтов от команды CryptoCat."
         slides={newsSlides}
       />
 
       <ModalLayout 
         isOpen={contactModal.isOpen} 
         onClose={contactModal.closeModal}
-        title="CONTACT US"
-        description="Ready to start your blockchain journey? Get in touch with our team of experts."
+        title="СВЯЗАТЬСЯ С НАМИ"
+        description="Готовы начать свой блокчейн путь? Свяжитесь с нашей командой экспертов."
         slides={contactSlides}
       />
     </>

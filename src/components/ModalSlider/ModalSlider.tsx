@@ -106,7 +106,7 @@ const ModalSlider: React.FC<ModalSliderProps> = ({
                 index === activeSlide ? styles.active : ''
               }`}
               onClick={() => handleSlideChange(index)}
-              aria-label={`Go to slide ${index + 1}`}
+                  aria-label={`Перейти к слайду ${index + 1}`}
             />
           ))}
         </div>

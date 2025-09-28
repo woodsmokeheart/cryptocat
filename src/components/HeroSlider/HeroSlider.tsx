@@ -15,24 +15,24 @@ interface Slide {
 const slides: Slide[] = [
   {
     id: 1,
-    title: "DESIGN IS A",
-    subtitle: "PROCESS",
-    description: "Lorem Ipsum has been the industry's standard dummy text ever",
-    accent: "since the 1500s."
+    title: "ДИЗАЙН - ЭТО",
+    subtitle: "ПРОЦЕСС",
+    description: "Мы создаем инновационные решения в области блокчейн технологий",
+    accent: "для будущего."
   },
   {
     id: 2,
-    title: "CREATIVE IS",
-    subtitle: "THINKING", 
-    description: "Creating digital experiences that push boundaries and inspire",
-    accent: "the future of web."
+    title: "ТВОРЧЕСТВО - ЭТО",
+    subtitle: "МЫШЛЕНИЕ", 
+    description: "Создаем цифровые решения, которые открывают новые возможности",
+    accent: "в мире крипто."
   },
   {
     id: 3,
-    title: "CODE IS",
-    subtitle: "POETRY",
-    description: "Crafting elegant solutions with clean, maintainable code",
-    accent: "that speaks volumes."
+    title: "КОД - ЭТО",
+    subtitle: "ПОЭЗИЯ",
+    description: "Разрабатываем элегантные решения с чистым, поддерживаемым кодом",
+    accent: "который говорит сам за себя."
   }
 ]
 
@@ -78,7 +78,7 @@ const HeroSlider = () => {
         {/* Left section with text */}
         <div className={styles.leftSection}>
           <div className={styles.slideText}>
-            <div className={styles.slideLabel}>THE BRAND</div>
+            <div className={styles.slideLabel}>БРЕНД</div>
             <h1 className={styles.slideTitle}>
               {slides[currentSlide].title}
               <br />
@@ -106,21 +106,21 @@ const HeroSlider = () => {
         <button 
           className={styles.controlButton}
           onClick={togglePlayPause}
-          aria-label={isPlaying ? 'Pause' : 'Play'}
+          aria-label={isPlaying ? 'Пауза' : 'Воспроизвести'}
         >
           {isPlaying ? <FaPause /> : <FaPlay />}
         </button>
         <button 
           className={styles.controlButton}
           onClick={goToPrevious}
-          aria-label="Previous slide"
+          aria-label="Предыдущий слайд"
         >
           <FaChevronLeft />
         </button>
         <button 
           className={styles.controlButton}
           onClick={goToNext}
-          aria-label="Next slide"
+          aria-label="Следующий слайд"
         >
           <FaChevronRight />
         </button>
@@ -133,7 +133,7 @@ const HeroSlider = () => {
             key={index}
             className={`${styles.indicator} ${index === currentSlide ? styles.indicatorActive : ''}`}
             onClick={() => goToSlide(index)}
-            aria-label={`Go to slide ${index + 1}`}
+            aria-label={`Перейти к слайду ${index + 1}`}
           />
         ))}
       </div>
