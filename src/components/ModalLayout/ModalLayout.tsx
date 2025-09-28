@@ -73,6 +73,7 @@ const ModalLayout: React.FC<ModalLayoutProps> = ({
           onClick={(e) => e.stopPropagation()}
         >
           <div className={styles.modalHeader}>
+            <h2 className={styles.modalTitle}>{title}</h2>
             <button 
               className={styles.closeButton}
               onClick={onClose}
@@ -85,7 +86,6 @@ const ModalLayout: React.FC<ModalLayoutProps> = ({
           <div className={styles.modalBody}>
             <div className={styles.leftPanel}>
               <div className={styles.contentSection}>
-                <h2 className={styles.modalTitle}>{title}</h2>
                 {description && (
                   <p className={styles.modalDescription}>{description}</p>
                 )}
