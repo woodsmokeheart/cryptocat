@@ -1,0 +1,172 @@
+.container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  padding: 120px 20px 80px;
+}
+
+.content {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 4rem;
+  font-weight: 700;
+  color: #FF7A3D;
+  margin: 0 0 30px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+  text-shadow: 0 0 15px rgba(255, 122, 61, 0.5);
+}
+
+.subtitle {
+  font-family: 'Oswald', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.description {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #ccc;
+  max-width: 800px;
+  margin: 0 auto 50px;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+  margin-top: 50px;
+  justify-items: center;
+}
+
+.feature {
+  background: rgba(255, 122, 61, 0.1);
+  border: 1px solid rgba(255, 122, 61, 0.3);
+  border-radius: 15px;
+  padding: 30px;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  max-width: 450px;
+  width: 100%;
+}
+
+.feature:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(255, 122, 61, 0.2);
+  border-color: rgba(255, 122, 61, 0.6);
+}
+
+.feature h3 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #FF7A3D;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.feature p {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #ccc;
+}
+
+.additionalInfo {
+  margin-top: 60px;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 122, 61, 0.15);
+  border-radius: 15px;
+  text-align: center;
+}
+
+.infoTitle {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #FF7A3D;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 20px;
+}
+
+.infoText {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #ccc;
+  margin-bottom: 30px;
+}
+
+.contactInfo {
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 122, 61, 0.2);
+}
+
+.contactInfo p {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1rem;
+  color: #FF7A3D;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Mobile styles */
+@media only screen and (max-width: 768px) {
+  .container {
+    padding: 100px 15px 60px;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .subtitle {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+  
+  .description {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+  }
+  
+  .features {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    margin-top: 40px;
+    justify-items: stretch;
+  }
+  
+  .feature {
+    padding: 25px 20px;
+  }
+  
+  .additionalInfo {
+    margin-top: 40px;
+    padding: 30px 20px;
+  }
+  
+  .infoTitle {
+    font-size: 1.5rem;
+  }
+  
+  .infoText {
+    font-size: 1rem;
+  }
+}

@@ -104,23 +104,6 @@ export const servicesSlides: SlideContent[] = [
   }
 ]
 
-// Works page slides
-export const worksSlides: SlideContent[] = [
-  {
-    id: 'portfolio1',
-    content: (
-      <div style={{ textAlign: 'center', padding: '40px', color: '#fff' }}>
-        <h3 style={{ color: '#FF7A3D', fontSize: '2rem', marginBottom: '20px', textTransform: 'uppercase' }}>
-          Скоро
-        </h3>
-        <p style={{ fontSize: '1.1rem', lineHeight: '1.8', maxWidth: '600px', margin: '0 auto' }}>
-          Мы в настоящее время работаем над демонстрацией наших удивительных проектов. 
-          Следите за обновлениями нашего портфолио блокчейн и веб-разработки.
-        </p>
-      </div>
-    )
-  }
-]
 
 // News page slides
 export const newsSlides: SlideContent[] = [

@@ -6,7 +6,6 @@ import { useModal } from '../../hooks/useModal'
 import { 
   aboutSlides, 
   servicesSlides, 
-  worksSlides, 
   newsSlides, 
   contactSlides 
 } from '../../data/modalSlides'
@@ -14,7 +13,6 @@ import {
 const ModalManager: React.FC = () => {
   const aboutModal = useModal('about')
   const servicesModal = useModal('services')
-  const worksModal = useModal('works')
   const newsModal = useModal('news')
   const contactModal = useModal('contact')
 
@@ -36,13 +34,6 @@ const ModalManager: React.FC = () => {
         slides={servicesSlides}
       />
 
-      <ModalLayout 
-        isOpen={worksModal.isOpen} 
-        onClose={worksModal.closeModal}
-        title="НАШИ РАБОТЫ"
-        description="Посмотрите наше портфолио успешных проектов по разработке блокчейн решений и веб-разработке."
-        slides={worksSlides}
-      />
 
       <ModalLayout 
         isOpen={newsModal.isOpen} 

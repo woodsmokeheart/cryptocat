@@ -2,17 +2,18 @@
 
 import React, { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 import { useModal } from '../../hooks/useModal'
 import styles from './Header.module.css'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const menuRef = useRef<HTMLDivElement>(null)
-  const aboutModal = useModal('about')
-  const servicesModal = useModal('services')
-  const worksModal = useModal('works')
-  const newsModal = useModal('news')
-  const contactModal = useModal('contact')
+  const router = useRouter()
+      const aboutModal = useModal('about')
+      const servicesModal = useModal('services')
+      const newsModal = useModal('news')
+      const contactModal = useModal('contact')
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
@@ -22,8 +23,13 @@ const Header = () => {
     setIsMenuOpen(false)
   }
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+  const navigateToHome = () => {
+    router.push('/')
+    closeMenu()
+  }
+
+  const navigateToShop = () => {
+    router.push('/shop')
     closeMenu()
   }
 
@@ -55,7 +61,7 @@ const Header = () => {
           <div className={styles.navbarHeader}>
             {/* Logo */}
             <div className={styles.logo}>
-              <a className={styles.logoBrand} href="#">
+              <button className={styles.logoBrand} onClick={navigateToHome}>
                 <Image 
                   className={styles.logoImg} 
                   alt="CryptoCat Logo" 
@@ -65,7 +71,7 @@ const Header = () => {
                   sizes="100vw"
                   priority
                 />
-              </a>
+              </button>
             </div>
 
             {/* Main navigation */}
@@ -86,7 +92,7 @@ const Header = () => {
                 <li>
                   <button 
                     className={`${styles.linkUnderlineMenu} ${styles.active}`} 
-                    onClick={scrollToTop}
+                    onClick={navigateToHome}
                   >
                     Главная
                   </button>
@@ -95,11 +101,19 @@ const Header = () => {
                   <button 
                     className={styles.linkUnderlineMenu} 
                     onClick={() => {
-                      aboutModal.openModal()
+                      newsModal.openModal()
                       closeMenu()
                     }}
                   >
-                    О нас
+                    Новости
+                  </button>
+                </li>
+                <li>
+                  <button 
+                    className={styles.linkUnderlineMenu} 
+                    onClick={navigateToShop}
+                  >
+                    Магазин
                   </button>
                 </li>
                 <li>
@@ -117,22 +131,11 @@ const Header = () => {
                   <button 
                     className={styles.linkUnderlineMenu} 
                     onClick={() => {
-                      worksModal.openModal()
+                      aboutModal.openModal()
                       closeMenu()
                     }}
                   >
-                    Работы
-                  </button>
-                </li>
-                <li>
-                  <button 
-                    className={styles.linkUnderlineMenu} 
-                    onClick={() => {
-                      newsModal.openModal()
-                      closeMenu()
-                    }}
-                  >
-                    Новости
+                    О нас
                   </button>
                 </li>
                 <li>
