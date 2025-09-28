@@ -138,14 +138,17 @@
   .modalOverlay {
     padding: 10px;
     align-items: center;
-    top: env(safe-area-inset-top, 0);
-    bottom: env(safe-area-inset-bottom, 0);
+    top: 0;
+    bottom: 0;
+    /* Фиксированные отступы для Android */
+    padding-top: max(20px, env(safe-area-inset-top, 60px));
+    padding-bottom: max(20px, env(safe-area-inset-bottom, 40px));
   }
   
   .modalContent {
     width: 100%;
-    height: calc(100vh - env(safe-area-inset-top, 0) - env(safe-area-inset-bottom, 0) - 20px);
-    max-height: calc(100vh - env(safe-area-inset-top, 0) - env(safe-area-inset-bottom, 0) - 20px);
+    height: calc(100vh - 120px); /* Увеличенный отступ для системных панелей */
+    max-height: calc(100vh - 120px);
     border-radius: 16px;
     max-width: none;
     min-height: auto;
@@ -181,6 +184,8 @@
     background: #000;
     z-index: 10;
     border-bottom: 1px solid #333;
+    /* Дополнительный отступ для Android */
+    margin-top: 5px;
   }
   
   .contentSection {
