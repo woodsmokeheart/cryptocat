@@ -24,24 +24,8 @@ const MobileSlide: React.FC<MobileSlideProps> = ({ slide, index, isOpen, onToggl
 
   const isCollapsed = !isOpen
 
-  // Извлекаем заголовок из контента слайда
-  const getSlideTitle = (content: React.ReactNode): string => {
-    if (typeof content === 'object' && content !== null && 'props' in content) {
-      const props = content.props as any
-      if (props.children && Array.isArray(props.children)) {
-        // Ищем заголовок h3
-        const titleElement = props.children.find((child: any) => 
-          typeof child === 'object' && child?.props?.children
-        )
-        if (titleElement?.props?.children) {
-          return titleElement.props.children
-        }
-      }
-    }
-    return `Section ${index + 1}`
-  }
-
-  const slideTitle = getSlideTitle(slide.content)
+  // Используем заголовок напрямую из слайда
+  const slideTitle = slide.title || `Раздел ${index + 1}`
 
   return (
     <div className={`${styles.mobileSlide} ${isCollapsed ? styles.collapsed : ''}`}>
