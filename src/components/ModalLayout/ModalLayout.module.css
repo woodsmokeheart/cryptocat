@@ -269,3 +269,20 @@
     transform: scale(1) translateY(0);
   }
 }
+
+/* Modal content padding - адаптивные отступы */
+.modalContentPadding {
+  padding: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+  .modalContentPadding {
+    padding: 15px;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .modalContentPadding {
+    padding: 10px;
+  }
+}
