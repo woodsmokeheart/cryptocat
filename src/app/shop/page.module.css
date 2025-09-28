@@ -18,6 +18,43 @@
   word-wrap: break-word;
 }
 
+.homeButton {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: rgba(255, 122, 61, 0.1);
+  border: 1px solid rgba(255, 122, 61, 0.3);
+  color: #FF7A3D;
+  padding: 12px 20px;
+  border-radius: 25px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 10;
+}
+
+.homeButton:hover {
+  background: rgba(255, 122, 61, 0.2);
+  border-color: rgba(255, 122, 61, 0.6);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 122, 61, 0.2);
+}
+
+.homeButton:active {
+  transform: translateY(0);
+}
+
+.homeButton svg {
+  font-size: 1rem;
+}
+
 .title {
   font-family: 'Oswald', sans-serif;
   font-size: 4rem;
@@ -156,6 +193,18 @@
     justify-content: flex-start;
   }
   
+  .homeButton {
+    top: 15px;
+    left: 15px;
+    padding: 10px 16px;
+    font-size: 0.8rem;
+    gap: 6px;
+  }
+  
+  .homeButton svg {
+    font-size: 0.9rem;
+  }
+  
   .content {
     width: 100%;
     max-width: 100%;
@@ -220,6 +269,18 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+  }
+  
+  .homeButton {
+    top: 10px;
+    left: 10px;
+    padding: 8px 12px;
+    font-size: 0.75rem;
+    gap: 4px;
+  }
+  
+  .homeButton svg {
+    font-size: 0.8rem;
   }
   
   .content {

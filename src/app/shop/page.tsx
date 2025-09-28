@@ -1,13 +1,25 @@
+'use client'
+
 import React from 'react'
-import { FaBullseye, FaBolt } from 'react-icons/fa'
+import { useRouter } from 'next/navigation'
+import { FaBullseye, FaBolt, FaHome } from 'react-icons/fa'
 import ShopLayout from '../layouts/ShopLayout'
 import styles from './page.module.css'
 
 const ShopPage: React.FC = () => {
+  const router = useRouter()
+
+  const navigateToHome = () => {
+    router.push('/')
+  }
+
   return (
     <ShopLayout>
       <div className={styles.container}>
       <div className={styles.content}>
+        <button className={styles.homeButton} onClick={navigateToHome}>
+          <FaHome /> На главную
+        </button>
         <h1 className={styles.title}>CryptoCat Store</h1>
         <div className={styles.placeholder}>
           <h2 className={styles.subtitle}>Магазин в разработке</h2>
