@@ -69,6 +69,9 @@
   /* Весь контент прокручивается */
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+  /* Кастомный скроллбар */
+  scrollbar-width: thin;
+  scrollbar-color: #FF7A3D rgba(255, 255, 255, 0.05);
 }
 
 .leftPanel {
@@ -80,6 +83,9 @@
   background: #111;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+  /* Кастомный скроллбар */
+  scrollbar-width: thin;
+  scrollbar-color: #FF7A3D rgba(255, 255, 255, 0.05);
 }
 
 .contentSection {

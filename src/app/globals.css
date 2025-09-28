@@ -20,6 +20,79 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   -o-appearance: none;
 }
 
+/* Custom Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #FF7A3D 0%, #FF5A1A 100%);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #FF8A4D 0%, #FF6A2A 100%);
+  box-shadow: 0 0 10px rgba(255, 122, 61, 0.3);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(135deg, #FF6A3D 0%, #FF4A1A 100%);
+}
+
+::-webkit-scrollbar-corner {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Firefox scrollbar styles */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #FF7A3D rgba(255, 255, 255, 0.05);
+}
+
+/* Thin scrollbar for modals and components */
+.thin-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.thin-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+}
+
+.thin-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #FF7A3D 0%, #FF5A1A 100%);
+  border-radius: 8px;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.thin-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #FF8A4D 0%, #FF6A2A 100%);
+  box-shadow: 0 0 8px rgba(255, 122, 61, 0.4);
+}
+
+/* Mobile-friendly scrollbar */
+@media only screen and (max-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  
+  .thin-scrollbar::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+  }
+}
+
 html, body {
   height: 100%;
 }
