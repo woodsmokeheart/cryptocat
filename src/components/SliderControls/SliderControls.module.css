@@ -1,0 +1,104 @@
+.controlsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 0;
+}
+
+.controlButton {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.controlButton:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #FF7A3D;
+  color: #FF7A3D;
+  transform: scale(1.05);
+}
+
+.controlButton:active {
+  transform: scale(0.95);
+}
+
+.controlButton:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.controlButton:disabled:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.slideCounter {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  min-width: 60px;
+  justify-content: center;
+}
+
+.currentSlide {
+  color: #FF7A3D;
+  font-weight: 700;
+}
+
+.slideSeparator {
+  opacity: 0.6;
+}
+
+.totalSlides {
+  opacity: 0.8;
+}
+
+/* Mobile styles */
+@media only screen and (max-width: 768px) {
+  .controlsContainer {
+    gap: 16px;
+    padding: 12px 0;
+    justify-content: center;
+  }
+  
+  .controlButton {
+    width: 48px;
+    height: 48px;
+    font-size: 18px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  .controlButton:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: #FF7A3D;
+    color: #FF7A3D;
+  }
+  
+  .slideCounter {
+    font-size: 16px;
+    min-width: 70px;
+    font-weight: 600;
+  }
+  
+  .currentSlide {
+    color: #FF7A3D;
+    font-weight: 700;
+    font-size: 18px;
+  }
+}

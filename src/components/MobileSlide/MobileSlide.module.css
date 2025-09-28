@@ -1,0 +1,77 @@
+.mobileSlide {
+  border-bottom: 1px solid #333;
+  transition: all 0.3s ease;
+}
+
+.mobileSlide:last-child {
+  border-bottom: none;
+}
+
+.slideHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  user-select: none;
+}
+
+.slideHeader:hover {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.slideTitle {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #FF7A3D;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  flex: 1;
+}
+
+.collapseButton {
+  background: none;
+  border: none;
+  color: #FF7A3D;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+}
+
+.collapseButton:hover {
+  background-color: rgba(255, 122, 61, 0.1);
+  transform: scale(1.1);
+}
+
+.slideContent {
+  overflow: hidden;
+  transition: height 0.3s ease, padding 0.3s ease;
+  padding: 0 20px 20px 20px;
+}
+
+.contentCollapsed {
+  padding: 0 20px;
+}
+
+/* Плавная анимация для контента */
+.slideContent > div {
+  transition: opacity 0.3s ease;
+}
+
+.mobileSlide.collapsed .slideContent > div {
+  opacity: 0;
+}
+
+.mobileSlide:not(.collapsed) .slideContent > div {
+  opacity: 1;
+}
