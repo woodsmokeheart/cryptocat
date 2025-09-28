@@ -367,8 +367,11 @@ strong {
 /* Shop layout styles */
 .shop-layout {
   width: 100%;
-  min-height: 100vh;
-  overflow: visible;
+  height: 100vh;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 /* Overlay */
