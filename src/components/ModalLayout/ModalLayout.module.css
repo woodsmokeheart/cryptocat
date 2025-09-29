@@ -161,7 +161,6 @@
     width: 100%;
     height: calc(100vh - 120px); /* Увеличенный отступ для системных панелей */
     max-height: calc(100vh - 120px);
-    border-radius: 16px;
     max-width: none;
     min-height: auto;
   }
