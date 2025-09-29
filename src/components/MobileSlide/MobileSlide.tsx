@@ -10,9 +10,10 @@ interface MobileSlideProps {
   index: number
   isOpen: boolean
   onToggle: () => void
+  isAlwaysOpen?: boolean
 }
 
-const MobileSlide: React.FC<MobileSlideProps> = ({ slide, index, isOpen, onToggle }) => {
+const MobileSlide: React.FC<MobileSlideProps> = ({ slide, index, isOpen, onToggle, isAlwaysOpen = false }) => {
   const [contentHeight, setContentHeight] = useState<number | null>(null)
   const contentRef = useRef<HTMLDivElement>(null)
 
@@ -26,6 +27,19 @@ const MobileSlide: React.FC<MobileSlideProps> = ({ slide, index, isOpen, onToggl
 
   // Используем заголовок напрямую из слайда
   const slideTitle = slide.title || `Раздел ${index + 1}`
+
+  // Если слайд всегда открыт, показываем только контент без заголовка и кнопки
+  if (isAlwaysOpen) {
+    return (
+      <div className={styles.mobileSlide}>
+        <div className={styles.slideContent}>
+          <div ref={contentRef}>
+            {slide.content}
+          </div>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className={`${styles.mobileSlide} ${isCollapsed ? styles.collapsed : ''}`}>

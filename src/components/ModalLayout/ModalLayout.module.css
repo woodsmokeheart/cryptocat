@@ -66,12 +66,7 @@
   flex: 1;
   display: flex;
   overflow: hidden;
-  /* Весь контент прокручивается */
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  /* Кастомный скроллбар */
-  scrollbar-width: thin;
-  scrollbar-color: #FF7A3D rgba(255, 255, 255, 0.05);
+  /* Убираем скролл с основного контейнера для десктопа */
 }
 
 .leftPanel {
@@ -81,11 +76,7 @@
   flex-direction: column;
   border-right: 1px solid #333;
   background: #111;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  /* Кастомный скроллбар */
-  scrollbar-width: thin;
-  scrollbar-color: #FF7A3D rgba(255, 255, 255, 0.05);
+  /* Убираем скролл с левого блока для десктопа */
 }
 
 .contentSection {
@@ -138,6 +129,12 @@
   min-width: 400px;
   background: #000;
   position: relative;
+  /* Добавляем скролл только для правого блока на десктопе */
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  /* Кастомный скроллбар */
+  scrollbar-width: thin;
+  scrollbar-color: #FF7A3D rgba(255, 255, 255, 0.05);
 }
 
 .slider {
@@ -170,6 +167,9 @@
     flex-direction: column;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+    /* Кастомный скроллбар для мобильной версии */
+    scrollbar-width: thin;
+    scrollbar-color: #FF7A3D rgba(255, 255, 255, 0.05);
   }
   
   .leftPanel {
@@ -187,6 +187,8 @@
     min-width: auto;
     order: 2;
     flex: 1;
+    /* Убираем скролл с правого блока на мобильных устройствах */
+    overflow-y: visible;
   }
   
   .modalHeader {
