@@ -163,6 +163,7 @@
     max-height: calc(100vh - 120px);
     max-width: none;
     min-height: auto;
+    overflow: hidden; /* Скрываем контент, выходящий за границы */
   }
   
   .modalBody {
