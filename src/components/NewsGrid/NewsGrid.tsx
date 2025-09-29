@@ -6,6 +6,7 @@ import { newsData } from '../../data/newsData'
 import styles from './NewsGrid.module.css'
 
 const NewsGrid: React.FC = () => {
+  // Компонент сетки новостей
   return (
     <div className={styles.newsGridContainer}>
       <div className={styles.newsGrid}>
