@@ -1,4 +1,5 @@
 import { SlideContent } from '../types/modal'
+import NewsGrid from '../components/NewsGrid/NewsGrid'
 
 // About page slides
 export const aboutSlides: SlideContent[] = [
@@ -97,15 +98,8 @@ export const servicesSlides: SlideContent[] = [
 export const newsSlides: SlideContent[] = [
   {
     id: 'news1',
-    title: 'Последние Обновления',
-    content: (
-      <div style={{ textAlign: 'center', color: '#fff', padding: '20px' }}>
-        <p style={{ fontSize: '1.1rem', lineHeight: '1.8', maxWidth: '600px', margin: '0 auto' }}>
-          Следите за последними новостями и обновлениями от CryptoCat! 
-          Мы всегда работаем над захватывающими новыми проектами и партнерствами.
-        </p>
-      </div>
-    )
+    title: 'Новости',
+    content: <NewsGrid />
   }
 ]
 
