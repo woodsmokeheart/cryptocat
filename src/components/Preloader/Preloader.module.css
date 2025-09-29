@@ -5,9 +5,9 @@
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background: #000;
+  background: linear-gradient(135deg, #000 0%, #111 50%, #000 100%);
   z-index: 999999;
-  transition: opacity 0.6s ease-out;
+  transition: opacity 0.8s ease-out;
 }
 
 .preloader {
@@ -18,43 +18,298 @@
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background: #000;
+  background: linear-gradient(135deg, #000 0%, #111 50%, #000 100%);
   z-index: 999999;
-  transition: opacity 0.6s ease-out;
+  transition: opacity 0.8s ease-out;
 }
 
-.preloaderStatus {
+.preloaderContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* Фоновые геометрические элементы */
+.geometricBg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.circle1 {
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  width: 80px;
+  height: 80px;
+  border: 2px solid rgba(255, 122, 61, 0.3);
+  border-radius: 50%;
+  animation: float1 6s ease-in-out infinite;
+}
+
+.circle2 {
+  position: absolute;
+  top: 60%;
+  right: 15%;
+  width: 120px;
+  height: 120px;
+  border: 2px solid rgba(255, 122, 61, 0.2);
+  border-radius: 50%;
+  animation: float2 8s ease-in-out infinite;
+}
+
+.circle3 {
+  position: absolute;
+  bottom: 20%;
+  left: 20%;
+  width: 60px;
+  height: 60px;
+  border: 2px solid rgba(255, 122, 61, 0.4);
+  border-radius: 50%;
+  animation: float3 5s ease-in-out infinite;
+}
+
+.triangle {
+  position: absolute;
+  top: 30%;
+  right: 25%;
+  width: 0;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-bottom: 43px solid rgba(255, 122, 61, 0.2);
+  animation: rotate 10s linear infinite;
+}
+
+.square {
+  position: absolute;
+  bottom: 30%;
+  right: 10%;
+  width: 40px;
+  height: 40px;
+  border: 2px solid rgba(255, 122, 61, 0.3);
+  transform: rotate(45deg);
+  animation: pulse 3s ease-in-out infinite;
+}
+
+/* Основной контент */
+.mainContent {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+/* Логотип CC */
+.logoContainer {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.logoCC {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 120px;
+  height: 120px;
+  border: 3px solid #FF7A3D;
+  border-radius: 50%;
+  background: rgba(255, 122, 61, 0.1);
+  animation: logoGlow 2s ease-in-out infinite alternate;
 }
 
-.loader {
+.logoImage {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 20px rgba(255, 122, 61, 0.5));
+  animation: logoPulse 1.5s ease-in-out infinite;
+}
+
+/* Название проекта */
+.projectName {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+
+.crypto, .cat {
+  font-family: 'Oswald', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  animation: textSlideIn 1s ease-out;
+}
+
+.crypto {
+  color: #FF7A3D;
+  text-shadow: 0 0 30px rgba(255, 122, 61, 0.6);
+}
+
+.cat {
+  color: #fff;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+/* Подзаголовок */
+.subtitle {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #ccc;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  animation: fadeInUp 1s ease-out 0.5s both;
+}
+
+/* Прогресс бар */
+.progressContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  width: 300px;
+  animation: fadeInUp 1s ease-out 0.8s both;
+}
+
+.progressBar {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
   position: relative;
-  width: 45px;
-  height: 45px;
-  border: 3px solid rgba(255, 255, 255, 0.15);
-  border-radius: 50%;
-  animation: rotate 1s infinite linear;
 }
 
-.loader::before {
-  content: '';
-  position: absolute;
-  top: -3px;
-  left: -3px;
-  width: 45px;
-  height: 45px;
-  border: 3px solid transparent;
-  border-top: 3px solid rgba(255, 255, 255, 0.75);
-  border-radius: 50%;
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, #FF7A3D 0%, #FF9A5A 50%, #FF7A3D 100%);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+  box-shadow: 0 0 10px rgba(255, 122, 61, 0.5);
+}
+
+.progressText {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.8rem;
+  color: #FF7A3D;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+/* Анимации */
+@keyframes float1 {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(180deg); }
+}
+
+@keyframes float2 {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(30px) rotate(-180deg); }
+}
+
+@keyframes float3 {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(90deg); }
 }
 
 @keyframes rotate {
-  0% {
-    transform: rotate(0deg);
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: rotate(45deg) scale(1); opacity: 0.3; }
+  50% { transform: rotate(45deg) scale(1.2); opacity: 0.6; }
+}
+
+@keyframes logoGlow {
+  0% { box-shadow: 0 0 20px rgba(255, 122, 61, 0.3); }
+  100% { box-shadow: 0 0 40px rgba(255, 122, 61, 0.6); }
+}
+
+@keyframes logoPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes textSlideIn {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Мобильные стили */
+@media only screen and (max-width: 768px) {
+  .logoCC {
+    width: 100px;
+    height: 100px;
   }
-  100% {
-    transform: rotate(360deg);
+  
+  .logoImage {
+    width: 90px;
+    height: 90px;
+  }
+  
+  .crypto, .cat {
+    font-size: 2rem;
+  }
+  
+  .subtitle {
+    font-size: 0.8rem;
+  }
+  
+  .progressContainer {
+    width: 250px;
+  }
+  
+  .circle1 {
+    width: 50px;
+    height: 50px;
+    top: 15%;
+    left: 5%;
+  }
+  
+  .circle2 {
+    width: 80px;
+    height: 80px;
+    top: 70%;
+    right: 10%;
+  }
+  
+  .circle3 {
+    width: 40px;
+    height: 40px;
+    bottom: 15%;
+    left: 15%;
+  }
+  
+  .triangle {
+    top: 25%;
+    right: 20%;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 26px solid rgba(255, 122, 61, 0.2);
+  }
+  
+  .square {
+    width: 25px;
+    height: 25px;
+    bottom: 25%;
+    right: 5%;
   }
 }
