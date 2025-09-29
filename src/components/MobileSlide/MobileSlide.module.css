@@ -1,6 +1,7 @@
 .mobileSlide {
   border-bottom: 1px solid #333;
   transition: all 0.3s ease;
+  margin-bottom: 10px; /* Отступ между блоками */
 }
 
 .mobileSlide:last-child {
