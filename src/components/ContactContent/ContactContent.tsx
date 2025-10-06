@@ -2,6 +2,7 @@
 
 import React from 'react'
 import styles from './ContactContent.module.css'
+import ContactCard from './ContactCard'
 import { MdOutlineEmail } from 'react-icons/md'
 import { FaTelegramPlane, FaLink } from 'react-icons/fa'
 import { SiTradingview } from 'react-icons/si'
@@ -11,7 +12,7 @@ const ContactContent: React.FC = () => {
   return (
     <div className={styles.container}>
       {/* Email */}
-      <div className={styles.card}>
+      <ContactCard variant="email">
         <div className={styles.headerRow}>
           <MdOutlineEmail color="#FF7A3D" size={22} />
           <h4 className={styles.cardTitle}>Email</h4>
@@ -22,10 +23,10 @@ const ContactContent: React.FC = () => {
             cryptocatagency@gmail.com
           </a>
         </div>
-      </div>
+      </ContactCard>
 
       {/* Telegram */}
-      <div className={`${styles.card} ${styles.cardTelegram}`}>
+      <ContactCard className={styles.cardTelegram} variant="telegram">
         <div className={styles.headerRow}>
           <FaTelegramPlane color="#29A8E0" size={20} />
           <h4 className={styles.cardTitle}>Telegram</h4>
@@ -38,10 +39,10 @@ const ContactContent: React.FC = () => {
             cryptocat_manager <FiExternalLink size={16} />
           </a>
         </div>
-      </div>
+      </ContactCard>
 
       {/* Referral */}
-      <div className={styles.card}>
+      <ContactCard variant="referral">
         <div className={styles.headerRow}>
           <FaLink color="#FF7A3D" size={18} />
           <h4 className={styles.cardTitle}>Реферальная программа Bingx</h4>
@@ -54,10 +55,10 @@ const ContactContent: React.FC = () => {
             Реферальная ссылка <FiExternalLink size={16} />
           </a>
         </div>
-      </div>
+      </ContactCard>
 
       {/* TradingView */}
-      <div className={styles.card}>
+      <ContactCard variant="trading">
         <div className={styles.headerRow}>
           <SiTradingview color="#79C6F6" size={18} />
           <h4 className={styles.cardTitle}>TradingView</h4>
@@ -82,7 +83,7 @@ const ContactContent: React.FC = () => {
             Третичный канал <FiExternalLink size={14} />
           </a>
         </div>
-      </div>
+      </ContactCard>
     </div>
   )
 }

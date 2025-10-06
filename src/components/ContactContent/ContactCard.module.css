@@ -1,0 +1,86 @@
+.card {
+  padding: 20px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(255,122,61,0.06), rgba(255,122,61,0.02)) border-box;
+  border: 1px solid rgba(255,122,61,0.25);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.35);
+  text-align: left;
+  overflow: hidden;
+}
+
+.geo { position: relative; }
+
+.gCircle, .gTriangle, .gSquare {
+  position: absolute;
+  opacity: var(--geo-opacity, 0.28);
+  will-change: transform, opacity; /* хинт для GPU */
+}
+
+.gCircle2 {
+  position: absolute;
+  opacity: var(--geo-opacity, 0.22);
+  width: 70px; height: 70px;
+  border-radius: 50%;
+  border: 1px solid var(--acc, rgba(255,122,61,0.2));
+  top: 40%; left: -20px;
+  animation: cc_float1 calc(var(--float-duration, 9s) * 1.1) ease-in-out infinite reverse;
+  will-change: transform, opacity;
+}
+
+.gCircle {
+  top: -6px; left: -6px;
+  width: var(--circle-size, 90px); height: var(--circle-size, 90px);
+  border-radius: 50%;
+  border: 2px solid var(--acc, rgba(255,122,61,0.25));
+  animation: cc_float1 var(--float-duration, 9s) ease-in-out infinite;
+}
+
+.gTriangle {
+  top: 10px; right: 14px;
+  width: 0; height: 0;
+  border-left: 18px solid transparent;
+  border-right: 18px solid transparent;
+  border-bottom: 32px solid var(--triangle-color, rgba(255,122,61,0.2));
+  animation: cc_rotate var(--rotate-duration, 16s) linear infinite;
+}
+
+.gSquare {
+  bottom: 10px; right: 10px;
+  width: var(--square-size, 34px); height: var(--square-size, 34px);
+  border: 2px solid var(--acc, rgba(255,122,61,0.22));
+  transform: rotate(45deg);
+  animation: cc_pulse var(--pulse-duration, 6s) ease-in-out infinite;
+}
+
+.gDot { position: absolute; width: 6px; height: 6px; border-radius: 50%; background: var(--acc, rgba(255,122,61,.28)); opacity: .25; will-change: transform, opacity; }
+.g4 { top: 18px; left: 50%; animation: cc_float1 7s ease-in-out infinite; }
+.g5 { bottom: 16px; left: 30%; animation: cc_float1 8s ease-in-out infinite reverse; }
+
+/* Батарея/Доступность: меньше анимации при предпочтении reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .gCircle, .gCircle2, .gTriangle, .gSquare, .gDot {
+    animation-duration: 0.001s !important;
+    animation-iteration-count: 1 !important;
+    opacity: 0.18;
+  }
+}
+
+/* Мобильные: делаем анимацию чуть медленнее и менее прозрачной для стабильности FPS */
+@media only screen and (max-width: 480px) {
+  .gCircle { animation-duration: calc(var(--float-duration, 9s) * 1.15); }
+  .gCircle2 { animation-duration: calc(var(--float-duration, 9s) * 1.25); }
+  .gTriangle { animation-duration: calc(var(--rotate-duration, 16s) * 1.1); }
+  .gSquare { animation-duration: calc(var(--pulse-duration, 6s) * 1.1); }
+}
+
+@keyframes cc_float1 { 0%,100%{ transform: translate(0,0);} 50%{ transform: translate(6px,4px);} }
+@keyframes cc_rotate { 0%{ transform: rotate(0deg);} 100%{ transform: rotate(360deg);} }
+@keyframes cc_pulse { 0%,100%{ transform: rotate(45deg) scale(1); opacity: .28;} 50%{ transform: rotate(45deg) scale(1.12); opacity: .5;} }
+
+/* Variants set CSS variables to diversify animations */
+.variantEmail { --float-duration: 10s; --rotate-duration: 18s; --geo-opacity: .24; }
+.variantTelegram { --acc: rgba(41,168,224,.25); --triangle-color: rgba(41,168,224,.2); --float-duration: 8s; }
+.variantReferral { --circle-size: 100px; --pulse-duration: 5s; --geo-opacity: .32; }
+.variantTrading { --circle-size: 110px; --rotate-duration: 20s; --square-size: 28px; --geo-opacity: .22; }
+
+
