@@ -1,0 +1,80 @@
+.container {
+  display: grid;
+  gap: 20px;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.card {
+  padding: 20px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(255,122,61,0.06), rgba(255,122,61,0.02)) border-box;
+  border: 1px solid rgba(255,122,61,0.25);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.35);
+  text-align: left;
+}
+
+.cardTelegram {
+  background: linear-gradient(180deg, rgba(0,136,204,0.08), rgba(0,136,204,0.03)) border-box;
+  border: 1px solid rgba(0,136,204,0.35);
+}
+
+.headerRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.cardTitle {
+  color: #FF7A3D;
+  margin: 0;
+}
+
+.pill {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.06);
+}
+
+.pillTelegram {
+  background: rgba(41,168,224,0.15);
+}
+
+.chipsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.chip {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.05rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(121,198,246,0.12);
+}
+
+/* Mobile centering for links only */
+@media only screen and (max-width: 768px) {
+  .linkRowCenterMobile {
+    display: flex;
+    justify-content: center;
+  }
+
+  .chipsRow {
+    justify-content: center;
+  }
+}
+
+

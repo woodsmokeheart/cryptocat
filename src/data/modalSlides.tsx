@@ -1,5 +1,6 @@
 import { SlideContent } from '../types/modal'
 import NewsGrid from '../components/NewsGrid/NewsGrid'
+import ContactContent from '../components/ContactContent/ContactContent'
 
 // About page slides
 export const aboutSlides: SlideContent[] = [
@@ -109,28 +110,7 @@ export const contactSlides: SlideContent[] = [
     id: 'contact-info',
     title: 'Связаться С Нами',
     content: (
-      <div style={{ textAlign: 'center', color: '#fff', padding: '20px' }}>
-        <div style={{ display: 'grid', gap: '30px', maxWidth: '600px', margin: '0 auto' }}>
-            <div style={{ padding: '20px', border: '1px solid #333', borderRadius: '8px' }}>
-            <h4 style={{ color: '#FF7A3D', marginBottom: '10px' }}>Email</h4>
-            <a 
-              href="mailto:cryptocatagency@gmail.com" 
-              style={{ color: '#fff', textDecoration: 'none', fontSize: '1.1rem' }}
-            >
-              cryptocatagency@gmail.com
-            </a>
-          </div>
-            <div style={{ padding: '20px', border: '1px solid #333', borderRadius: '8px' }}>
-            <h4 style={{ color: '#FF7A3D', marginBottom: '10px' }}>Телефон</h4>
-            <a 
-              href="tel:+123456789" 
-              style={{ color: '#fff', textDecoration: 'none', fontSize: '1.1rem' }}
-            >
-              (+1) 234 56 789
-            </a>
-          </div>
-        </div>
-      </div>
+      <ContactContent />
     )
   }
 ]

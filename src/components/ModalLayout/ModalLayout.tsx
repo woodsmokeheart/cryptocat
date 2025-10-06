@@ -127,7 +127,7 @@ const ModalLayout: React.FC<ModalLayoutProps> = ({
                     index={index}
                     isOpen={openSlideIndex === index}
                     onToggle={() => setOpenSlideIndex(openSlideIndex === index ? null : index)}
-                    isAlwaysOpen={slide.id === 'news1'}
+                    isAlwaysOpen={slide.id === 'news1' || slide.id === 'contact-info'}
                   />
                 ))}
               </div>

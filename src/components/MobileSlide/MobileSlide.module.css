@@ -1,7 +1,7 @@
 .mobileSlide {
   border-bottom: 1px solid #333;
   transition: all 0.3s ease;
-  margin-bottom: 10px; /* Отступ между блоками */
+  margin: 0 0 12px 0; /* Отступ между блоками, без боковых сдвигов */
 }
 
 .mobileSlide:last-child {
@@ -12,7 +12,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 12px 0; /* убрали боковые паддинги */
   cursor: pointer;
   transition: background-color 0.2s ease;
   user-select: none;
@@ -57,11 +57,11 @@
 .slideContent {
   overflow: hidden;
   transition: height 0.3s ease, padding 0.3s ease;
-  padding: 0 20px 20px 20px;
+  padding: 0 0 12px 0; /* убираем боковые внутренние отступы */
 }
 
 .contentCollapsed {
-  padding: 0 20px;
+  padding: 0;
 }
 
 /* Плавная анимация для контента */
