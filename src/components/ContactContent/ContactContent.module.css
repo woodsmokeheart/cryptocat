@@ -67,6 +67,11 @@
 
 /* Mobile centering for links only */
 @media only screen and (max-width: 768px) {
+  .container {
+    padding: 12px 12px 12px 12px; /* боковые отступы от краёв модалки */
+  }
+
+
   .linkRowCenterMobile {
     display: flex;
     justify-content: center;
