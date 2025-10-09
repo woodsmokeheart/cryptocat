@@ -38,8 +38,8 @@ const ModalManager: React.FC = () => {
       <ModalLayout 
         isOpen={newsModal.isOpen} 
         onClose={newsModal.closeModal}
-        title="ПОСЛЕДНИЕ НОВОСТИ"
-        description="Будьте в курсе последних новостей, объявлений и инсайтов от команды CryptoCat."
+        title="НОВОСТИ"
+        description="Будьте в курсе последних новостей, объявлений и инсайтов от команды Crypto Cat."
         slides={newsSlides}
       />
 
