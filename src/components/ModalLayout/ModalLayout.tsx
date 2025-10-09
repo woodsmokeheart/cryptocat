@@ -7,6 +7,7 @@ import ModalSlider from '../ModalSlider/ModalSlider'
 import { SlideContent } from '../../types/modal'
 import SliderControls from '../SliderControls/SliderControls'
 import MobileSlide from '../MobileSlide/MobileSlide'
+import { useTypewriter } from '../../hooks/useTypewriter'
 import styles from './ModalLayout.module.css'
 
 interface ModalLayoutProps {
@@ -28,6 +29,11 @@ const ModalLayout: React.FC<ModalLayoutProps> = ({
 }) => {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [openSlideIndex, setOpenSlideIndex] = useState<number | null>(null)
+  const { displayedText: displayedTitle } = useTypewriter({ 
+    text: isOpen ? title : '', 
+    speed: 80, 
+    delay: 300 
+  })
 
   const goToPrevious = useCallback(() => {
     setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1))
@@ -73,7 +79,9 @@ const ModalLayout: React.FC<ModalLayoutProps> = ({
           onClick={(e) => e.stopPropagation()}
         >
           <div className={styles.modalHeader}>
-            <h2 className={styles.modalTitle}>{title}</h2>
+            <h2 className={styles.modalTitle}>
+              {displayedTitle}
+            </h2>
             <button 
               className={styles.closeButton}
               onClick={onClose}
