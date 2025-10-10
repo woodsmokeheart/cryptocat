@@ -28,7 +28,7 @@ export const referralContent = (
     
     <p>
       <FaHandPointDown style={{ color: "#FF7A3D", marginRight: "8px" }} />
-      Переходим во вкладку "Главная" - нажимаем на фото профиля в левом верхнем углу - заходим в настройки профиля нажав на псевдоним в верхней части страницы – выбираем "Меня пригласили" - вводим реферальный код <strong>MT6UVT</strong>.
+      Переходим во вкладку &quot;Главная&quot; - нажимаем на фото профиля в левом верхнем углу - заходим в настройки профиля нажав на псевдоним в верхней части страницы – выбираем &quot;Меня пригласили&quot; - вводим реферальный код <strong>MT6UVT</strong>.
     </p>
     
     <h4>
@@ -65,8 +65,8 @@ export const referralContent = (
     </h5>
     
     <ol>
-      <li><FaArrowRight style={{ color: "#FF7A3D", marginRight: "8px" }} /> Войдите в верифицированный аккаунт в приложении BingX, нажмите на изображение аватара, затем - на "Верификация".</li>
-      <li><FaArrowRight style={{ color: "#FF7A3D", marginRight: "8px" }} /> Нажмите на "Трансфер верификации".</li>
+      <li><FaArrowRight style={{ color: "#FF7A3D", marginRight: "8px" }} /> Войдите в верифицированный аккаунт в приложении BingX, нажмите на изображение аватара, затем - на &quot;Верификация&quot;.</li>
+      <li><FaArrowRight style={{ color: "#FF7A3D", marginRight: "8px" }} /> Нажмите на &quot;Трансфер верификации&quot;.</li>
       <li><FaArrowRight style={{ color: "#FF7A3D", marginRight: "8px" }} /> Укажите верифицирующую информацию для текущего аккаунта.</li>
       <li><FaArrowRight style={{ color: "#FF7A3D", marginRight: "8px" }} /> Прежде чем переносить верификацию, проверьте, правильно ли вы указали аккаунт, на который она переносится.</li>
     </ol>
@@ -77,7 +77,7 @@ export const referralContent = (
     </h5>
     
     <ol>
-      <li><FaArrowRight style={{ color: "#FF7A3D", marginRight: "8px" }} /> Войдите в верифицированный аккаунт на <a href="https://bingx.com" target="_blank" rel="noopener noreferrer">официальном сайте BingX</a>, нажмите на изображение аватара, затем - на "Верификация личности" и "Трансфер верификации". <FaExternalLinkAlt style={{ color: "#FF7A3D", marginLeft: "8px" }} /></li>
+      <li><FaArrowRight style={{ color: "#FF7A3D", marginRight: "8px" }} /> Войдите в верифицированный аккаунт на <a href="https://bingx.com" target="_blank" rel="noopener noreferrer">официальном сайте BingX</a>, нажмите на изображение аватара, затем - на &quot;Верификация личности&quot; и &quot;Трансфер верификации&quot;. <FaExternalLinkAlt style={{ color: "#FF7A3D", marginLeft: "8px" }} /></li>
       <li><FaArrowRight style={{ color: "#FF7A3D", marginRight: "8px" }} /> Укажите верифицирующую информацию для текущего аккаунта.</li>
       <li><FaArrowRight style={{ color: "#FF7A3D", marginRight: "8px" }} /> Прежде чем переносить верификацию, проверьте, правильно ли вы указали аккаунт, на который она переносится.</li>
     </ol>
