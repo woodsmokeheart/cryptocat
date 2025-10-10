@@ -58,14 +58,35 @@ const ModalLayout: React.FC<ModalLayoutProps> = ({
       }
     }
 
+    const calculateBrowserUIHeight = () => {
+      if (window.innerWidth <= 768) {
+        // Вычисляем высоту браузерной панели
+        const viewportHeight = window.innerHeight
+        const documentHeight = document.documentElement.clientHeight
+        const browserUIHeight = Math.max(0, viewportHeight - documentHeight)
+        
+        // Устанавливаем CSS переменную
+        document.documentElement.style.setProperty('--browser-ui-height', `${browserUIHeight}px`)
+      }
+    }
+
     if (isOpen) {
       document.addEventListener('keydown', handleKeyDown)
       document.body.style.overflow = 'hidden'
+      
+      // Вычисляем высоту браузерной панели
+      calculateBrowserUIHeight()
+      
+      // Пересчитываем при изменении размера окна
+      window.addEventListener('resize', calculateBrowserUIHeight)
+      window.addEventListener('orientationchange', calculateBrowserUIHeight)
     }
 
     return () => {
       document.removeEventListener('keydown', handleKeyDown)
       document.body.style.overflow = 'unset'
+      window.removeEventListener('resize', calculateBrowserUIHeight)
+      window.removeEventListener('orientationchange', calculateBrowserUIHeight)
     }
   }, [isOpen, onClose, goToPrevious, goToNext])
 
