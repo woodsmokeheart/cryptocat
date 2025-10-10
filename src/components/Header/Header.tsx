@@ -105,7 +105,7 @@ const Header = () => {
                       closeMenu()
                     }}
                   >
-                    Новости
+                    FAQ
                   </button>
                 </li>
                 <li>

@@ -6,7 +6,7 @@ import { useModal } from '../../hooks/useModal'
 import { 
   aboutSlides, 
   servicesSlides, 
-  newsSlides, 
+  faqSlides, 
   contactSlides 
 } from '../../data/modalSlides'
 
@@ -38,9 +38,9 @@ const ModalManager: React.FC = () => {
       <ModalLayout 
         isOpen={newsModal.isOpen} 
         onClose={newsModal.closeModal}
-        title="НОВОСТИ"
-        description="Будьте в курсе последних новостей, объявлений и инсайтов от команды Crypto Cat."
-        slides={newsSlides}
+        title="FAQ"
+        description="Ответы на часто задаваемые вопросы о работе с Crypto Cat и торговле на криптовалютных биржах."
+        slides={faqSlides}
       />
 
       <ModalLayout 

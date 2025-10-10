@@ -1,4 +1,4 @@
-.newsGridContainer {
+.faqGridContainer {
   padding: 20px;
   height: 100%;
   overflow-y: auto;
@@ -8,7 +8,7 @@
   scrollbar-color: #FF7A3D rgba(255, 255, 255, 0.05);
 }
 
-.newsGrid {
+.faqGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 25px;
@@ -18,7 +18,7 @@
 
 /* Tablet styles */
 @media only screen and (min-width: 769px) and (max-width: 1024px) {
-  .newsGrid {
+  .faqGrid {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
   }
@@ -26,11 +26,11 @@
 
 /* Mobile styles */
 @media only screen and (max-width: 768px) {
-  .newsGridContainer {
+  .faqGridContainer {
     padding: 15px;
   }
   
-  .newsGrid {
+  .faqGrid {
     grid-template-columns: 1fr;
     gap: 15px;
   }

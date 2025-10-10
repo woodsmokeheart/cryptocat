@@ -1,5 +1,5 @@
 import { SlideContent } from '../types/modal'
-import NewsGrid from '../components/NewsGrid/NewsGrid'
+import FaqGrid from '../components/FaqGrid/FaqGrid'
 import ContactContent from '../components/ContactContent/ContactContent'
 
 // About page slides
@@ -95,12 +95,12 @@ export const servicesSlides: SlideContent[] = [
 ]
 
 
-// News page slides
-export const newsSlides: SlideContent[] = [
+// FAQ page slides
+export const faqSlides: SlideContent[] = [
   {
-    id: 'news1',
-    title: 'Новости',
-    content: <NewsGrid />
+    id: 'faq1',
+    title: 'FAQ',
+    content: <FaqGrid />
   }
 ]
 
