@@ -28,6 +28,7 @@
 @media only screen and (max-width: 768px) {
   .faqGridContainer {
     padding: 15px;
+    padding-bottom: 100px; /* Дополнительный отступ снизу для браузерной панели */
   }
   
   .faqGrid {
