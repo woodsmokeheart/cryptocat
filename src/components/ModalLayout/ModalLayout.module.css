@@ -82,6 +82,8 @@
 .contentSection {
   flex: 1;
   padding: 30px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .modalTitle {
@@ -101,7 +103,7 @@
   color: #ccc;
   font-size: 1rem;
   line-height: 1.6;
-  margin: 0 0 20px 0;
+  margin: 0 ;
 }
 
 .controlsSection {
@@ -122,7 +124,6 @@
   display: none;
 }
 
-/* Mobile slide styles moved to MobileSlide component */
 
 .rightPanel {
   width: 66.666%;
@@ -131,6 +132,7 @@
   position: relative;
   /* Добавляем скролл только для правого блока на десктопе */
   overflow-y: auto;
+  overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
   /* Кастомный скроллбар */
   scrollbar-width: thin;
@@ -145,32 +147,43 @@
 /* Mobile styles */
 @media only screen and (max-width: 768px) {
   .modalOverlay {
-    padding: 10px;
-    align-items: center;
+    padding: 0;
+    align-items: stretch;
     top: 0;
     bottom: 0;
-    /* Фиксированные отступы для Android */
-    padding-top: max(20px, env(safe-area-inset-top, 60px));
-    padding-bottom: max(20px, env(safe-area-inset-bottom, 40px));
+    left: 0;
+    right: 0;
+    /* Учитываем системные панели */
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
   }
   
   .modalContent {
     width: 100%;
-    height: calc(100vh - 120px); /* Увеличенный отступ для системных панелей */
-    max-height: calc(100vh - 120px);
     max-width: none;
-    min-height: auto;
-    overflow: hidden; /* Скрываем контент, выходящий за границы */
+    border-radius: 0;
+    border: none;
+    overflow: hidden;
+    /* Учитываем системные панели и viewport units */
+    height: calc(100dvh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+    max-height: calc(100dvh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+    min-height: calc(100dvh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+    /* Fallback для старых браузеров */
+    height: calc(100vh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+    max-height: calc(100vh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+    min-height: calc(100vh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
   }
   
   .modalBody {
     flex-direction: column;
     overflow-y: auto;
+    overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
     /* Кастомный скроллбар для мобильной версии */
     scrollbar-width: thin;
     scrollbar-color: #FF7A3D rgba(255, 255, 255, 0.05);
   }
+
   
   .leftPanel {
     width: 100%;
@@ -180,6 +193,7 @@
     order: 1;
     flex-shrink: 0;
     height: auto;
+    overflow: visible;
   }
   
   .rightPanel {
@@ -188,7 +202,7 @@
     order: 2;
     flex: 1;
     /* Убираем скролл с правого блока на мобильных устройствах */
-    overflow-y: visible;
+    overflow: visible;
   }
   
   .modalHeader {
@@ -196,8 +210,7 @@
     background: #000;
     z-index: 10;
     border-bottom: 1px solid #333;
-    /* Дополнительный отступ для Android */
-    margin-top: 5px;
+    flex-shrink: 0;
   }
   
   .contentSection {
@@ -211,7 +224,6 @@
   
   .modalDescription {
     font-size: 0.95rem;
-    margin-bottom: 20px;
     line-height: 1.5;
   }
   
@@ -272,19 +284,3 @@
   }
 }
 
-/* Modal content padding - адаптивные отступы */
-.modalContentPadding {
-  padding: 20px;
-}
-
-@media only screen and (max-width: 768px) {
-  .modalContentPadding {
-    padding: 15px;
-  }
-}
-
-@media only screen and (max-width: 375px) {
-  .modalContentPadding {
-    padding: 10px;
-  }
-}

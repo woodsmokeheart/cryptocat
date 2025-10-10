@@ -3,9 +3,11 @@
   color: #fff;
   height: 100%;
   overflow-y: auto;
+  overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: thin;
   scrollbar-color: #FF7A3D rgba(255, 255, 255, 0.05);
+  box-sizing: border-box;
 }
 
 .backButton {
@@ -49,6 +51,8 @@
 .content {
   max-width: 800px;
   margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .title {
@@ -87,6 +91,9 @@
   color: #ddd;
   line-height: 1.8;
   font-size: 1rem;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 .fullContent p {
@@ -119,6 +126,8 @@
   text-decoration: none;
   border-bottom: 1px solid #FF7A3D;
   transition: all 0.3s ease;
+  word-break: break-all;
+  overflow-wrap: break-word;
 }
 
 .fullContent a:hover {
@@ -130,14 +139,22 @@
 @media only screen and (max-width: 768px) {
   .faqDetail {
     padding: 15px;
+    overflow-x: hidden;
+  }
+
+  .content {
+    max-width: 100%;
+    padding: 0;
   }
 
   .title {
     font-size: 1.8rem;
+    word-wrap: break-word;
   }
 
   .description {
     font-size: 1rem;
+    word-wrap: break-word;
   }
 
   .backButton {
@@ -147,6 +164,12 @@
 
   .fullContent h4 {
     font-size: 1.2rem;
+  }
+
+  .fullContent ul,
+  .fullContent ol {
+    margin-left: 10px;
+    padding-left: 15px;
   }
 }
 

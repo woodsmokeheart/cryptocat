@@ -3,18 +3,29 @@
 import React from 'react'
 import Image from 'next/image'
 import { FaArrowLeft } from 'react-icons/fa'
+import { useRouter } from 'next/navigation'
 import { FaqItem } from '../../data/faqData'
 import styles from './FaqDetail.module.css'
 
 interface FaqDetailProps {
   faq: FaqItem
-  onBack: () => void
+  onBack?: () => void
 }
 
 const FaqDetail: React.FC<FaqDetailProps> = ({ faq, onBack }) => {
+  const router = useRouter()
+
+  const handleBack = () => {
+    if (onBack) {
+      onBack()
+    } else {
+      router.back()
+    }
+  }
+
   return (
-    <div className={styles.faqDetail}>
-      <button className={styles.backButton} onClick={onBack}>
+    <div className={styles.faqDetail} data-faq-detail>
+      <button className={styles.backButton} onClick={handleBack}>
         <FaArrowLeft /> Назад к FAQ
       </button>
       

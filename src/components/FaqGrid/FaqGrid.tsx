@@ -1,31 +1,18 @@
 'use client'
 
-import React, { useState } from 'react'
+import React from 'react'
+import { useRouter } from 'next/navigation'
 import ContentCard from '../ContentCard/ContentCard'
-import FaqDetail from '../FaqDetail/FaqDetail'
-import { faqData, FaqItem } from '../../data/faqData'
+import { faqData } from '../../data/faqData'
 import styles from './FaqGrid.module.css'
 
 const FaqGrid: React.FC = () => {
-  const [selectedFaq, setSelectedFaq] = useState<FaqItem | null>(null)
+  const router = useRouter()
 
-  const handleReadMore = (faqId: number) => {
-    const faq = faqData.find((item) => item.id === faqId)
-    if (faq) {
-      setSelectedFaq(faq)
-    }
+  const handleReadMore = (faqSlug: string) => {
+    router.push(`/faq/${faqSlug}`)
   }
 
-  const handleBack = () => {
-    setSelectedFaq(null)
-  }
-
-  // Если выбран FAQ, показываем детальный вид
-  if (selectedFaq) {
-    return <FaqDetail faq={selectedFaq} onBack={handleBack} />
-  }
-
-  // Иначе показываем сетку FAQ
   return (
     <div className={styles.faqGridContainer}>
       <div className={styles.faqGrid}>
@@ -38,7 +25,7 @@ const FaqGrid: React.FC = () => {
             description={faq.description}
             date={faq.date}
             type="news"
-            onReadMore={() => handleReadMore(faq.id)}
+            onReadMore={() => handleReadMore(faq.slug)}
           />
         ))}
       </div>
