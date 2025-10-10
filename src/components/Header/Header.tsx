@@ -12,7 +12,7 @@ const Header = () => {
   const router = useRouter()
       const aboutModal = useModal('about')
       const servicesModal = useModal('services')
-      const newsModal = useModal('news')
+      const faqModal = useModal('faq')
       const contactModal = useModal('contact')
 
   const toggleMenu = () => {
@@ -101,7 +101,7 @@ const Header = () => {
                   <button 
                     className={styles.linkUnderlineMenu} 
                     onClick={() => {
-                      newsModal.openModal()
+                      faqModal.openModal()
                       closeMenu()
                     }}
                   >

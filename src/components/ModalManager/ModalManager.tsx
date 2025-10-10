@@ -13,7 +13,7 @@ import {
 const ModalManager: React.FC = () => {
   const aboutModal = useModal('about')
   const servicesModal = useModal('services')
-  const newsModal = useModal('news')
+  const faqModal = useModal('faq')
   const contactModal = useModal('contact')
 
   return (
@@ -36,8 +36,8 @@ const ModalManager: React.FC = () => {
 
 
       <ModalLayout 
-        isOpen={newsModal.isOpen} 
-        onClose={newsModal.closeModal}
+        isOpen={faqModal.isOpen} 
+        onClose={faqModal.closeModal}
         title="FAQ"
         description="Ответы на часто задаваемые вопросы о работе с Crypto Cat и торговле на криптовалютных биржах."
         slides={faqSlides}

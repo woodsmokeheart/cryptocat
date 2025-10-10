@@ -25,9 +25,12 @@ const FaqDetail: React.FC<FaqDetailProps> = ({ faq, onBack }) => {
 
   return (
     <div className={styles.faqDetail} data-faq-detail>
-      <button className={styles.backButton} onClick={handleBack}>
-        <FaArrowLeft /> Назад к FAQ
-      </button>
+      <div className={styles.header}>
+        <button className={styles.backButton} onClick={handleBack}>
+          <FaArrowLeft /> Назад к FAQ
+        </button>
+        <span className={styles.date}>{faq.date}</span>
+      </div>
       
       <div className={styles.imageContainer}>
         <Image
@@ -41,9 +44,6 @@ const FaqDetail: React.FC<FaqDetailProps> = ({ faq, onBack }) => {
       
       <div className={styles.content}>
         <h2 className={styles.title}>{faq.title}</h2>
-        <div className={styles.meta}>
-          <span className={styles.date}>{faq.date}</span>
-        </div>
         <p className={styles.description}>{faq.description}</p>
         
         <div className={styles.fullContent}>
