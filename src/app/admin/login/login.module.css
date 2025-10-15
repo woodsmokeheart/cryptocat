@@ -1,0 +1,140 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  padding: 20px;
+}
+
+.loginBox {
+  background: rgba(26, 26, 26, 0.95);
+  border: 1px solid rgba(255, 122, 61, 0.2);
+  border-radius: 12px;
+  padding: 40px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 8px 32px rgba(255, 122, 61, 0.1);
+}
+
+.logo {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.logo h1 {
+  font-family: var(--font-oswald);
+  font-size: 32px;
+  font-weight: 700;
+  color: #FF7A3D;
+  margin: 0 0 8px 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.logo p {
+  font-family: var(--font-raleway);
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.formGroup label {
+  font-family: var(--font-raleway);
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.formGroup input {
+  font-family: var(--font-raleway);
+  font-size: 16px;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.formGroup input:focus {
+  outline: none;
+  border-color: #FF7A3D;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 3px rgba(255, 122, 61, 0.1);
+}
+
+.formGroup input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.formGroup input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.error {
+  font-family: var(--font-raleway);
+  font-size: 14px;
+  padding: 12px 16px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 6px;
+  color: #ef4444;
+}
+
+.submitButton {
+  font-family: var(--font-raleway);
+  font-size: 16px;
+  font-weight: 600;
+  padding: 14px 24px;
+  background: #FF7A3D;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 8px;
+}
+
+.submitButton:hover:not(:disabled) {
+  background: #ff8c52;
+  box-shadow: 0 4px 12px rgba(255, 122, 61, 0.3);
+  transform: translateY(-1px);
+}
+
+.submitButton:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.submitButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+@media (max-width: 480px) {
+  .loginBox {
+    padding: 28px 20px;
+  }
+
+  .logo h1 {
+    font-size: 28px;
+  }
+}
+

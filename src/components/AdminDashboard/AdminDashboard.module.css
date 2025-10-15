@@ -1,0 +1,233 @@
+.container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+}
+
+.header {
+  background: rgba(26, 26, 26, 0.95);
+  border-bottom: 1px solid rgba(255, 122, 61, 0.2);
+  padding: 20px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+}
+
+.headerContent {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo h1 {
+  font-family: var(--font-oswald);
+  font-size: 24px;
+  font-weight: 700;
+  color: #FF7A3D;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.userEmail {
+  font-family: var(--font-raleway);
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.logoutButton {
+  font-family: var(--font-raleway);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 20px;
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.logoutButton:hover:not(:disabled) {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: #ef4444;
+}
+
+.logoutButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.main {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+.welcomeCard {
+  background: rgba(26, 26, 26, 0.95);
+  border: 1px solid rgba(255, 122, 61, 0.2);
+  border-radius: 12px;
+  padding: 32px;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.welcomeCard h2 {
+  font-family: var(--font-oswald);
+  font-size: 32px;
+  font-weight: 700;
+  color: #FF7A3D;
+  margin: 0 0 12px 0;
+  text-transform: uppercase;
+}
+
+.welcomeCard p {
+  font-family: var(--font-raleway);
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+.dashboardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.card {
+  background: rgba(26, 26, 26, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 24px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  border-color: rgba(255, 122, 61, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(255, 122, 61, 0.15);
+}
+
+.cardIcon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.card h3 {
+  font-family: var(--font-oswald);
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 8px 0;
+  text-transform: uppercase;
+}
+
+.card p {
+  font-family: var(--font-raleway);
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0 0 16px 0;
+  line-height: 1.5;
+}
+
+.cardValue {
+  font-family: var(--font-oswald);
+  font-size: 32px;
+  font-weight: 700;
+  color: #FF7A3D;
+}
+
+.infoSection {
+  background: rgba(26, 26, 26, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 32px;
+}
+
+.infoSection h3 {
+  font-family: var(--font-oswald);
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 24px 0;
+  text-transform: uppercase;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.infoItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.infoLabel {
+  font-family: var(--font-raleway);
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.infoValue {
+  font-family: var(--font-raleway);
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.9);
+  word-break: break-all;
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 16px 20px;
+  }
+
+  .headerContent {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .userInfo {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .main {
+    padding: 20px;
+  }
+
+  .welcomeCard {
+    padding: 24px 20px;
+  }
+
+  .welcomeCard h2 {
+    font-size: 24px;
+  }
+
+  .dashboardGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .infoGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
