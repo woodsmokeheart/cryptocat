@@ -1,0 +1,336 @@
+.container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  padding: 20px;
+}
+
+.header {
+  background: rgba(26, 26, 26, 0.95);
+  border-bottom: 1px solid rgba(255, 122, 61, 0.2);
+  padding: 20px;
+  margin: -20px -20px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+}
+
+.headerContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 20px;
+}
+
+.header h1 {
+  font-family: var(--font-oswald);
+  font-size: 28px;
+  font-weight: 700;
+  color: #FF7A3D;
+  margin: 0;
+  text-transform: uppercase;
+  text-align: center;
+  justify-self: center;
+}
+
+.createButton {
+  font-family: var(--font-raleway);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 20px;
+  background: #FF7A3D;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  justify-self: end;
+}
+
+.createButton:hover {
+  background: #ff8c52;
+  box-shadow: 0 4px 12px rgba(255, 122, 61, 0.3);
+  transform: translateY(-1px);
+}
+
+.main {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.empty {
+  text-align: center;
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+}
+
+.empty p {
+  font-family: var(--font-raleway);
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 16px;
+}
+
+.emptyHint {
+  font-family: var(--font-raleway);
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.4);
+  font-style: italic;
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.card {
+  background: rgba(26, 26, 26, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  border-color: rgba(255, 122, 61, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(255, 122, 61, 0.15);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.card h3 {
+  font-family: var(--font-oswald);
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  flex: 1;
+  line-height: 1.3;
+}
+
+.badgePublished,
+.badgeDraft {
+  font-family: var(--font-raleway);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.badgePublished {
+  background: rgba(34, 197, 94, 0.2);
+  color: #22c55e;
+  border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.badgeDraft {
+  background: rgba(156, 163, 175, 0.2);
+  color: #9ca3af;
+  border: 1px solid rgba(156, 163, 175, 0.3);
+}
+
+.excerpt {
+  font-family: var(--font-raleway);
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0 0 16px;
+  line-height: 1.5;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.cardFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.date {
+  font-family: var(--font-raleway);
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.viewButton,
+.editButton {
+  font-family: var(--font-raleway);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.viewButton {
+  background: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.viewButton:hover {
+  background: rgba(59, 130, 246, 0.2);
+  border-color: #3b82f6;
+}
+
+.editButton {
+  background: rgba(255, 122, 61, 0.1);
+  color: #FF7A3D;
+  border: 1px solid rgba(255, 122, 61, 0.3);
+}
+
+.editButton:hover {
+  background: rgba(255, 122, 61, 0.2);
+  border-color: #FF7A3D;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 32px;
+}
+
+.pageNumbers {
+  display: flex;
+  gap: 4px;
+}
+
+.pageButton {
+  font-family: var(--font-raleway);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pageButton:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 122, 61, 0.4);
+  color: #fff;
+}
+
+.pageButton:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.pageButtonActive {
+  font-family: var(--font-raleway);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 8px 16px;
+  background: rgba(255, 122, 61, 0.2);
+  color: #FF7A3D;
+  border: 1px solid #FF7A3D;
+  border-radius: 6px;
+  cursor: default;
+}
+
+.backLink {
+  justify-self: start;
+  font-family: var(--font-raleway);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.backLink:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 122, 61, 0.4);
+  color: #FF7A3D;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+  .headerContent {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .header h1 {
+    font-size: 24px;
+    order: 1;
+  }
+
+  .backLink {
+    order: 2;
+    justify-self: center;
+  }
+
+  .createButton {
+    order: 3;
+    justify-self: center;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cardHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .pagination {
+    flex-wrap: wrap;
+  }
+}
+

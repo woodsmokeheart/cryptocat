@@ -2,15 +2,18 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import Link from 'next/link'
+import { FaFileAlt, FaChartBar, FaUsers, FaCog } from 'react-icons/fa'
 import { createClient } from '@/lib/supabase/client'
 import type { User } from '@supabase/supabase-js'
 import styles from './AdminDashboard.module.css'
 
 interface AdminDashboardProps {
   user: User
+  postsCount?: number
 }
 
-export default function AdminDashboard({ user }: AdminDashboardProps) {
+export default function AdminDashboard({ user, postsCount = 0 }: AdminDashboardProps) {
   const [loading, setLoading] = useState(false)
   const router = useRouter()
   const supabase = createClient()
@@ -49,32 +52,40 @@ export default function AdminDashboard({ user }: AdminDashboardProps) {
         </div>
 
         <div className={styles.dashboardGrid}>
-          <div className={styles.card}>
-            <div className={styles.cardIcon}>📊</div>
+          <Link href="/admin/posts" className={styles.card}>
+            <div className={styles.cardIcon}>
+              <FaFileAlt />
+            </div>
+            <h3>Посты</h3>
+            <p>Управление постами и статьями</p>
+            <div className={styles.cardValue}>{postsCount}</div>
+          </Link>
+
+          <div className={styles.card} style={{ opacity: 0.5, cursor: 'not-allowed' }}>
+            <div className={styles.cardIcon}>
+              <FaChartBar />
+            </div>
             <h3>Статистика</h3>
             <p>Просмотр аналитики и статистики сайта</p>
-            <div className={styles.cardValue}>-</div>
+            <div className={styles.cardValue}>Скоро</div>
           </div>
 
-          <div className={styles.card}>
-            <div className={styles.cardIcon}>📝</div>
-            <h3>Контент</h3>
-            <p>Управление контентом и статьями</p>
-            <div className={styles.cardValue}>-</div>
-          </div>
-
-          <div className={styles.card}>
-            <div className={styles.cardIcon}>👥</div>
+          <div className={styles.card} style={{ opacity: 0.5, cursor: 'not-allowed' }}>
+            <div className={styles.cardIcon}>
+              <FaUsers />
+            </div>
             <h3>Пользователи</h3>
             <p>Управление пользователями системы</p>
-            <div className={styles.cardValue}>1</div>
+            <div className={styles.cardValue}>Скоро</div>
           </div>
 
-          <div className={styles.card}>
-            <div className={styles.cardIcon}>⚙️</div>
+          <div className={styles.card} style={{ opacity: 0.5, cursor: 'not-allowed' }}>
+            <div className={styles.cardIcon}>
+              <FaCog />
+            </div>
             <h3>Настройки</h3>
             <p>Конфигурация системы</p>
-            <div className={styles.cardValue}>-</div>
+            <div className={styles.cardValue}>Скоро</div>
           </div>
         </div>
 

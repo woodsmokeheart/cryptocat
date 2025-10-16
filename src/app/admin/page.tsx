@@ -14,6 +14,11 @@ export default async function AdminPage() {
     redirect('/admin/login')
   }
 
-  return <AdminDashboard user={user} />
+  // Получаем количество постов
+  const { count: postsCount } = await supabase
+    .from('posts')
+    .select('*', { count: 'exact', head: true })
+
+  return <AdminDashboard user={user} postsCount={postsCount || 0} />
 }
 
