@@ -253,6 +253,16 @@
 .pageNumbers {
   display: flex;
   gap: 4px;
+  align-items: center;
+}
+
+.ellipsis {
+  font-family: var(--font-raleway);
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.4);
+  padding: 8px 4px;
+  user-select: none;
 }
 
 .pageButton {

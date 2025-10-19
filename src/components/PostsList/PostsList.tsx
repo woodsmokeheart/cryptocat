@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { FaArrowLeft, FaCheck, FaEdit } from 'react-icons/fa'
 import type { PostsResponse } from '@/types/post'
+import { generateSmartPagination } from '@/lib/pagination'
 import styles from './PostsList.module.css'
 
 interface PostsListProps {
@@ -17,6 +18,9 @@ export default function PostsList({ postsData }: PostsListProps) {
   const handlePageChange = (newPage: number) => {
     router.push(`/admin/posts?page=${newPage}`)
   }
+
+  // Генерируем умную пагинацию
+  const paginationItems = generateSmartPagination(page, totalPages)
 
   return (
     <div className={styles.container}>
@@ -101,14 +105,20 @@ export default function PostsList({ postsData }: PostsListProps) {
                 </button>
                 
                 <div className={styles.pageNumbers}>
-                  {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => (
-                    <button
-                      key={pageNum}
-                      onClick={() => handlePageChange(pageNum)}
-                      className={pageNum === page ? styles.pageButtonActive : styles.pageButton}
-                    >
-                      {pageNum}
-                    </button>
+                  {paginationItems.map((item, index) => (
+                    item.type === 'ellipsis' ? (
+                      <span key={`ellipsis-${index}`} className={styles.ellipsis}>
+                        {item.label}
+                      </span>
+                    ) : (
+                      <button
+                        key={item.value}
+                        onClick={() => handlePageChange(item.value)}
+                        className={item.value === page ? styles.pageButtonActive : styles.pageButton}
+                      >
+                        {item.label}
+                      </button>
+                    )
                   ))}
                 </div>
                 
