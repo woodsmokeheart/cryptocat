@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import { FaArrowLeft } from 'react-icons/fa'
+import { FaArrowLeft, FaCheck, FaEdit } from 'react-icons/fa'
 import type { PostsResponse } from '@/types/post'
 import styles from './PostsList.module.css'
 
@@ -43,27 +43,38 @@ export default function PostsList({ postsData }: PostsListProps) {
             <div className={styles.grid}>
               {posts.map((post) => (
                 <article key={post.id} className={styles.card}>
-                  <div className={styles.cardHeader}>
-                    <h3>{post.title}</h3>
-                    {post.published ? (
-                      <span className={styles.badgePublished}>Опубликован</span>
-                    ) : (
-                      <span className={styles.badgeDraft}>Черновик</span>
-                    )}
-                  </div>
+                  {post.cover_image && (
+                    <div className={styles.cardCover}>
+                      <img src={post.cover_image} alt={post.title} />
+                    </div>
+                  )}
                   
-                  <p className={styles.excerpt}>
-                    {post.excerpt || 'Нет описания'}
-                  </p>
+                  <div className={styles.cardContent}>
+                    <div className={styles.cardHeader}>
+                      <h3>{post.title}</h3>
+                    </div>
+                    
+                    <p className={styles.excerpt}>
+                      {post.excerpt || 'Нет описания'}
+                    </p>
                   
                   <div className={styles.cardFooter}>
-                    <time className={styles.date}>
-                      {new Date(post.created_at).toLocaleDateString('ru-RU', {
-                        day: 'numeric',
-                        month: 'long',
-                        year: 'numeric',
-                      })}
-                    </time>
+                    <div className={styles.dateAndStatus}>
+                      <time className={styles.date}>
+                        {new Date(post.created_at).toLocaleDateString('ru-RU', {
+                          day: 'numeric',
+                          month: 'long',
+                          year: 'numeric',
+                        })}
+                      </time>
+                      <div className={styles.statusIcon}>
+                        {post.published ? (
+                          <FaCheck className={styles.publishedIcon} title="Опубликован" />
+                        ) : (
+                          <FaEdit className={styles.draftIcon} title="Черновик" />
+                        )}
+                      </div>
+                    </div>
                     
                     <div className={styles.actions}>
                       <Link 
@@ -72,13 +83,8 @@ export default function PostsList({ postsData }: PostsListProps) {
                       >
                         Просмотр
                       </Link>
-                      <Link 
-                        href={`/admin/posts/${post.id}/edit`}
-                        className={styles.editButton}
-                      >
-                        Редактировать
-                      </Link>
                     </div>
+                  </div>
                   </div>
                 </article>
               ))}

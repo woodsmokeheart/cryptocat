@@ -65,6 +65,24 @@
   margin-left: 4px;
 }
 
+.imageUploadWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.uploadingIndicator {
+  font-family: var(--font-raleway);
+  font-size: 13px;
+  color: rgba(59, 130, 246, 0.8);
+  padding: 8px 12px;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 6px;
+  margin-top: 8px;
+  text-align: center;
+  font-style: italic;
+}
+
 .editorContent {
   min-height: 400px;
   max-height: 600px;

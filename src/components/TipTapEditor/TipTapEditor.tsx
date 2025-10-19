@@ -3,9 +3,10 @@
 import { useEditor, EditorContent } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import Placeholder from '@tiptap/extension-placeholder'
+import Image from '@tiptap/extension-image'
 import TextAlign from '@tiptap/extension-text-align'
 import Underline from '@tiptap/extension-underline'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { 
   FaBold, 
   FaItalic, 
@@ -19,8 +20,11 @@ import {
   FaAlignCenter,
   FaAlignRight,
   FaUndo,
-  FaRedo
+  FaRedo,
+  FaImage
 } from 'react-icons/fa'
+import ImageUpload from '@/components/ImageUpload/ImageUpload'
+import { uploadImage } from '@/lib/images'
 import styles from './TipTapEditor.module.css'
 
 interface TipTapEditorProps {
@@ -30,11 +34,51 @@ interface TipTapEditorProps {
 }
 
 export default function TipTapEditor({ content, onChange, placeholder = 'Начните писать...' }: TipTapEditorProps) {
+  const [isUploading, setIsUploading] = useState(false)
+
+  const handlePasteImage = async (event: ClipboardEvent, editorInstance: typeof editor) => {
+    const items = event.clipboardData?.items
+    if (!items || !editorInstance) return false
+
+    for (const item of Array.from(items)) {
+      if (item.type.indexOf('image') === 0) {
+        event.preventDefault()
+        
+        const file = item.getAsFile()
+        if (!file) continue
+
+        setIsUploading(true)
+
+        // Загружаем изображение
+        const result = await uploadImage(file)
+        
+        setIsUploading(false)
+
+        if ('error' in result) {
+          alert(result.error)
+          return true
+        }
+
+        // Вставляем изображение в редактор
+        editorInstance.chain().focus().setImage({ src: result.url }).run()
+        
+        return true
+      }
+    }
+
+    return false
+  }
+
   const editor = useEditor({
     extensions: [
       StarterKit,
       Placeholder.configure({
         placeholder,
+      }),
+      Image.configure({
+        HTMLAttributes: {
+          class: 'tiptap-image',
+        },
       }),
       TextAlign.configure({
         types: ['heading', 'paragraph'],
@@ -58,6 +102,31 @@ export default function TipTapEditor({ content, onChange, placeholder = 'Нач�
       editor.commands.setContent(content)
     }
   }, [content, editor])
+
+  // Обработка вставки изображений из буфера обмена
+  useEffect(() => {
+    if (!editor) return
+
+    const handlePaste = async (event: Event) => {
+      if (event instanceof ClipboardEvent) {
+        await handlePasteImage(event, editor)
+      }
+    }
+
+    const editorElement = editor.view.dom
+    editorElement.addEventListener('paste', handlePaste)
+
+    return () => {
+      editorElement.removeEventListener('paste', handlePaste)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [editor])
+
+  const handleImageUpload = (url: string) => {
+    if (editor) {
+      editor.chain().focus().setImage({ src: url }).run()
+    }
+  }
 
   if (!editor) {
     return null
@@ -186,6 +255,14 @@ export default function TipTapEditor({ content, onChange, placeholder = 'Нач�
           </button>
         </div>
 
+        <div className={styles.toolbarGroup}>
+          <div className={styles.imageUploadWrapper}>
+            <ImageUpload 
+              onImageUploaded={handleImageUpload}
+              buttonText="Изображение"
+            />
+          </div>
+        </div>
 
         <div className={styles.toolbarGroup}>
           <button
@@ -208,6 +285,12 @@ export default function TipTapEditor({ content, onChange, placeholder = 'Нач�
       </div>
 
       <EditorContent editor={editor} />
+      
+      {isUploading && (
+        <div className={styles.uploadingIndicator}>
+          Загрузка изображения из буфера обмена...
+        </div>
+      )}
     </div>
   )
 }
