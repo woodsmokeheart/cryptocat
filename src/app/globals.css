@@ -248,6 +248,39 @@ s {
   text-decoration: line-through;
 }
 
+/* Word wrapping for long words */
+p, div, span, h1, h2, h3, h4, h5, h6 {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+}
+
+/* Specific word wrapping for post content */
+.content p, .content div, .content span {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+}
+
+/* For Russian text specifically */
+.content {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+/* Word wrapping for post titles in cards */
+.card h3, .card h2, .card h1 {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+}
+
 h1 {
   font-family: var(--font-oswald);
   font-size: 2em;

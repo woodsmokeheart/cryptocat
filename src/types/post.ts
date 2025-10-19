@@ -4,7 +4,7 @@ export interface Post {
   content: string
   excerpt: string
   published: boolean
-  cover_image?: string | null
+  cover_image: string
   created_at: string
   updated_at: string
   author_id: string
@@ -15,7 +15,7 @@ export interface CreatePostInput {
   content: string
   excerpt: string
   published: boolean
-  cover_image?: string | null
+  cover_image: string
 }
 
 export interface UpdatePostInput {
@@ -23,7 +23,7 @@ export interface UpdatePostInput {
   content?: string
   excerpt?: string
   published?: boolean
-  cover_image?: string | null
+  cover_image?: string
 }
 
 export interface PostsResponse {

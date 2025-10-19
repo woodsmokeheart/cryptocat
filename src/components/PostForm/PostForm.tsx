@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { FaCheck, FaEdit, FaArrowLeft, FaImage } from 'react-icons/fa'
 import TipTapEditor from '@/components/TipTapEditor/TipTapEditor'
-import { extractImagesFromContent } from '@/lib/images'
+import ImageUpload from '@/components/ImageUpload/ImageUpload'
 import type { Post } from '@/types/post'
 import styles from './PostForm.module.css'
 
@@ -20,16 +20,38 @@ export default function PostForm({ mode, post }: PostFormProps) {
   const [content, setContent] = useState(post?.content || '')
   const [excerpt, setExcerpt] = useState(post?.excerpt || '')
   const [published, setPublished] = useState(post?.published || false)
-  const [coverImage, setCoverImage] = useState<string | null>(post?.cover_image || null)
+  const [coverImage, setCoverImage] = useState<string>(post?.cover_image || '')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
-
-  // Извлекаем изображения из контента
-  const imagesInContent = extractImagesFromContent(content)
 
   const handleSubmit = async (publishStatus: boolean) => {
     setError(null)
     setLoading(true)
+
+    // Валидация обязательных полей
+    if (!title.trim()) {
+      setError('Заголовок обязателен')
+      setLoading(false)
+      return
+    }
+
+    if (!excerpt.trim()) {
+      setError('Описание обязательно')
+      setLoading(false)
+      return
+    }
+
+    if (!coverImage.trim()) {
+      setError('Обложка обязательна')
+      setLoading(false)
+      return
+    }
+
+    if (!content.trim()) {
+      setError('Содержимое обязательно')
+      setLoading(false)
+      return
+    }
 
     try {
       const url = mode === 'create' 
@@ -80,7 +102,7 @@ export default function PostForm({ mode, post }: PostFormProps) {
       <main className={styles.main}>
         <div className={styles.form}>
           <div className={styles.formGroup}>
-            <label htmlFor="title">Заголовок</label>
+            <label htmlFor="title">Заголовок *</label>
             <input
               id="title"
               type="text"
@@ -93,7 +115,7 @@ export default function PostForm({ mode, post }: PostFormProps) {
           </div>
 
           <div className={styles.formGroup}>
-            <label htmlFor="excerpt">Краткое описание</label>
+            <label htmlFor="excerpt">Краткое описание *</label>
             <textarea
               id="excerpt"
               value={excerpt}
@@ -101,47 +123,43 @@ export default function PostForm({ mode, post }: PostFormProps) {
               placeholder="Краткое описание поста (отображается в карточке)"
               rows={3}
               disabled={loading}
+              required
             />
           </div>
 
           <div className={styles.formGroup}>
-            <label>Содержимое</label>
+            <label>
+              <FaImage /> Обложка поста *
+            </label>
+            <p className={styles.coverImageHint}>
+              Загрузите обложку для поста (максимум 5 MB). Форматы: JPEG, PNG, WebP, GIF
+            </p>
+            <ImageUpload
+              onImageUploaded={setCoverImage}
+              buttonText="Выбрать обложку"
+            />
+            {coverImage && (
+              <div className={styles.coverImagePreview}>
+                <img src={coverImage} alt="Предпросмотр обложки" />
+                <button
+                  type="button"
+                  onClick={() => setCoverImage('')}
+                  className={styles.removeCoverButton}
+                >
+                  Удалить обложку
+                </button>
+              </div>
+            )}
+          </div>
+
+          <div className={styles.formGroup}>
+            <label>Содержимое *</label>
             <TipTapEditor
               content={content}
               onChange={setContent}
               placeholder="Начните писать содержимое поста..."
             />
           </div>
-
-          {imagesInContent.length > 0 && (
-            <div className={styles.coverImageSection}>
-              <label className={styles.coverImageLabel}>
-                <FaImage /> Обложка поста
-              </label>
-              <p className={styles.coverImageHint}>
-                Выберите изображение из поста для обложки (отображается в карточке)
-              </p>
-              <div className={styles.coverImageGrid}>
-                <div
-                  className={`${styles.coverImageItem} ${!coverImage ? styles.selected : ''}`}
-                  onClick={() => setCoverImage(null)}
-                >
-                  <div className={styles.noCoverPlaceholder}>
-                    Без обложки
-                  </div>
-                </div>
-                {imagesInContent.map((imageUrl, index) => (
-                  <div
-                    key={index}
-                    className={`${styles.coverImageItem} ${coverImage === imageUrl ? styles.selected : ''}`}
-                    onClick={() => setCoverImage(imageUrl)}
-                  >
-                    <img src={imageUrl} alt={`Изображение ${index + 1}`} />
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
 
           {error && (
             <div className={styles.error}>

@@ -122,80 +122,49 @@
 }
 
 
-.coverImageSection {
-  margin-top: 24px;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-}
-
-.coverImageLabel {
-  font-family: var(--font-raleway);
-  font-size: 14px;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.8);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 8px;
-}
-
 .coverImageHint {
   font-family: var(--font-raleway);
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.5);
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
   margin: 0 0 16px;
-  font-style: italic;
+  line-height: 1.4;
 }
 
-.coverImageGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  gap: 12px;
-}
-
-.coverImageItem {
-  aspect-ratio: 16 / 9;
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  overflow: hidden;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-.coverImageItem:hover {
-  border-color: rgba(255, 122, 61, 0.4);
-  transform: scale(1.02);
-}
-
-.coverImageItem.selected {
-  border-color: #FF7A3D;
-  box-shadow: 0 0 0 2px rgba(255, 122, 61, 0.3);
-}
-
-.coverImageItem img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  margin: 0;
-}
-
-.noCoverPlaceholder {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.coverImagePreview {
+  margin-top: 16px;
+  padding: 16px;
   background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+}
+
+.coverImagePreview img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.removeCoverButton {
   font-family: var(--font-raleway);
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.5);
-  text-align: center;
-  padding: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 6px 12px;
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.removeCoverButton:hover {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: #ef4444;
 }
 
 .error {

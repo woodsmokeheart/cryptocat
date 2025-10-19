@@ -2,21 +2,21 @@
 
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import { FaArrowLeft, FaCheck, FaEdit } from 'react-icons/fa'
+import { FaCheck, FaEdit, FaArrowLeft } from 'react-icons/fa'
 import type { PostsResponse } from '@/types/post'
 import { generateSmartPagination } from '@/lib/pagination'
-import styles from './PostsList.module.css'
+import styles from './PublicPostsList.module.css'
 
-interface PostsListProps {
+interface PublicPostsListProps {
   postsData: PostsResponse
 }
 
-export default function PostsList({ postsData }: PostsListProps) {
+export default function PublicPostsList({ postsData }: PublicPostsListProps) {
   const router = useRouter()
   const { posts, page, totalPages } = postsData
 
   const handlePageChange = (newPage: number) => {
-    router.push(`/admin/posts?page=${newPage}`)
+    router.push(`/lenta?page=${newPage}`)
   }
 
   // Генерируем умную пагинацию
@@ -26,30 +26,29 @@ export default function PostsList({ postsData }: PostsListProps) {
     <div className={styles.container}>
       <header className={styles.header}>
         <div className={styles.headerContent}>
-          <Link href="/admin" className={styles.backLink}>
-            <FaArrowLeft /> Вернуться в админку
+          <Link href="/" className={styles.backLink}>
+            <FaArrowLeft /> Назад
           </Link>
-          <h1>Управление постами</h1>
-          <Link href="/admin/posts/new" className={styles.createButton}>
-            + Создать пост
-          </Link>
+          <div className={styles.titleSection}>
+            <h1>Лента новостей</h1>
+          </div>
         </div>
       </header>
 
       <main className={styles.main}>
         {posts.length === 0 ? (
           <div className={styles.empty}>
-            <p>Постов пока нет</p>
-            <p className={styles.emptyHint}>Используйте кнопку &quot;Создать пост&quot; в шапке для добавления первого поста</p>
+            <p>Пока нет опубликованных постов</p>
+            <p className={styles.emptyHint}>Следите за обновлениями!</p>
           </div>
         ) : (
           <>
             <div className={styles.grid}>
               {posts.map((post) => (
-                <article key={post.id} className={styles.card}>
-                <div className={styles.cardCover}>
-                  <img src={post.cover_image} alt={post.title} />
-                </div>
+                      <article key={post.id} className={styles.card}>
+                        <div className={styles.cardCover}>
+                          <img src={post.cover_image} alt={post.title} />
+                        </div>
                   
                   <div className={styles.cardContent}>
                     <div className={styles.cardHeader}>
@@ -60,33 +59,29 @@ export default function PostsList({ postsData }: PostsListProps) {
                       {post.excerpt || 'Нет описания'}
                     </p>
                   
-                  <div className={styles.cardFooter}>
-                    <div className={styles.dateAndStatus}>
-                      <time className={styles.date}>
-                        {new Date(post.created_at).toLocaleDateString('ru-RU', {
-                          day: 'numeric',
-                          month: 'long',
-                          year: 'numeric',
-                        })}
-                      </time>
-                      <div className={styles.statusIcon}>
-                        {post.published ? (
+                    <div className={styles.cardFooter}>
+                      <div className={styles.dateAndStatus}>
+                        <time className={styles.date}>
+                          {new Date(post.created_at).toLocaleDateString('ru-RU', {
+                            day: 'numeric',
+                            month: 'long',
+                            year: 'numeric',
+                          })}
+                        </time>
+                        <div className={styles.statusIcon}>
                           <FaCheck className={styles.publishedIcon} title="Опубликован" />
-                        ) : (
-                          <FaEdit className={styles.draftIcon} title="Черновик" />
-                        )}
+                        </div>
+                      </div>
+                      
+                      <div className={styles.actions}>
+                        <Link 
+                          href={`/lenta/${post.id}`}
+                          className={styles.viewButton}
+                        >
+                          Читать
+                        </Link>
                       </div>
                     </div>
-                    
-                    <div className={styles.actions}>
-                      <Link 
-                        href={`/admin/posts/${post.id}`}
-                        className={styles.viewButton}
-                      >
-                        Просмотр
-                      </Link>
-                    </div>
-                  </div>
                   </div>
                 </article>
               ))}
@@ -135,4 +130,3 @@ export default function PostsList({ postsData }: PostsListProps) {
     </div>
   )
 }
-

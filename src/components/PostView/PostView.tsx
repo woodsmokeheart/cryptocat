@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import { FaEdit, FaTrash, FaArrowLeft } from 'react-icons/fa'
+import { FaEdit, FaTrash, FaArrowLeft, FaCheck } from 'react-icons/fa'
 import type { Post } from '@/types/post'
 import styles from './PostView.module.css'
 
@@ -69,24 +69,31 @@ export default function PostView({ post }: PostViewProps) {
 
       <main className={styles.main}>
         <article className={styles.article}>
-          <div className={styles.articleHeader}>
-            <h1>{post.title}</h1>
-            <div className={styles.meta}>
-              {post.published ? (
-                <span className={styles.badgePublished}>Опубликован</span>
-              ) : (
-                <span className={styles.badgeDraft}>Черновик</span>
-              )}
-              <time className={styles.date}>
-                {new Date(post.created_at).toLocaleDateString('ru-RU', {
-                  day: 'numeric',
-                  month: 'long',
-                  year: 'numeric',
-                  hour: '2-digit',
-                  minute: '2-digit',
-                })}
-              </time>
-            </div>
+          <h1 className={styles.title}>{post.title}</h1>
+
+          <div className={styles.coverImage}>
+            <img src={post.cover_image} alt={post.title} />
+          </div>
+
+          <div className={styles.meta}>
+            {post.published ? (
+              <span className={styles.badgePublished} title="Опубликован">
+                <FaCheck />
+              </span>
+            ) : (
+              <span className={styles.badgeDraft} title="Черновик">
+                <FaEdit />
+              </span>
+            )}
+            <time className={styles.date}>
+              {new Date(post.created_at).toLocaleDateString('ru-RU', {
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+              })}
+            </time>
           </div>
 
           {post.excerpt && (

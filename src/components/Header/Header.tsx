@@ -33,6 +33,11 @@ const Header = () => {
     closeMenu()
   }
 
+  const navigateToLenta = () => {
+    router.push('/lenta')
+    closeMenu()
+  }
+
   // Закрытие меню при клике вне его области
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -106,6 +111,14 @@ const Header = () => {
                     }}
                   >
                     FAQ
+                  </button>
+                </li>
+                <li>
+                  <button 
+                    className={styles.linkUnderlineMenu} 
+                    onClick={navigateToLenta}
+                  >
+                    Лента
                   </button>
                 </li>
                 <li>

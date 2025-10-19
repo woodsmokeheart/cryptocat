@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { updatePost, deletePost } from '@/lib/posts'
+import { revalidatePath } from 'next/cache'
 import type { UpdatePostInput } from '@/types/post'
 
 interface RouteContext {
@@ -12,6 +13,12 @@ export async function PUT(request: Request, context: RouteContext) {
     const body = await request.json() as UpdatePostInput
 
     const post = await updatePost(id, body)
+    
+    // Обновляем кэш ленты если пост опубликован
+    if (post.published) {
+      revalidatePath('/lenta')
+    }
+    
     return NextResponse.json(post)
   } catch (error) {
     console.error('Error updating post:', error)
@@ -27,6 +34,10 @@ export async function DELETE(_request: Request, context: RouteContext) {
     const { id } = await context.params
     
     await deletePost(id)
+    
+    // Обновляем кэш ленты после удаления
+    revalidatePath('/lenta')
+    
     return NextResponse.json({ success: true })
   } catch (error) {
     console.error('Error deleting post:', error)
