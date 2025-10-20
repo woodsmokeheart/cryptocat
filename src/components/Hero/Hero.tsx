@@ -2,54 +2,74 @@
 
 import React, { useState, useEffect } from 'react'
 import { FaPlay, FaPause, FaChevronLeft, FaChevronRight } from 'react-icons/fa'
+import { Slide } from '@/types/slide'
 import styles from './Hero.module.css'
 
-interface Slide {
-  id: number
-  heading: string
-  title: string
-  titleAccent: string
-  description: string
-  descriptionAccent: string
-  bgImage: string
-}
-
-const slides: Slide[] = [
+// Fallback слайды на случай, если база данных недоступна
+const fallbackSlides: Slide[] = [
   {
-    id: 1,
+    id: '1',
     heading: "Компания",
     title: "Простота это",
-    titleAccent: "сложность",
+    title_accent: "сложность",
     description: "Мы предоставляем актуальные решения для каждого дня, независимо от",
-    descriptionAccent: "стадии рынка.",
-    bgImage: styles.bgImg1
+    description_accent: "стадии рынка.",
+    background_image: '/img/background/hero-bg-1.jpg',
+    link_url: '',
+    link_text: '',
+    order_index: 0,
+    is_active: true,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+    author_id: ''
   },
   {
-    id: 2,
+    id: '2',
     heading: "Сообщество",
     title: "Трейдинг - это",
-    titleAccent: "процесс",
+    title_accent: "процесс",
     description: "Самое активное и успешное сообщество, состоящее из более чем 10 000 трейдеров",
-    descriptionAccent: "со всего мира.",
-    bgImage: styles.bgImg2
+    description_accent: "со всего мира.",
+    background_image: '/img/background/hero-bg-2.jpg',
+    link_url: '',
+    link_text: '',
+    order_index: 1,
+    is_active: true,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+    author_id: ''
   },
   {
-    id: 3,
+    id: '3',
     heading: "Команда",
     title: "Спокойствие - это",
-    titleAccent: "решение",
+    title_accent: "решение",
     description: "Команда достойна называться",
-    descriptionAccent: "лучшей в своей области.",
-    bgImage: styles.bgImg3
+    description_accent: "лучшей в своей области.",
+    background_image: '/img/background/hero-bg-3.jpg',
+    link_url: '',
+    link_text: '',
+    order_index: 2,
+    is_active: true,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+    author_id: ''
   },
   {
-    id: 4,
+    id: '4',
     heading: "Будущее",
     title: "Достижения, которые",
-    titleAccent: "впечатляют",
+    title_accent: "впечатляют",
     description: "Уникальность подходов в сочетании с наставничеством и современными технологиями",
-    descriptionAccent: "могут вас удивить.",
-    bgImage: styles.bgImg4
+    description_accent: "могут вас удивить.",
+    background_image: '/img/background/hero-bg-4.jpg',
+    link_url: '',
+    link_text: '',
+    order_index: 3,
+    is_active: true,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+    author_id: ''
   }
 ]
 
@@ -66,13 +86,36 @@ const getSlideTransform = (index: number, currentSlide: number, previousSlide: n
 }
 
 const Hero = () => {
+  const [slides, setSlides] = useState<Slide[]>(fallbackSlides)
   const [currentSlide, setCurrentSlide] = useState(0)
   const [previousSlide, setPreviousSlide] = useState(0)
   const [isPlaying, setIsPlaying] = useState(true)
   const [animationDirection, setAnimationDirection] = useState<'next' | 'prev'>('next')
+  const [loading, setLoading] = useState(true)
+
+  // Загружаем слайды из базы данных
+  useEffect(() => {
+    const fetchSlides = async () => {
+      try {
+        const response = await fetch('/api/slides')
+        const data = await response.json()
+        
+        if (response.ok && data.slides && data.slides.length > 0) {
+          setSlides(data.slides)
+        }
+      } catch (error) {
+        console.error('Failed to fetch slides:', error)
+        // Используем fallback слайды
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchSlides()
+  }, [])
 
   useEffect(() => {
-    if (!isPlaying) return
+    if (!isPlaying || slides.length === 0) return
 
     const interval = setInterval(() => {
       setAnimationDirection('next')
@@ -83,28 +126,61 @@ const Hero = () => {
     }, 5000)
 
     return () => clearInterval(interval)
-  }, [isPlaying])
+  }, [isPlaying, slides.length])
 
   const togglePlayPause = () => {
     setIsPlaying(!isPlaying)
   }
 
   const goToPrevious = () => {
+    if (slides.length === 0) return
     setAnimationDirection('prev')
     setPreviousSlide(currentSlide)
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
   }
 
   const goToNext = () => {
+    if (slides.length === 0) return
     setAnimationDirection('next')
     setPreviousSlide(currentSlide)
     setCurrentSlide((prev) => (prev + 1) % slides.length)
   }
 
   const goToSlide = (index: number) => {
+    if (slides.length === 0) return
     setAnimationDirection('next')
     setPreviousSlide(currentSlide)
     setCurrentSlide(index)
+  }
+
+  if (loading) {
+    return (
+      <div className={styles.heroFullscreen}>
+        <div className={styles.heroFullscreenFix}>
+          <div className={styles.heroBg}>
+            <div className={styles.loadingContainer}>
+              <div className={styles.loadingSpinner}></div>
+              <p>Загрузка слайдов...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  if (slides.length === 0) {
+    return (
+      <div className={styles.heroFullscreen}>
+        <div className={styles.heroFullscreenFix}>
+          <div className={styles.heroBg}>
+            <div className={styles.noSlidesContainer}>
+              <h2>Слайды не найдены</h2>
+              <p>Обратитесь к администратору для настройки слайдов</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
   }
 
   return (
@@ -141,7 +217,7 @@ const Hero = () => {
                     {/* Page title */}
                     <div className={styles.postTitle}>
                       {slide.title}<br />
-                      <span className={styles.postTitleColor}>{slide.titleAccent}</span>
+                      <span className={styles.postTitleColor}>{slide.title_accent}</span>
                     </div>
                     
                     {/* Divider */}
@@ -151,9 +227,13 @@ const Hero = () => {
                     <div className={styles.postTxt}>
                       <p>
                         {slide.description}{' '}
-                        <a className={styles.linkUnderline} href="#">
-                          {slide.descriptionAccent}
-                        </a>
+                        {slide.link_url ? (
+                          <a className={styles.linkUnderline} href={slide.link_url} target="_blank" rel="noopener noreferrer">
+                            {slide.description_accent}
+                          </a>
+                        ) : (
+                          <span className={styles.linkUnderline}>{slide.description_accent}</span>
+                        )}
                       </p>
                     </div>
                   </div>
@@ -167,8 +247,9 @@ const Hero = () => {
             {slides.map((slide, index) => (
               <div
                 key={slide.id}
-                className={`${styles.heroSliderBg} ${slide.bgImage}`}
+                className={styles.heroSliderBg}
                 style={{ 
+                  backgroundImage: `url(${slide.background_image})`,
                   transform: getSlideTransform(index, currentSlide, previousSlide, animationDirection),
                   opacity: index === currentSlide ? 1 : 0
                 }}

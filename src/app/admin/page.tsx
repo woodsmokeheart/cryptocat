@@ -19,6 +19,11 @@ export default async function AdminPage() {
     .from('posts')
     .select('*', { count: 'exact', head: true })
 
-  return <AdminDashboard user={user} postsCount={postsCount || 0} />
+  // Получаем количество слайдов
+  const { count: slidesCount } = await supabase
+    .from('slides')
+    .select('*', { count: 'exact', head: true })
+
+  return <AdminDashboard user={user} postsCount={postsCount || 0} slidesCount={slidesCount || 0} />
 }
 

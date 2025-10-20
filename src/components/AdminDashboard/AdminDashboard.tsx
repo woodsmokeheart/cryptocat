@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import { FaFileAlt, FaChartBar, FaUsers, FaCog } from 'react-icons/fa'
+import { FaFileAlt, FaChartBar, FaUsers, FaCog, FaImages } from 'react-icons/fa'
 import { createClient } from '@/lib/supabase/client'
 import type { User } from '@supabase/supabase-js'
 import styles from './AdminDashboard.module.css'
@@ -11,9 +11,10 @@ import styles from './AdminDashboard.module.css'
 interface AdminDashboardProps {
   user: User
   postsCount?: number
+  slidesCount?: number
 }
 
-export default function AdminDashboard({ user, postsCount = 0 }: AdminDashboardProps) {
+export default function AdminDashboard({ user, postsCount = 0, slidesCount = 0 }: AdminDashboardProps) {
   const [loading, setLoading] = useState(false)
   const router = useRouter()
   const supabase = createClient()
@@ -59,6 +60,15 @@ export default function AdminDashboard({ user, postsCount = 0 }: AdminDashboardP
             <h3>Посты</h3>
             <p>Управление постами и статьями</p>
             <div className={styles.cardValue}>{postsCount}</div>
+          </Link>
+
+          <Link href="/admin/slides" className={styles.card}>
+            <div className={styles.cardIcon}>
+              <FaImages />
+            </div>
+            <h3>Слайды</h3>
+            <p>Управление слайдами главной страницы</p>
+            <div className={styles.cardValue}>{slidesCount}</div>
           </Link>
 
           <div className={styles.card} style={{ opacity: 0.5, cursor: 'not-allowed' }}>
