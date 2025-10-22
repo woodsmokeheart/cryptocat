@@ -47,7 +47,7 @@ const ModalManager: React.FC = () => {
         isOpen={contactModal.isOpen} 
         onClose={contactModal.closeModal}
         title="СВЯЗАТЬСЯ С НАМИ"
-        description="Готовы начать свой блокчейн путь? Свяжитесь с нашей командой экспертов."
+        description="Официальные каналы связи команды CryptoCat. Мы работаем только через проверенные контакты - остерегайтесь мошенников."
         slides={contactSlides}
       />
     </>

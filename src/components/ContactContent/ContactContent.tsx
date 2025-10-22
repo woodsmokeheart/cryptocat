@@ -17,14 +17,22 @@ const ContactContent: React.FC = () => {
           <FaTelegramPlane color="#29A8E0" size={20} />
           <h4 className={styles.cardTitle}>Telegram</h4>
         </div>
-        <div className={styles.linkRowCenterMobile}>
+        <div className={styles.chipsRow}>
           <a
-            className={`${styles.pill} ${styles.pillTelegram}`}
+            className={styles.chip}
+            href="https://t.me/cryptocatagency"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            CRYPTO CAT CHANNEL <FiExternalLink size={14} />
+          </a>
+          <a
+            className={styles.chip}
             href="https://t.me/cryptocat_manager"
             target="_blank"
             rel="noopener noreferrer"
           >
-            cryptocat_manager <FiExternalLink size={16} />
+            Cryptocat Manager <FiExternalLink size={14} />
           </a>
         </div>
       </ContactCard>
