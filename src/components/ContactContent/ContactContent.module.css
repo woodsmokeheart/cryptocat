@@ -48,6 +48,10 @@
   background: rgba(41,168,224,0.15);
 }
 
+.pillYoutube {
+  background: rgba(255,0,0,0.15);
+}
+
 .chipsRow {
   display: flex;
   flex-wrap: wrap;
