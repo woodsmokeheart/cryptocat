@@ -310,17 +310,6 @@ const SlideForm = ({ slideId }: SlideFormProps) => {
         )}
       </div>
 
-      <div className={styles.checkboxGroup}>
-        <label className={styles.checkboxLabel}>
-          <input
-            type="checkbox"
-            name="is_active"
-            checked={formData.is_active}
-            onChange={handleInputChange}
-          />
-          <span className={styles.checkboxText}>Активный слайд</span>
-        </label>
-      </div>
 
       <div className={styles.formActions}>
         <button
