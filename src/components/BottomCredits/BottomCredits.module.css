@@ -54,3 +54,8 @@
   color: #FF7A3D;
   text-decoration: none;
 }
+
+.separator {
+  color: #FF7A3D;
+  margin: 0 8px;
+}

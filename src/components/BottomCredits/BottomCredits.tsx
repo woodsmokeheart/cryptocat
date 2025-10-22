@@ -7,7 +7,9 @@ const BottomCredits = () => {
   return (
     <div className={styles.bottomCredits}>
       <h4 className={`${styles.bottomCreditsLead} ${styles.bottomCreditsLeadColor}`}>
-        <a href="mailto:cryptocatagency@gmail.com">cryptocatagency@gmail.com</a>
+        <a href="/privacy-policy">Privacy Policy</a>
+        <span className={styles.separator}> • </span>
+        <a href="/terms-of-use">Terms of Use</a>
       </h4>
     </div>
   )
