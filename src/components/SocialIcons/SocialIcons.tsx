@@ -1,7 +1,8 @@
 'use client'
 
 import React from 'react'
-import { FaInstagram, FaTelegramPlane, FaTwitter } from 'react-icons/fa'
+import { FaYoutube, FaTelegramPlane } from 'react-icons/fa'
+import { SiTradingview } from 'react-icons/si'
 import styles from './SocialIcons.module.css'
 
 const SocialIcons = () => {
@@ -10,8 +11,8 @@ const SocialIcons = () => {
       <ul>
         <li>
           <a href="#" className={styles.socialLink}>
-            <FaInstagram className={styles.socialIcon} />
-            <span>INSTAGRAM</span>
+            <FaYoutube className={styles.socialIcon} />
+            <span>YOUTUBE</span>
           </a>
         </li>
         <li>
@@ -22,8 +23,8 @@ const SocialIcons = () => {
         </li>
         <li>
           <a href="#" className={styles.socialLink}>
-            <FaTwitter className={styles.socialIcon} />
-            <span>TWITTER</span>
+            <SiTradingview className={styles.socialIcon} />
+            <span>TradingView</span>
           </a>
         </li>
       </ul>

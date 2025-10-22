@@ -60,7 +60,7 @@ const ContactContent: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            cryptocatagency <FiExternalLink size={14} />
+            CRYPTO CAT <FiExternalLink size={14} />
           </a>
           <a
             className={styles.chip}
@@ -68,7 +68,7 @@ const ContactContent: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            CryptoCat_Squad <FiExternalLink size={14} />
+            Crypto Cat Squad <FiExternalLink size={14} />
           </a>
           <a
             className={styles.chip}
@@ -76,7 +76,7 @@ const ContactContent: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            cryptocatagency_kitty <FiExternalLink size={14} />
+            Crypto Kitty <FiExternalLink size={14} />
           </a>
         </div>
       </ContactCard>
