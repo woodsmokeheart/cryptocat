@@ -5,7 +5,7 @@ import styles from './ContactCard.module.css'
 
 type ContactCardProps = PropsWithChildren<{
   className?: string
-  variant?: 'email' | 'telegram' | 'referral' | 'trading'
+  variant?: 'email' | 'telegram' | 'referral' | 'trading' | 'youtube'
 }>
 
 const ContactCard: React.FC<ContactCardProps> = ({ className, variant, children }) => {
