@@ -98,7 +98,7 @@ const ContactContent: React.FC = () => {
         <div className={styles.linkRowCenterMobile}>
           <a
             className={`${styles.pill} ${styles.pillYoutube}`}
-            href="#"
+            href="https://youtube.com/@cryptocatagency?si=eH9B_x_9naUD9uvG"
             target="_blank"
             rel="noopener noreferrer"
           >
