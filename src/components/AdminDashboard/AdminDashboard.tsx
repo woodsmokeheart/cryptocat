@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import { FaFileAlt, FaChartBar, FaUsers, FaCog, FaImages } from 'react-icons/fa'
+import { FaFileAlt, FaImages, FaGavel } from 'react-icons/fa'
 import { createClient } from '@/lib/supabase/client'
 import type { User } from '@supabase/supabase-js'
 import styles from './AdminDashboard.module.css'
@@ -71,32 +71,14 @@ export default function AdminDashboard({ user, postsCount = 0, slidesCount = 0 }
             <div className={styles.cardValue}>{slidesCount}</div>
           </Link>
 
-          <div className={styles.card} style={{ opacity: 0.5, cursor: 'not-allowed' }}>
+          <Link href="/admin/legal-pages" className={styles.card}>
             <div className={styles.cardIcon}>
-              <FaChartBar />
+              <FaGavel />
             </div>
-            <h3>Статистика</h3>
-            <p>Просмотр аналитики и статистики сайта</p>
-            <div className={styles.cardValue}>Скоро</div>
-          </div>
-
-          <div className={styles.card} style={{ opacity: 0.5, cursor: 'not-allowed' }}>
-            <div className={styles.cardIcon}>
-              <FaUsers />
-            </div>
-            <h3>Пользователи</h3>
-            <p>Управление пользователями системы</p>
-            <div className={styles.cardValue}>Скоро</div>
-          </div>
-
-          <div className={styles.card} style={{ opacity: 0.5, cursor: 'not-allowed' }}>
-            <div className={styles.cardIcon}>
-              <FaCog />
-            </div>
-            <h3>Настройки</h3>
-            <p>Конфигурация системы</p>
-            <div className={styles.cardValue}>Скоро</div>
-          </div>
+            <h3>Правовые документы</h3>
+            <p>Управление Privacy Policy и Terms of Use</p>
+            <div className={styles.cardValue}>2</div>
+          </Link>
         </div>
 
         <div className={styles.infoSection}>

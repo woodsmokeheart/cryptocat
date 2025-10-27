@@ -7,9 +7,9 @@ const BottomCredits = () => {
   return (
     <div className={styles.bottomCredits}>
       <h4 className={`${styles.bottomCreditsLead} ${styles.bottomCreditsLeadColor}`}>
-        <a href="/privacy-policy">Privacy Policy</a>
+        <a href="/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
         <span className={styles.separator}> • </span>
-        <a href="/terms-of-use">Terms of Use</a>
+        <a href="/terms-of-use" target="_blank" rel="noopener noreferrer">Terms of Use</a>
       </h4>
     </div>
   )
