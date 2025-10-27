@@ -182,6 +182,7 @@
     /* Кастомный скроллбар для мобильной версии */
     scrollbar-width: thin;
     scrollbar-color: #FF7A3D rgba(255, 255, 255, 0.05);
+    padding-bottom: 80px; /* Отступ для системной панели */
   }
 
   
