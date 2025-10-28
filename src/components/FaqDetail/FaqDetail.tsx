@@ -1,10 +1,9 @@
 'use client'
 
 import React from 'react'
-import Image from 'next/image'
 import { FaArrowLeft } from 'react-icons/fa'
 import { useRouter } from 'next/navigation'
-import { FaqItem } from '../../data/faqData'
+import { FaqItem } from '@/types/faq'
 import styles from './FaqDetail.module.css'
 
 interface FaqDetailProps {
@@ -27,28 +26,35 @@ const FaqDetail: React.FC<FaqDetailProps> = ({ faq, onBack }) => {
     <div className={styles.faqDetail} data-faq-detail>
       <div className={styles.header}>
         <button className={styles.backButton} onClick={handleBack}>
-          <FaArrowLeft /> Назад к FAQ
+          <FaArrowLeft /> Назад
         </button>
-        <span className={styles.date}>{faq.date}</span>
+        <span className={styles.date}>
+          {new Date(faq.created_at).toLocaleDateString('ru-RU', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+          })}
+        </span>
       </div>
       
-      <div className={styles.imageContainer}>
-        <Image
-          src={faq.image}
-          alt={faq.title}
-          width={800}
-          height={400}
-          className={styles.image}
-        />
-      </div>
+      {faq.image_url && (
+        <div className={styles.imageContainer}>
+          <img
+            src={faq.image_url}
+            alt={faq.title}
+            className={styles.image}
+          />
+        </div>
+      )}
       
       <div className={styles.content}>
         <h2 className={styles.title}>{faq.title}</h2>
         <p className={styles.description}>{faq.description}</p>
         
-        <div className={styles.fullContent}>
-          {faq.content}
-        </div>
+        <div 
+          className={styles.fullContent}
+          dangerouslySetInnerHTML={{ __html: faq.content }}
+        />
       </div>
     </div>
   )

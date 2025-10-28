@@ -100,7 +100,8 @@ export const faqSlides: SlideContent[] = [
   {
     id: 'faq1',
     title: 'FAQ',
-    content: <FaqGrid />
+    content: <FaqGrid />,
+    slideClassName: 'faqSlide'
   }
 ]
 

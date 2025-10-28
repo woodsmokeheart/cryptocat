@@ -182,7 +182,6 @@
     /* Кастомный скроллбар для мобильной версии */
     scrollbar-width: thin;
     scrollbar-color: #FF7A3D rgba(255, 255, 255, 0.05);
-    padding-bottom: 80px; /* Отступ для системной панели */
   }
 
   
@@ -202,8 +201,9 @@
     min-width: auto;
     order: 2;
     flex: 1;
-    /* Убираем скролл с правого блока на мобильных устройствах */
-    overflow: visible;
+    /* Предотвращаем горизонтальный скролл на мобильных */
+    overflow-x: hidden;
+    overflow-y: visible;
   }
   
   .modalHeader {

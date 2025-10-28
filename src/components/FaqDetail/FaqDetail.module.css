@@ -43,12 +43,10 @@
 }
 
 .imageContainer {
-  width: 100%;
-  max-width: 769px;
-  margin: 0 auto 30px auto;
-  border-radius: 12px;
+  width: calc(100% + 40px);
+  margin: 0 -20px 30px -20px;
+  border-radius: 0;
   overflow: hidden;
-  border: 1px solid #333;
 }
 
 .image {
@@ -152,6 +150,11 @@
   .faqDetail {
     padding: 15px;
     overflow-x: hidden;
+  }
+
+  .imageContainer {
+    width: calc(100% + 30px);
+    margin: 0 -15px 30px -15px;
   }
 
   .content {

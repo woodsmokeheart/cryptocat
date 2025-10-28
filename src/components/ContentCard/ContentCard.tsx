@@ -1,7 +1,6 @@
 'use client'
 
 import React from 'react'
-import Image from 'next/image'
 import styles from './ContentCard.module.css'
 
 interface ContentCardProps {
@@ -26,16 +25,16 @@ const ContentCard: React.FC<ContentCardProps> = ({
   onReadMore
 }) => {
   return (
-    <div className={styles.contentCard}>
-      <div className={styles.imageContainer}>
-        <Image
-          src={image}
-          alt={title}
-          width={300}
-          height={200}
-          className={styles.cardImage}
-        />
-      </div>
+    <div className={`${styles.contentCard} ${!image ? styles.noImage : ''}`} onClick={onReadMore}>
+      {image && (
+        <div className={styles.imageContainer}>
+          <img
+            src={image}
+            alt={title}
+            className={styles.cardImage}
+          />
+        </div>
+      )}
       <div className={styles.content}>
         <h3 className={styles.title}>{title}</h3>
         <p className={styles.description}>{description}</p>
@@ -45,14 +44,6 @@ const ContentCard: React.FC<ContentCardProps> = ({
           {date && <span className={styles.date}>{date}</span>}
           {author && <span className={styles.author}>{author}</span>}
         </div>
-        
-        {/* Кнопка "Читать" */}
-        <button 
-          className={styles.readButton}
-          onClick={onReadMore}
-        >
-          Читать
-        </button>
       </div>
     </div>
   )

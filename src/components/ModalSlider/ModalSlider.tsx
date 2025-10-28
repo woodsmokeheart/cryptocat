@@ -84,15 +84,18 @@ const ModalSlider: React.FC<ModalSliderProps> = ({
             transform: `translateX(-${activeSlide * 100}%)`,
           }}
         >
-          {slides.map((slide, index) => (
-            <div 
-              key={slide.id} 
-              className={styles.slide}
-              style={{ width: '100%' }}
-            >
-              {slide.content}
-            </div>
-          ))}
+          {slides.map((slide, index) => {
+            const slideClass = slide.slideClassName ? styles[slide.slideClassName] : styles.slide
+            return (
+              <div 
+                key={slide.id} 
+                className={slideClass}
+                style={{ width: '100%' }}
+              >
+                {slide.content}
+              </div>
+            )
+          })}
         </div>
       </div>
       

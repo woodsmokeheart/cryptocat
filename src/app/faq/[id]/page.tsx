@@ -1,8 +1,8 @@
 'use client'
 
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import { faqData } from '@/data/faqData'
+import { FaqItem } from '@/types/faq'
 import FaqDetail from '@/components/FaqDetail/FaqDetail'
 
 interface FaqDetailPageProps {
@@ -14,13 +14,59 @@ interface FaqDetailPageProps {
 const FaqDetailPage: React.FC<FaqDetailPageProps> = ({ params }) => {
   const router = useRouter()
   const faqSlug = params.id
-  const faq = faqData.find(item => item.slug === faqSlug)
+  const [faq, setFaq] = useState<FaqItem | null>(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    fetchFaq()
+  }, [faqSlug])
+
+  const fetchFaq = async () => {
+    try {
+      setLoading(true)
+      const response = await fetch(`/api/faq/slug/${faqSlug}`)
+      
+      if (!response.ok) {
+        if (response.status === 404) {
+          setError('FAQ не найден')
+        } else {
+          throw new Error('Failed to fetch FAQ')
+        }
+        return
+      }
+
+      const data = await response.json()
+      setFaq(data)
+    } catch (err) {
+      console.error('Error fetching FAQ:', err)
+      setError('Ошибка загрузки FAQ')
+    } finally {
+      setLoading(false)
+    }
+  }
 
   const handleBack = () => {
     router.back()
   }
 
-  if (!faq) {
+  if (loading) {
+    return (
+      <div style={{ 
+        padding: '20px', 
+        color: '#fff', 
+        textAlign: 'center',
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
+      }}>
+        <div>Загрузка FAQ...</div>
+      </div>
+    )
+  }
+
+  if (error || !faq) {
     return (
       <div style={{ 
         padding: '20px', 
@@ -33,7 +79,7 @@ const FaqDetailPage: React.FC<FaqDetailPageProps> = ({ params }) => {
         flexDirection: 'column',
         gap: '20px'
       }}>
-        <h1>FAQ не найден</h1>
+        <h1>{error || 'FAQ не найден'}</h1>
         <button 
           onClick={handleBack}
           style={{
