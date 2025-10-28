@@ -14,7 +14,7 @@ const nextConfig = {
   // Настройки для изображений (адаптивные изображения)
   images: {
     // Домены, с которых разрешено загружать изображения
-    domains: ['fonts.googleapis.com'],
+    domains: ['fonts.googleapis.com', 'pjjqbpfbncuqidhxsswe.supabase.co'],
     // Форматы изображений для оптимизации
     formats: ['image/webp', 'image/avif'],
     // Адаптивные размеры изображений

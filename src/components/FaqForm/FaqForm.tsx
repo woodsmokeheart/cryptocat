@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
+import Image from 'next/image'
 import { FaArrowLeft, FaSave, FaTrash, FaUpload, FaImage } from 'react-icons/fa'
 import { FaqItem, CreateFaqItemData, UpdateFaqItemData } from '@/types/faq'
 import TipTapEditor from '@/components/TipTapEditor/TipTapEditor'
@@ -267,7 +268,13 @@ const FaqForm: React.FC<FaqFormProps> = ({ faqId }) => {
             />
             {formData.image_url && (
               <div className={styles.imagePreview}>
-                <img src={formData.image_url} alt="Предпросмотр изображения" />
+                <Image 
+                  src={formData.image_url} 
+                  alt="Предпросмотр изображения"
+                  width={300}
+                  height={200}
+                  style={{ width: '100%', height: 'auto' }}
+                />
                 <button
                   type="button"
                   onClick={() => setFormData(prev => ({ ...prev, image_url: '' }))}

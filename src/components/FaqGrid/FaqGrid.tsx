@@ -75,8 +75,7 @@ const FaqGrid: React.FC = () => {
         {faqs.map((faq) => (
           <ContentCard
             key={faq.id}
-            id={faq.id}
-            image={faq.image_url}
+            image={faq.image_url || ''}
             title={faq.title}
             description={faq.description}
             date={formatDate(faq.created_at)}

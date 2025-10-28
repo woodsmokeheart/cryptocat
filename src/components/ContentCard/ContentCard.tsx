@@ -1,10 +1,11 @@
 'use client'
 
 import React from 'react'
+import Image from 'next/image'
 import styles from './ContentCard.module.css'
 
 interface ContentCardProps {
-  id: number
+  id?: number | string
   image: string
   title: string
   description: string
@@ -28,10 +29,13 @@ const ContentCard: React.FC<ContentCardProps> = ({
     <div className={`${styles.contentCard} ${!image ? styles.noImage : ''}`} onClick={onReadMore}>
       {image && (
         <div className={styles.imageContainer}>
-          <img
+          <Image
             src={image}
             alt={title}
             className={styles.cardImage}
+            width={400}
+            height={200}
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           />
         </div>
       )}
