@@ -183,9 +183,6 @@ const FaqForm: React.FC<FaqFormProps> = ({ faqId }) => {
             <FaArrowLeft />
             Назад
           </button>
-          <h1 className={styles.title}>
-            {isEditing ? 'Редактировать FAQ' : 'Создать FAQ'}
-          </h1>
           <div className={styles.headerActions}>
             {isEditing && (
               <button 
@@ -198,6 +195,9 @@ const FaqForm: React.FC<FaqFormProps> = ({ faqId }) => {
               </button>
             )}
           </div>
+          <h1 className={styles.title}>
+            {isEditing ? 'Редактировать FAQ' : 'Создать FAQ'}
+          </h1>
         </div>
       </div>
 
