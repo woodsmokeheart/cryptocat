@@ -119,23 +119,45 @@ p, span, div, h1, h2, h3, h4, h5, h6 {
   user-select: text;
 }
 
-html, body {
+html {
   /* Глобально учитываем реальную высоту экрана на мобильных */
-  min-height: 100vh;    /* Fallback */
-  min-height: 100dvh;   /* Современная единица: динамическая высота вьюпорта */
-  /* Учитываем системные панели/чёлки */
-  padding-top: env(safe-area-inset-top);
-  padding-bottom: env(safe-area-inset-bottom);
-  padding-left: env(safe-area-inset-left);
-  padding-right: env(safe-area-inset-right);
-  overscroll-behavior: none;
-  overscroll-behavior-y: none;
+  height: 100vh;    /* Fallback */
+  height: 100dvh;   /* Современная единица: динамическая высота вьюпорта */
+  overflow: hidden;
 }
 
 body {
-  line-height: 1;
+  /* Фиксируем высоту body, чтобы избежать лишнего скролла */
+  height: 100vh;    /* Fallback */
+  height: 100dvh;   /* Реальная высота вьюпорта */
+  /* Учитываем системные панели/чёлки через переменные для использования в компонентах */
+  --safe-area-inset-top: env(safe-area-inset-top, 0px);
+  --safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-area-inset-left: env(safe-area-inset-left, 0px);
+  --safe-area-inset-right: env(safe-area-inset-right, 0px);
   overscroll-behavior: none;
   overscroll-behavior-y: none;
+  /* Layout styles */
+  line-height: 1;
+  font-family: var(--font-raleway), 'Raleway', sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  text-align: left;
+  color: #fff;
+  background: #000;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin: 0;
+  padding: 0;
 }
 
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
@@ -199,33 +221,6 @@ button::-webkit-focus-ring-color,
 input::-webkit-focus-ring-color,
 select::-webkit-focus-ring-color,
 textarea::-webkit-focus-ring-color { outline: none; }
-
-/* Layout */
-body {
-  font-family: var(--font-raleway), 'Raleway', sans-serif;
-  font-size: 15px;
-  font-style: normal;
-  font-weight: 500;
-  text-align: left;
-  color: #fff;
-  background: #000;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-  -moz-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  width: 100%;
-  /* Избегаем фиксированной высоты, растягиваемся минимум на высоту экрана */
-  min-height: 100vh;    /* Fallback */
-  min-height: 100dvh;   /* Реальная высота вьюпорта */
-  overflow-x: hidden;
-  overflow-y: auto;
-  margin: 0;
-  padding: 0;
-  line-height: 1.5;
-}
 
 a { color: #FF7A3D; text-decoration: none; outline: none; }
 
@@ -381,11 +376,22 @@ img {
 #containerOT {
   position: relative;
   width: 100%;
+  height: 100%;
   min-height: 100vh;
+  min-height: 100dvh;
   overflow: visible;
   margin: 0 auto;
   background: none;
   z-index: 2;
+}
+
+/* Main element - не должен создавать лишнюю высоту */
+main {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 /* Shop layout styles */

@@ -10,7 +10,8 @@
 @media only screen and (max-width: 768px) {
   .bottomCredits {
     left: 30px;
-    bottom: 20px;
+    /* Учитываем safe-area снизу, чтобы не попасть под панель браузера */
+    bottom: calc(20px + env(safe-area-inset-bottom, 0px));
   }
 }
 
