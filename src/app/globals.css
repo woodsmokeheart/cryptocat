@@ -120,7 +120,14 @@ p, span, div, h1, h2, h3, h4, h5, h6 {
 }
 
 html, body {
-  height: 100%;
+  /* Глобально учитываем реальную высоту экрана на мобильных */
+  min-height: 100vh;    /* Fallback */
+  min-height: 100dvh;   /* Современная единица: динамическая высота вьюпорта */
+  /* Учитываем системные панели/чёлки */
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
   overscroll-behavior: none;
   overscroll-behavior-y: none;
 }
@@ -210,7 +217,9 @@ body {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   width: 100%;
-  height: 100%;
+  /* Избегаем фиксированной высоты, растягиваемся минимум на высоту экрана */
+  min-height: 100vh;    /* Fallback */
+  min-height: 100dvh;   /* Реальная высота вьюпорта */
   overflow-x: hidden;
   overflow-y: auto;
   margin: 0;
