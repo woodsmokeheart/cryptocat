@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import ContentCard from '../ContentCard/ContentCard'
+import Loader from '../Loader/Loader'
 import { FaqItem } from '@/types/faq'
 import styles from './FaqGrid.module.css'
 
@@ -47,8 +48,10 @@ const FaqGrid: React.FC = () => {
 
   if (loading) {
     return (
-      <div className={styles.faqGridContainer}>
-        <div className={styles.loading}>Загрузка FAQ...</div>
+      <div className={`${styles.faqGridContainer} ${styles.loadingContainer}`}>
+        <div className={styles.loading}>
+          <Loader size="medium" />
+        </div>
       </div>
     )
   }

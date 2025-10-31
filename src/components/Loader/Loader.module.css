@@ -1,0 +1,81 @@
+/* Universal Loader Component */
+
+.loader {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.loaderCircle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #FF7A3D;
+  border-radius: 50%;
+  background: rgba(255, 122, 61, 0.1);
+  animation: logoGlow 2s ease-in-out infinite alternate;
+}
+
+.loaderImage {
+  width: 75%;
+  height: 75%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 20px rgba(255, 122, 61, 0.5));
+  animation: logoPulse 1.5s ease-in-out infinite;
+}
+
+/* Размеры */
+.loader.small .loaderCircle {
+  width: 60px;
+  height: 60px;
+}
+
+.loader.medium .loaderCircle {
+  width: 80px;
+  height: 80px;
+}
+
+.loader.large .loaderCircle {
+  width: 120px;
+  height: 120px;
+}
+
+/* Анимации */
+@keyframes logoGlow {
+  0% { 
+    box-shadow: 0 0 20px rgba(255, 122, 61, 0.3);
+  }
+  100% { 
+    box-shadow: 0 0 40px rgba(255, 122, 61, 0.6);
+  }
+}
+
+@keyframes logoPulse {
+  0%, 100% { 
+    transform: scale(1); 
+  }
+  50% { 
+    transform: scale(1.05); 
+  }
+}
+
+/* Мобильные стили */
+@media only screen and (max-width: 768px) {
+  .loader.small .loaderCircle {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .loader.medium .loaderCircle {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .loader.large .loaderCircle {
+    width: 100px;
+    height: 100px;
+  }
+}
+

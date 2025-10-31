@@ -1,5 +1,6 @@
 import { Suspense } from 'react'
 import PublicPostsList from '@/components/PublicPostsList/PublicPostsList'
+import Loader from '@/components/Loader/Loader'
 import { createPublicClient } from '@/lib/supabase/public'
 import type { PostsResponse } from '@/types/post'
 
@@ -64,7 +65,17 @@ export default async function LentaPage({ searchParams }: PageProps) {
 
   return (
     <div className="lenta-page">
-      <Suspense fallback={<div>Загрузка...</div>}>
+      <Suspense fallback={
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          minHeight: '100vh',
+          width: '100%'
+        }}>
+          <Loader size="large" />
+        </div>
+      }>
         <PublicPostsList postsData={postsData} />
       </Suspense>
     </div>

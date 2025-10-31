@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react'
 import { FaPlay, FaPause, FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import { Slide } from '@/types/slide'
+import Loader from '../Loader/Loader'
 import styles from './Hero.module.css'
 
 // Fallback слайды на случай, если база данных недоступна
@@ -159,8 +160,7 @@ const Hero = () => {
         <div className={styles.heroFullscreenFix}>
           <div className={styles.heroBg}>
             <div className={styles.loadingContainer}>
-              <div className={styles.loadingSpinner}></div>
-              <p>Загрузка слайдов...</p>
+              <Loader size="large" />
             </div>
           </div>
         </div>

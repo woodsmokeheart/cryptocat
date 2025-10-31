@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { FaqItem } from '@/types/faq'
 import FaqDetail from '@/components/FaqDetail/FaqDetail'
+import Loader from '@/components/Loader/Loader'
 
 interface FaqDetailPageProps {
   params: {
@@ -61,7 +62,7 @@ const FaqDetailPage: React.FC<FaqDetailPageProps> = ({ params }) => {
         alignItems: 'center',
         justifyContent: 'center'
       }}>
-        <div>Загрузка FAQ...</div>
+        <Loader size="large" />
       </div>
     )
   }
