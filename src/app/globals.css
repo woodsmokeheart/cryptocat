@@ -120,16 +120,15 @@ p, span, div, h1, h2, h3, h4, h5, h6 {
 }
 
 html {
-  /* Глобально учитываем реальную высоту экрана на мобильных */
-  height: 100vh;    /* Fallback */
-  height: 100dvh;   /* Современная единица: динамическая высота вьюпорта */
-  overflow: hidden;
+  /* Минимальная высота для корректного отображения на мобильных */
+  min-height: 100vh;    /* Fallback */
+  min-height: 100dvh;   /* Современная единица: динамическая высота вьюпорта */
 }
 
 body {
-  /* Фиксируем высоту body, чтобы избежать лишнего скролла */
-  height: 100vh;    /* Fallback */
-  height: 100dvh;   /* Реальная высота вьюпорта */
+  /* Минимальная высота, но позволяем расти по содержимому для скролла */
+  min-height: 100vh;    /* Fallback */
+  min-height: 100dvh;   /* Реальная высота вьюпорта */
   /* Учитываем системные панели/чёлки через переменные для использования в компонентах */
   --safe-area-inset-top: env(safe-area-inset-top, 0px);
   --safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
@@ -155,7 +154,6 @@ body {
   backface-visibility: hidden;
   width: 100%;
   overflow-x: hidden;
-  overflow-y: auto;
   margin: 0;
   padding: 0;
 }
