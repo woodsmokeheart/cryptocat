@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 import { FaArrowLeft, FaPlus, FaEdit, FaTrash, FaEye, FaEyeSlash } from 'react-icons/fa'
 import { Service } from '@/types/service'
 import styles from './ServicesList.module.css'
@@ -104,25 +105,17 @@ const ServicesList: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.header}>
+      <header className={styles.header}>
         <div className={styles.headerContent}>
-          <button 
-            className={styles.backButton}
-            onClick={() => router.push('/admin')}
-          >
-            <FaArrowLeft />
-            Назад
-          </button>
-          <h1 className={styles.title}>Управление услугами</h1>
-          <button 
-            className={styles.createButton}
-            onClick={() => router.push('/admin/services/new')}
-          >
-            <FaPlus />
-            Создать услугу
-          </button>
+          <Link href="/admin" className={styles.backLink}>
+            <FaArrowLeft /> Вернуться в админку
+          </Link>
+          <h1>Управление услугами</h1>
+          <Link href="/admin/services/new" className={styles.createButton}>
+            + Создать услугу
+          </Link>
         </div>
-      </div>
+      </header>
 
       <div className={styles.content}>
         {services.length === 0 ? (

@@ -1,64 +1,81 @@
 .container {
   min-height: 100vh;
-  background: #0a0a0a;
-  color: #fff;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
   padding: 20px;
 }
 
 .header {
-  max-width: 1400px;
-  margin: 0 auto 40px;
+  background: rgba(26, 26, 26, 0.95);
+  border-bottom: 1px solid rgba(255, 122, 61, 0.2);
+  padding: 20px;
+  margin: -20px -20px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(10px);
 }
 
 .headerContent {
-  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
   gap: 20px;
-  flex-wrap: wrap;
 }
 
-.backButton {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-family: var(--font-raleway, 'Raleway', sans-serif);
-  font-size: 14px;
+.header h1 {
+  font-family: var(--font-oswald);
+  font-size: 28px;
+  font-weight: 700;
   color: #FF7A3D;
+  margin: 0;
+  text-transform: uppercase;
+  text-align: center;
+  justify-self: center;
+}
+
+.backLink {
+  font-family: var(--font-raleway);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 20px;
   background: rgba(255, 122, 61, 0.1);
+  color: #FF7A3D;
   border: 1px solid rgba(255, 122, 61, 0.3);
-  border-radius: 8px;
-  padding: 10px 16px;
+  border-radius: 6px;
   cursor: pointer;
   transition: all 0.3s ease;
+  text-decoration: none;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  justify-self: start;
 }
 
-.backButton:hover {
+.backLink:hover {
   background: rgba(255, 122, 61, 0.2);
   border-color: rgba(255, 122, 61, 0.5);
 }
 
-.title {
-  font-family: var(--font-oswald, 'Oswald', sans-serif);
-  font-size: 32px;
-  font-weight: 700;
-  color: #fff;
-  margin: 0;
-  flex: 1;
-}
-
 .createButton {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-family: var(--font-raleway, 'Raleway', sans-serif);
+  font-family: var(--font-raleway);
   font-size: 14px;
-  color: #fff;
+  font-weight: 600;
+  padding: 10px 20px;
   background: #FF7A3D;
+  color: #fff;
   border: none;
-  border-radius: 8px;
-  padding: 12px 20px;
+  border-radius: 6px;
   cursor: pointer;
   transition: all 0.3s ease;
+  text-decoration: none;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  justify-self: end;
 }
 
 .createButton:hover {
@@ -67,7 +84,7 @@
 }
 
 .content {
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -226,12 +243,26 @@
 
 @media (max-width: 768px) {
   .headerContent {
-    flex-direction: column;
-    align-items: stretch;
+    grid-template-columns: 1fr;
+    gap: 15px;
   }
 
-  .title {
+  .header h1 {
     font-size: 24px;
+    order: 2;
+  }
+
+  .backLink {
+    order: 1;
+    justify-self: stretch;
+    text-align: center;
+  }
+
+  .createButton {
+    order: 3;
+    justify-self: stretch;
+    text-align: center;
+    justify-content: center;
   }
 
   .servicesGrid {
