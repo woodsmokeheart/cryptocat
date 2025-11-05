@@ -29,11 +29,17 @@ export default async function AdminPage() {
     .from('faq_items')
     .select('*', { count: 'exact', head: true })
 
+  // Получаем количество услуг
+  const { count: servicesCount } = await supabase
+    .from('services')
+    .select('*', { count: 'exact', head: true })
+
   return <AdminDashboard 
     user={user} 
     postsCount={postsCount || 0} 
     slidesCount={slidesCount || 0} 
     faqCount={faqCount || 0}
+    servicesCount={servicesCount || 0}
   />
 }
 

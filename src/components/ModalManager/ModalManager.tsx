@@ -3,9 +3,9 @@
 import React from 'react'
 import ModalLayout from '../ModalLayout/ModalLayout'
 import { useModal } from '../../hooks/useModal'
+import ServicesGrid from '../ServicesGrid/ServicesGrid'
 import { 
   aboutSlides, 
-  servicesSlides, 
   faqSlides, 
   contactSlides 
 } from '../../data/modalSlides'
@@ -31,7 +31,7 @@ const ModalManager: React.FC = () => {
         onClose={servicesModal.closeModal}
         title="НАШИ УСЛУГИ"
         description="Изучите наш полный спектр услуг по разработке блокчейн решений, веб-разработке и консультированию."
-        slides={servicesSlides}
+        servicesGrid={<ServicesGrid />}
       />
 
 

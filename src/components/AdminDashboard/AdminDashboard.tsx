@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import { FaFileAlt, FaImages, FaGavel, FaQuestionCircle } from 'react-icons/fa'
+import { FaFileAlt, FaImages, FaGavel, FaQuestionCircle, FaBriefcase } from 'react-icons/fa'
 import { createClient } from '@/lib/supabase/client'
 import type { User } from '@supabase/supabase-js'
 import styles from './AdminDashboard.module.css'
@@ -13,9 +13,10 @@ interface AdminDashboardProps {
   postsCount?: number
   slidesCount?: number
   faqCount?: number
+  servicesCount?: number
 }
 
-export default function AdminDashboard({ user, postsCount = 0, slidesCount = 0, faqCount = 0 }: AdminDashboardProps) {
+export default function AdminDashboard({ user, postsCount = 0, slidesCount = 0, faqCount = 0, servicesCount = 0 }: AdminDashboardProps) {
   const [loading, setLoading] = useState(false)
   const router = useRouter()
   const supabase = createClient()
@@ -88,6 +89,15 @@ export default function AdminDashboard({ user, postsCount = 0, slidesCount = 0, 
             <h3>FAQ</h3>
             <p>Управление часто задаваемыми вопросами</p>
             <div className={styles.cardValue}>{faqCount}</div>
+          </Link>
+
+          <Link href="/admin/services" className={styles.card}>
+            <div className={styles.cardIcon}>
+              <FaBriefcase />
+            </div>
+            <h3>Услуги</h3>
+            <p>Управление услугами компании</p>
+            <div className={styles.cardValue}>{servicesCount}</div>
           </Link>
         </div>
 

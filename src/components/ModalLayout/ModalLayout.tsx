@@ -15,7 +15,8 @@ interface ModalLayoutProps {
   onClose: () => void
   title: string
   description?: string
-  slides: SlideContent[]
+  slides?: SlideContent[]
+  servicesGrid?: ReactNode
   children?: ReactNode
 }
 
@@ -24,7 +25,8 @@ const ModalLayout: React.FC<ModalLayoutProps> = ({
   onClose,
   title,
   description,
-  slides,
+  slides = [],
+  servicesGrid,
   children
 }) => {
   const [currentSlide, setCurrentSlide] = useState(0)
@@ -101,44 +103,60 @@ const ModalLayout: React.FC<ModalLayoutProps> = ({
               </div>
               
               {/* Desktop controls */}
-              <div className={styles.desktopControls}>
-                {slides.length > 1 && (
-                  <div className={styles.controlsSection}>
-                    <SliderControls
-                      onPrevious={goToPrevious}
-                      onNext={goToNext}
-                      currentSlide={currentSlide}
-                      totalSlides={slides.length}
-                    />
-                  </div>
-                )}
-              </div>
+              {!servicesGrid && (
+                <div className={styles.desktopControls}>
+                  {slides.length > 1 && (
+                    <div className={styles.controlsSection}>
+                      <SliderControls
+                        onPrevious={goToPrevious}
+                        onNext={goToNext}
+                        currentSlide={currentSlide}
+                        totalSlides={slides.length}
+                      />
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
 
             <div className={styles.rightPanel}>
-              {/* Desktop slider */}
-              <div className={styles.desktopSlider}>
-                <ModalSlider 
-                  slides={slides}
-                  currentSlide={currentSlide}
-                  onSlideChange={handleSlideChange}
-                  className={styles.slider}
-                />
-              </div>
-              
-              {/* Mobile content list */}
-              <div className={styles.mobileContent}>
-                {slides.map((slide, index) => (
-                  <MobileSlide 
-                    key={slide.id} 
-                    slide={slide}
-                    index={index}
-                    isOpen={openSlideIndex === index}
-                    onToggle={() => setOpenSlideIndex(openSlideIndex === index ? null : index)}
-                    isAlwaysOpen={slide.id === 'faq1' || slide.id === 'contact-info'}
-                  />
-                ))}
-              </div>
+              {/* Services Grid (for services modal) */}
+              {servicesGrid ? (
+                <>
+                  <div className={styles.desktopServices}>
+                    {servicesGrid}
+                  </div>
+                  <div className={styles.mobileServices}>
+                    {servicesGrid}
+                  </div>
+                </>
+              ) : (
+                <>
+                  {/* Desktop slider */}
+                  <div className={styles.desktopSlider}>
+                    <ModalSlider 
+                      slides={slides}
+                      currentSlide={currentSlide}
+                      onSlideChange={handleSlideChange}
+                      className={styles.slider}
+                    />
+                  </div>
+                  
+                  {/* Mobile content list */}
+                  <div className={styles.mobileContent}>
+                    {slides.map((slide, index) => (
+                      <MobileSlide 
+                        key={slide.id} 
+                        slide={slide}
+                        index={index}
+                        isOpen={openSlideIndex === index}
+                        onToggle={() => setOpenSlideIndex(openSlideIndex === index ? null : index)}
+                        isAlwaysOpen={slide.id === 'faq1' || slide.id === 'contact-info'}
+                      />
+                    ))}
+                  </div>
+                </>
+              )}
             </div>
           </div>
         </div>
