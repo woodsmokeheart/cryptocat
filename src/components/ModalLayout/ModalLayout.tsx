@@ -80,6 +80,9 @@ const ModalLayout: React.FC<ModalLayoutProps> = ({
           className={styles.modalContent} 
           onClick={(e) => e.stopPropagation()}
         >
+          {/* Анимированный шарик по бордеру */}
+          <div className={styles.borderBall}></div>
+          
           <div className={styles.modalHeader}>
             <h2 className={styles.modalTitle}>
               {displayedTitle}

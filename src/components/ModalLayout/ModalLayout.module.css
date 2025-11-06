@@ -32,6 +32,35 @@
   border: 1px solid #333;
 }
 
+/* Анимированный эффект по бордеру модалки (только для десктопа) */
+@media only screen and (min-width: 769px) {
+  .borderBall {
+    position: absolute;
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 122, 61, 0) 20%,
+      rgba(255, 122, 61, 0.4) 40%,
+      rgba(255, 122, 61, 0.8) 60%,
+      rgba(255, 122, 61, 1) 70%,
+      rgba(255, 122, 61, 0.8) 80%,
+      rgba(255, 122, 61, 0.4) 90%,
+      rgba(255, 122, 61, 0) 100%
+    );
+    box-shadow: 
+      0 0 4px rgba(255, 122, 61, 0.6),
+      0 0 8px rgba(255, 122, 61, 0.4),
+      0 0 12px rgba(255, 122, 61, 0.2);
+    z-index: 10;
+    pointer-events: none;
+    animation: borderEffectRotate 12s linear infinite;
+    border-radius: 1px;
+    opacity: 0.9;
+  }
+}
+
 .modalHeader {
   display: flex;
   justify-content: space-between;
@@ -332,6 +361,89 @@
   to {
     opacity: 1;
     transform: scale(1) translateY(0);
+  }
+}
+
+/* Анимация эффекта по периметру модалки по часовой стрелке */
+@keyframes borderEffectRotate {
+  /* Верхняя сторона: слева направо (0% - 25%) */
+  0% {
+    top: -0.5px;
+    left: -80px;
+    width: 80px;
+    height: 1px;
+    transform: rotate(0deg);
+  }
+  24.9% {
+    top: -0.5px;
+    left: calc(100% + 0px);
+    width: 80px;
+    height: 1px;
+    transform: rotate(0deg);
+  }
+  /* Правая сторона: сверху вниз (25% - 50%) */
+  25% {
+    top: -80px;
+    right: -0.5px;
+    left: auto;
+    width: 1px;
+    height: 80px;
+    transform: rotate(0deg);
+  }
+  49.9% {
+    top: calc(100% + 0px);
+    right: -0.5px;
+    left: auto;
+    width: 1px;
+    height: 80px;
+    transform: rotate(0deg);
+  }
+  /* Нижняя сторона: справа налево (50% - 75%) */
+  50% {
+    bottom: -0.5px;
+    right: -80px;
+    top: auto;
+    left: auto;
+    width: 80px;
+    height: 1px;
+    transform: rotate(0deg);
+  }
+  74.9% {
+    bottom: -0.5px;
+    right: calc(100% + 0px);
+    top: auto;
+    left: auto;
+    width: 80px;
+    height: 1px;
+    transform: rotate(0deg);
+  }
+  /* Левая сторона: снизу вверх (75% - 100%) */
+  75% {
+    bottom: -80px;
+    left: -0.5px;
+    top: auto;
+    right: auto;
+    width: 1px;
+    height: 80px;
+    transform: rotate(0deg);
+  }
+  99.9% {
+    bottom: calc(100% + 0px);
+    left: -0.5px;
+    top: auto;
+    right: auto;
+    width: 1px;
+    height: 80px;
+    transform: rotate(0deg);
+  }
+  100% {
+    top: -0.5px;
+    left: -80px;
+    bottom: auto;
+    right: auto;
+    width: 80px;
+    height: 1px;
+    transform: rotate(0deg);
   }
 }
 
