@@ -125,6 +125,10 @@
 
 .desktopSlider {
   display: block;
+  height: 100%;
+  overflow: hidden;
+  flex: 1;
+  min-height: 0;
 }
 
 .desktopServices {

@@ -9,6 +9,8 @@
   scrollbar-width: thin;
   scrollbar-color: #FF7A3D rgba(255, 255, 255, 0.05);
   box-sizing: border-box;
+  min-height: 0;
+  flex: 1;
 }
 
 .loadingContainer {
@@ -52,6 +54,24 @@
     grid-template-columns: 1fr;
     gap: 20px;
   }
+}
+
+/* Custom scrollbar for webkit browsers */
+.faqGridContainer::-webkit-scrollbar {
+  width: 8px;
+}
+
+.faqGridContainer::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.faqGridContainer::-webkit-scrollbar-thumb {
+  background: #FF7A3D;
+  border-radius: 4px;
+}
+
+.faqGridContainer::-webkit-scrollbar-thumb:hover {
+  background: #ff8f5c;
 }
 
 /* Mobile styles */
