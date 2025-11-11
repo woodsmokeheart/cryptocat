@@ -2,8 +2,9 @@
 
 import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import { FaArrowLeft, FaPlus, FaEdit, FaTrash, FaEye, FaEyeSlash } from 'react-icons/fa'
+import { FaPlus, FaEdit, FaTrash, FaEye, FaEyeSlash } from 'react-icons/fa'
 import { FaqItem } from '@/types/faq'
+import AdminBackLink from '../AdminBackLink/AdminBackLink'
 import styles from './FaqList.module.css'
 
 const FaqList: React.FC = () => {
@@ -106,13 +107,7 @@ const FaqList: React.FC = () => {
     <div className={styles.container}>
       <div className={styles.header}>
         <div className={styles.headerContent}>
-          <button 
-            className={styles.backButton}
-            onClick={() => router.push('/admin')}
-          >
-            <FaArrowLeft />
-            Назад
-          </button>
+          <AdminBackLink href="/admin" className={styles.backButton} />
           <h1 className={styles.title}>Управление FAQ</h1>
           <button 
             className={styles.createButton}

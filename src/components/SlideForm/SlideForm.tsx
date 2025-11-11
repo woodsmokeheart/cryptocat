@@ -3,7 +3,8 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 import { Slide, CreateSlideInput, UpdateSlideInput } from '@/types/slide'
-import { FaUpload, FaTimes, FaSpinner, FaArrowLeft } from 'react-icons/fa'
+import { FaUpload, FaTimes, FaSpinner } from 'react-icons/fa'
+import AdminBackLink from '../AdminBackLink/AdminBackLink'
 import styles from './SlideForm.module.css'
 
 interface SlideFormProps {
@@ -159,12 +160,7 @@ const SlideForm = ({ slideId }: SlideFormProps) => {
     <div className={styles.container}>
       <header className={styles.header}>
         <div className={styles.headerContent}>
-          <button 
-            onClick={() => router.push('/admin/slides')} 
-            className={styles.backLink}
-          >
-            <FaArrowLeft /> Назад
-          </button>
+          <AdminBackLink href="/admin/slides" className={styles.backLink} />
           <h1>{slideId ? 'Редактировать слайд' : 'Создать слайд'}</h1>
           <div></div>
         </div>

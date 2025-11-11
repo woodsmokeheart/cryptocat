@@ -35,30 +35,6 @@
   justify-self: center;
 }
 
-.backLink {
-  font-family: var(--font-raleway);
-  font-size: 14px;
-  font-weight: 600;
-  padding: 10px 20px;
-  background: rgba(255, 122, 61, 0.1);
-  color: #FF7A3D;
-  border: 1px solid rgba(255, 122, 61, 0.3);
-  border-radius: 6px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-decoration: none;
-  text-transform: uppercase;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  justify-self: start;
-}
-
-.backLink:hover {
-  background: rgba(255, 122, 61, 0.2);
-  border-color: rgba(255, 122, 61, 0.5);
-}
-
 .createButton {
   font-family: var(--font-raleway);
   font-size: 14px;
@@ -76,6 +52,10 @@
   align-items: center;
   gap: 8px;
   justify-self: end;
+}
+
+.backLink {
+  justify-self: start;
 }
 
 .createButton:hover {
@@ -133,8 +113,6 @@
 }
 
 .image {
-  width: 100%;
-  height: 100%;
   object-fit: cover;
   transition: transform 0.3s ease;
 }

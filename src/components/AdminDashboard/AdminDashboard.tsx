@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import { FaFileAlt, FaImages, FaGavel, FaQuestionCircle, FaBriefcase } from 'react-icons/fa'
+import { FaFileAlt, FaImages, FaGavel, FaQuestionCircle, FaBriefcase, FaInfoCircle } from 'react-icons/fa'
 import { createClient } from '@/lib/supabase/client'
 import type { User } from '@supabase/supabase-js'
 import styles from './AdminDashboard.module.css'
@@ -14,9 +14,19 @@ interface AdminDashboardProps {
   slidesCount?: number
   faqCount?: number
   servicesCount?: number
+  aboutTeamCount?: number
+  hasAboutDescription?: boolean
 }
 
-export default function AdminDashboard({ user, postsCount = 0, slidesCount = 0, faqCount = 0, servicesCount = 0 }: AdminDashboardProps) {
+export default function AdminDashboard({
+  user,
+  postsCount = 0,
+  slidesCount = 0,
+  faqCount = 0,
+  servicesCount = 0,
+  aboutTeamCount = 0,
+  hasAboutDescription = false,
+}: AdminDashboardProps) {
   const [loading, setLoading] = useState(false)
   const router = useRouter()
   const supabase = createClient()
@@ -98,6 +108,15 @@ export default function AdminDashboard({ user, postsCount = 0, slidesCount = 0, 
             <h3>Услуги</h3>
             <p>Управление услугами компании</p>
             <div className={styles.cardValue}>{servicesCount}</div>
+          </Link>
+
+          <Link href="/admin/about" className={styles.card}>
+            <div className={styles.cardIcon}>
+              <FaInfoCircle />
+            </div>
+            <h3>О нас</h3>
+            <p>{hasAboutDescription ? 'Описание заполнено' : 'Описание ещё не создано'}</p>
+            <div className={styles.cardValue}>{aboutTeamCount}</div>
           </Link>
         </div>
 

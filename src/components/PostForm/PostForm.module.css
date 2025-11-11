@@ -34,28 +34,7 @@
 }
 
 .backLink {
-  font-family: var(--font-raleway);
-  font-size: 14px;
-  font-weight: 500;
-  padding: 8px 16px;
-  background: rgba(255, 255, 255, 0.05);
-  color: rgba(255, 255, 255, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 6px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.backLink:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 122, 61, 0.4);
-  color: #FF7A3D;
-  transform: translateY(-1px);
+  margin-left: auto;
 }
 
 .main {
@@ -138,13 +117,13 @@
   border-radius: 6px;
 }
 
-.coverImagePreview img {
+.coverPreviewImg {
   width: 100%;
   max-width: 300px;
   height: auto;
   border-radius: 6px;
   margin-bottom: 12px;
-  display: block;
+  object-fit: cover;
 }
 
 .removeCoverButton {

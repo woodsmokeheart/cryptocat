@@ -20,12 +20,11 @@ import {
   FaAlignCenter,
   FaAlignRight,
   FaUndo,
-  FaRedo,
-  FaArrowLeft
+  FaRedo
 } from 'react-icons/fa'
-import Link from 'next/link'
 import styles from './LegalPageForm.module.css'
 import type { LegalPage, PageType } from '@/types/legal-page'
+import AdminBackLink from '../AdminBackLink/AdminBackLink'
 
 interface LegalPageFormProps {
   pageType: PageType
@@ -169,9 +168,7 @@ export default function LegalPageForm({ pageType, initialData }: LegalPageFormPr
     <div className={styles.formContainer}>
       <header className={styles.header}>
         <div className={styles.headerContent}>
-          <Link href="/admin/legal-pages" className={styles.backLink}>
-            <FaArrowLeft /> Назад
-          </Link>
+          <AdminBackLink href="/admin/legal-pages" className={styles.backLink} />
           <h1>{initialData ? 'Редактировать' : 'Создать'} {getPageTitle()}</h1>
         </div>
       </header>

@@ -4,7 +4,8 @@ import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { Slide } from '@/types/slide'
-import { FaArrowLeft, FaEdit, FaTrash, FaEye, FaEyeSlash, FaArrowUp, FaArrowDown } from 'react-icons/fa'
+import { FaEdit, FaTrash, FaEye, FaEyeSlash, FaArrowUp, FaArrowDown } from 'react-icons/fa'
+import AdminBackLink from '../AdminBackLink/AdminBackLink'
 import styles from './SlidesList.module.css'
 
 const SlidesList = () => {
@@ -138,9 +139,7 @@ const SlidesList = () => {
     <div className={styles.container}>
       <header className={styles.header}>
         <div className={styles.headerContent}>
-          <Link href="/admin" className={styles.backLink}>
-            <FaArrowLeft /> Назад
-          </Link>
+          <AdminBackLink href="/admin" className={styles.backLink} />
           <h1>Управление слайдами</h1>
           <Link href="/admin/slides/new" className={styles.createButton}>
             + Создать слайд

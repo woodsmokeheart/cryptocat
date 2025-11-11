@@ -3,9 +3,10 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import { FaEdit, FaFileAlt, FaEye, FaArrowLeft } from 'react-icons/fa'
+import { FaEdit, FaFileAlt, FaEye } from 'react-icons/fa'
 import styles from './LegalPagesList.module.css'
 import type { LegalPage } from '@/types/legal-page'
+import AdminBackLink from '../AdminBackLink/AdminBackLink'
 
 export default function LegalPagesList() {
   const router = useRouter()
@@ -61,9 +62,7 @@ export default function LegalPagesList() {
     <div className={styles.container}>
       <header className={styles.header}>
         <div className={styles.headerContent}>
-          <Link href="/admin" className={styles.backLink}>
-            <FaArrowLeft /> Назад
-          </Link>
+          <AdminBackLink href="/admin" className={styles.backLink} />
           <h1>Правовые документы</h1>
           <div className={styles.createButtons}>
             {!pages.some(p => p.page_type === 'privacy_policy') && (

@@ -34,12 +34,24 @@ export default async function AdminPage() {
     .from('services')
     .select('*', { count: 'exact', head: true })
 
+  const { count: teamMembersCount } = await supabase
+    .from('about_team_members')
+    .select('*', { count: 'exact', head: true })
+
+  const { data: aboutDescription } = await supabase
+    .from('about_description')
+    .select('id')
+    .limit(1)
+    .maybeSingle()
+
   return <AdminDashboard 
     user={user} 
     postsCount={postsCount || 0} 
     slidesCount={slidesCount || 0} 
     faqCount={faqCount || 0}
     servicesCount={servicesCount || 0}
+    aboutTeamCount={teamMembersCount || 0}
+    hasAboutDescription={Boolean(aboutDescription)}
   />
 }
 

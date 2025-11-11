@@ -3,10 +3,11 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
-import { FaArrowLeft, FaSave, FaTrash, FaUpload, FaImage } from 'react-icons/fa'
+import { FaSave, FaTrash, FaUpload, FaImage } from 'react-icons/fa'
 import { FaqItem, CreateFaqItemData, UpdateFaqItemData } from '@/types/faq'
 import TipTapEditor from '@/components/TipTapEditor/TipTapEditor'
 import ImageUpload from '@/components/ImageUpload/ImageUpload'
+import AdminBackLink from '../AdminBackLink/AdminBackLink'
 import styles from './FaqForm.module.css'
 
 interface FaqFormProps {
@@ -177,13 +178,7 @@ const FaqForm: React.FC<FaqFormProps> = ({ faqId }) => {
     <div className={styles.container}>
       <div className={styles.header}>
         <div className={styles.headerContent}>
-          <button 
-            className={styles.backButton}
-            onClick={() => router.push('/admin/faq')}
-          >
-            <FaArrowLeft />
-            Назад
-          </button>
+          <AdminBackLink href="/admin/faq" className={styles.backButton} />
           <div className={styles.headerActions}>
             {isEditing && (
               <button 

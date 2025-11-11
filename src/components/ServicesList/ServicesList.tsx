@@ -1,10 +1,12 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
+import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import { FaArrowLeft, FaPlus, FaEdit, FaTrash, FaEye, FaEyeSlash } from 'react-icons/fa'
+import { FaPlus, FaEdit, FaTrash, FaEye, FaEyeSlash } from 'react-icons/fa'
 import { Service } from '@/types/service'
+import AdminBackLink from '../AdminBackLink/AdminBackLink'
 import styles from './ServicesList.module.css'
 
 const ServicesList: React.FC = () => {
@@ -107,9 +109,7 @@ const ServicesList: React.FC = () => {
     <div className={styles.container}>
       <header className={styles.header}>
         <div className={styles.headerContent}>
-          <Link href="/admin" className={styles.backLink}>
-            <FaArrowLeft /> Вернуться в админку
-          </Link>
+          <AdminBackLink href="/admin" className={styles.backLink} />
           <h1>Управление услугами</h1>
           <Link href="/admin/services/new" className={styles.createButton}>
             + Создать услугу
@@ -127,10 +127,12 @@ const ServicesList: React.FC = () => {
             {services.map((service) => (
               <div key={service.id} className={styles.serviceCard}>
                 <div className={styles.imageContainer}>
-                  <img 
+                  <Image 
                     src={service.image_url} 
                     alt={service.title}
                     className={styles.image}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 350px"
                   />
                 </div>
                 <div className={styles.cardContent}>

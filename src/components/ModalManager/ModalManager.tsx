@@ -4,11 +4,8 @@ import React from 'react'
 import ModalLayout from '../ModalLayout/ModalLayout'
 import { useModal } from '../../hooks/useModal'
 import ServicesGrid from '../ServicesGrid/ServicesGrid'
-import { 
-  aboutSlides, 
-  faqSlides, 
-  contactSlides 
-} from '../../data/modalSlides'
+import { faqSlides, contactSlides } from '../../data/modalSlides'
+import AboutModal from '../AboutModal/AboutModal'
 
 const ModalManager: React.FC = () => {
   const aboutModal = useModal('about')
@@ -18,12 +15,9 @@ const ModalManager: React.FC = () => {
 
   return (
     <>
-      <ModalLayout 
-        isOpen={aboutModal.isOpen} 
+      <AboutModal
+        isOpen={aboutModal.isOpen}
         onClose={aboutModal.closeModal}
-        title="О CRYPTOCAT"
-        description="Узнайте о нашей миссии, ценностях и команде, стоящей за инновационными блокчейн решениями CryptoCat."
-        slides={aboutSlides}
       />
 
       <ModalLayout 

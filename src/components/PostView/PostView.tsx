@@ -1,9 +1,11 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import { FaEdit, FaTrash, FaArrowLeft, FaCheck } from 'react-icons/fa'
+import { FaEdit, FaTrash, FaCheck } from 'react-icons/fa'
+import AdminBackLink from '../AdminBackLink/AdminBackLink'
 import type { Post } from '@/types/post'
 import styles from './PostView.module.css'
 
@@ -45,9 +47,7 @@ export default function PostView({ post }: PostViewProps) {
       <header className={styles.header}>
         <div className={styles.headerContent}>
           <div className={styles.headerLeft}>
-            <Link href="/admin/posts" className={styles.backLink}>
-              <FaArrowLeft /> К списку постов
-            </Link>
+            <AdminBackLink href="/admin/posts" className={styles.backLink} />
           </div>
           <div className={styles.headerRight}>
             <Link 
@@ -72,7 +72,13 @@ export default function PostView({ post }: PostViewProps) {
           <h1 className={styles.title}>{post.title}</h1>
 
           <div className={styles.coverImage}>
-            <img src={post.cover_image} alt={post.title} />
+            <Image 
+              src={post.cover_image}
+              alt={post.title}
+              fill
+              className={styles.coverImageEl}
+              sizes="(max-width: 768px) 100vw, 900px"
+            />
           </div>
 
           <div className={styles.meta}>

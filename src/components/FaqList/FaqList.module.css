@@ -26,26 +26,7 @@
 }
 
 .backButton {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #fff;
-  padding: 10px 16px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-family: 'Oswald', sans-serif;
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  transition: all 0.3s ease;
-  white-space: nowrap;
-}
-
-.backButton:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 122, 61, 0.5);
+  justify-self: start;
 }
 
 .title {

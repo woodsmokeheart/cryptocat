@@ -36,30 +36,7 @@
 }
 
 .backLink {
-  font-family: var(--font-raleway);
-  font-size: 14px;
-  font-weight: 600;
-  color: #fff;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  padding: 6px 10px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 6px;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
-  white-space: nowrap;
-  min-width: fit-content;
-}
-
-.backLink:hover {
-  background: rgba(255, 122, 61, 0.2);
-  border-color: #FF7A3D;
-  color: #FF7A3D;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(255, 122, 61, 0.3);
+  justify-self: start;
 }
 
 .createButtons {

@@ -3,9 +3,10 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
-import { FaArrowLeft, FaSave, FaTrash, FaImage } from 'react-icons/fa'
+import { FaSave, FaTrash, FaImage } from 'react-icons/fa'
 import { Service, CreateServiceData, UpdateServiceData } from '@/types/service'
 import ImageUpload from '@/components/ImageUpload/ImageUpload'
+import AdminBackLink from '../AdminBackLink/AdminBackLink'
 import styles from './ServiceForm.module.css'
 
 interface ServiceFormProps {
@@ -165,13 +166,7 @@ const ServiceForm: React.FC<ServiceFormProps> = ({ serviceId }) => {
     <div className={styles.container}>
       <div className={styles.header}>
         <div className={styles.headerContent}>
-          <button 
-            className={styles.backButton}
-            onClick={() => router.push('/admin/services')}
-          >
-            <FaArrowLeft />
-            Назад
-          </button>
+          <AdminBackLink href="/admin/services" className={styles.backButton} />
           <div className={styles.headerActions}>
             {isEditing && (
               <button 

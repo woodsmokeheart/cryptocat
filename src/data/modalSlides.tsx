@@ -2,58 +2,6 @@ import { SlideContent } from '../types/modal'
 import FaqGrid from '../components/FaqGrid/FaqGrid'
 import ContactContent from '../components/ContactContent/ContactContent'
 
-// About page slides
-export const aboutSlides: SlideContent[] = [
-  {
-    id: 'mission',
-    title: 'Наша Миссия',
-    content: (
-      <div style={{ textAlign: 'center', color: '#fff', padding: '20px' }}>
-        <p style={{ fontSize: '1.1rem', lineHeight: '1.8', maxWidth: '600px', margin: '0 auto' }}>
-          Мы - передовое цифровое агентство, специализирующееся на блокчейн технологиях, 
-          криптовалютных решениях и инновационной веб-разработке. Наша миссия - 
-          объединить традиционный бизнес с децентрализованным будущим.
-        </p>
-      </div>
-    )
-  },
-  {
-    id: 'values',
-    title: 'Наши Ценности',
-    content: (
-      <div style={{ textAlign: 'center', color: '#fff', padding: '20px' }}>
-        <div style={{ display: 'grid', gap: '20px', maxWidth: '600px', margin: '0 auto' }}>
-            <div style={{ padding: '20px', border: '1px solid #333', borderRadius: '8px' }}>
-            <h4 style={{ color: '#FF7A3D', marginBottom: '10px' }}>Инновации</h4>
-            <p style={{ fontSize: '1rem', lineHeight: '1.6' }}>
-              Мы находимся на передовой технологий, постоянно исследуя новые возможности в блокчейн и веб-разработке.
-            </p>
-          </div>
-            <div style={{ padding: '20px', border: '1px solid #333', borderRadius: '8px' }}>
-            <h4 style={{ color: '#FF7A3D', marginBottom: '10px' }}>Прозрачность</h4>
-            <p style={{ fontSize: '1rem', lineHeight: '1.6' }}>
-              Мы верим в открытое общение и прозрачные процессы на протяжении каждого проекта.
-            </p>
-          </div>
-        </div>
-      </div>
-    )
-  },
-  {
-    id: 'team',
-    title: 'Наша Команда',
-    content: (
-      <div style={{ textAlign: 'center', color: '#fff', padding: '20px' }}>
-        <p style={{ fontSize: '1.1rem', lineHeight: '1.8', maxWidth: '600px', margin: '0 auto' }}>
-          Наша разнообразная команда блокчейн экспертов, разработчиков и дизайнеров работает вместе, 
-          чтобы обеспечить исключительные результаты. Мы сочетаем техническую экспертизу с творческим 
-          видением, чтобы воплотить ваши идеи в жизнь.
-        </p>
-      </div>
-    )
-  }
-]
-
 // Services page slides
 export const servicesSlides: SlideContent[] = [
   {

@@ -1,11 +1,13 @@
 'use client'
 
 import { useState, FormEvent } from 'react'
+import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import { FaCheck, FaEdit, FaArrowLeft, FaImage } from 'react-icons/fa'
+import { FaCheck, FaEdit, FaImage } from 'react-icons/fa'
 import TipTapEditor from '@/components/TipTapEditor/TipTapEditor'
 import ImageUpload from '@/components/ImageUpload/ImageUpload'
+import AdminBackLink from '../AdminBackLink/AdminBackLink'
 import type { Post } from '@/types/post'
 import styles from './PostForm.module.css'
 
@@ -93,9 +95,7 @@ export default function PostForm({ mode, post }: PostFormProps) {
       <header className={styles.header}>
         <div className={styles.headerContent}>
           <h1>{mode === 'create' ? 'Создать пост' : 'Редактировать пост'}</h1>
-          <Link href="/admin/posts" className={styles.backLink}>
-            <FaArrowLeft /> К списку постов
-          </Link>
+          <AdminBackLink href="/admin/posts" className={styles.backLink} />
         </div>
       </header>
 
@@ -140,7 +140,13 @@ export default function PostForm({ mode, post }: PostFormProps) {
             />
             {coverImage && (
               <div className={styles.coverImagePreview}>
-                <img src={coverImage} alt="Предпросмотр обложки" />
+                <Image
+                  src={coverImage}
+                  alt="Предпросмотр обложки"
+                  width={640}
+                  height={360}
+                  className={styles.coverPreviewImg}
+                />
                 <button
                   type="button"
                   onClick={() => setCoverImage('')}

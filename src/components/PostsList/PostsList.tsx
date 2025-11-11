@@ -2,9 +2,11 @@
 
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import { FaArrowLeft, FaCheck, FaEdit } from 'react-icons/fa'
+import Image from 'next/image'
+import { FaCheck, FaEdit } from 'react-icons/fa'
 import type { PostsResponse } from '@/types/post'
 import { generateSmartPagination } from '@/lib/pagination'
+import AdminBackLink from '../AdminBackLink/AdminBackLink'
 import styles from './PostsList.module.css'
 
 interface PostsListProps {
@@ -26,9 +28,7 @@ export default function PostsList({ postsData }: PostsListProps) {
     <div className={styles.container}>
       <header className={styles.header}>
         <div className={styles.headerContent}>
-          <Link href="/admin" className={styles.backLink}>
-            <FaArrowLeft /> Вернуться в админку
-          </Link>
+          <AdminBackLink href="/admin" className={styles.backLink} />
           <h1>Управление постами</h1>
           <Link href="/admin/posts/new" className={styles.createButton}>
             + Создать пост
@@ -48,7 +48,13 @@ export default function PostsList({ postsData }: PostsListProps) {
               {posts.map((post) => (
                 <article key={post.id} className={styles.card}>
                 <div className={styles.cardCover}>
-                  <img src={post.cover_image} alt={post.title} />
+                  <Image
+                    src={post.cover_image}
+                    alt={post.title}
+                    fill
+                    className={styles.cardCoverImg}
+                    sizes="(max-width: 900px) 100vw, 350px"
+                  />
                 </div>
                   
                   <div className={styles.cardContent}>
