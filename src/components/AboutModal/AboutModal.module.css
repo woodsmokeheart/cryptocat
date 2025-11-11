@@ -393,6 +393,10 @@
     grid-template-columns: 1fr;
   }
 
+  .teamBlock {
+    margin-bottom: 80px;
+  }
+
   .teamGrid {
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   }
