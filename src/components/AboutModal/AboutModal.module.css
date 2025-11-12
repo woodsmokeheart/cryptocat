@@ -393,6 +393,7 @@
     grid-template-columns: 1fr;
   }
 
+  /* Отступ снизу для блока команды на мобильных устройствах */
   .teamBlock {
     margin-bottom: 80px;
   }
