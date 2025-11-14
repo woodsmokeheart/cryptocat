@@ -35,11 +35,35 @@ const fetchAboutData = async () => {
   return { description, team }
 }
 
+const FADE_DURATION = 280
+
 const AboutModal: React.FC<AboutModalProps> = ({ isOpen, onClose }) => {
   const [loadingState, setLoadingState] = useState<LoadingState>('idle')
   const [description, setDescription] = useState<AboutDescription | null>(null)
   const [team, setTeam] = useState<TeamMember[]>([])
   const [error, setError] = useState<string | null>(null)
+  const [shouldRender, setShouldRender] = useState(isOpen)
+  const [isVisible, setIsVisible] = useState(isOpen)
+
+  useEffect(() => {
+    let timeoutId: ReturnType<typeof setTimeout> | null = null
+
+    if (isOpen) {
+      setShouldRender(true)
+      requestAnimationFrame(() => setIsVisible(true))
+    } else {
+      setIsVisible(false)
+      timeoutId = setTimeout(() => {
+        setShouldRender(false)
+      }, FADE_DURATION)
+    }
+
+    return () => {
+      if (timeoutId) {
+        clearTimeout(timeoutId)
+      }
+    }
+  }, [isOpen])
 
   useEffect(() => {
     if (!isOpen) {
@@ -71,7 +95,7 @@ const AboutModal: React.FC<AboutModalProps> = ({ isOpen, onClose }) => {
   }, [isOpen])
 
   useEffect(() => {
-    if (!isOpen) return
+    if (!shouldRender) return
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
@@ -86,7 +110,7 @@ const AboutModal: React.FC<AboutModalProps> = ({ isOpen, onClose }) => {
       document.removeEventListener('keydown', handleKeyDown)
       document.body.style.overflow = ''
     }
-  }, [isOpen, onClose])
+  }, [shouldRender, onClose])
 
   const descriptionParagraphs = useMemo(() => {
     if (!description?.description) return []
@@ -96,15 +120,18 @@ const AboutModal: React.FC<AboutModalProps> = ({ isOpen, onClose }) => {
       .filter(Boolean)
   }, [description])
 
-  if (!isOpen) {
+  if (!shouldRender) {
     return null
   }
 
+  const overlayClassName = `${styles.overlay} ${isVisible ? styles.overlayVisible : ''}`.trim()
+  const modalClassName = `${styles.modal} ${isVisible ? styles.modalVisible : ''}`.trim()
+
   return (
     <Portal>
-      <div className={styles.overlay} onClick={onClose}>
+      <div className={overlayClassName} onClick={onClose}>
         <div
-          className={styles.modal}
+          className={modalClassName}
           onClick={(event) => event.stopPropagation()}
         >
           <div className={styles.backgroundGlow} />
