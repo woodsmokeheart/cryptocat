@@ -6,6 +6,8 @@
   box-shadow: 0 10px 24px rgba(0,0,0,0.35);
   text-align: left;
   overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .geo { position: relative; }

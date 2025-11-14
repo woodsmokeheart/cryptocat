@@ -1,6 +1,5 @@
 import { SlideContent } from '../types/modal'
 import FaqGrid from '../components/FaqGrid/FaqGrid'
-import ContactContent from '../components/ContactContent/ContactContent'
 
 // Services page slides
 export const servicesSlides: SlideContent[] = [
@@ -53,13 +52,3 @@ export const faqSlides: SlideContent[] = [
   }
 ]
 
-// Contact page slides
-export const contactSlides: SlideContent[] = [
-  {
-    id: 'contact-info',
-    title: 'Связаться С Нами',
-    content: (
-      <ContactContent />
-    )
-  }
-]

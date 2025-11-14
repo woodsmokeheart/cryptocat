@@ -4,8 +4,9 @@ import React from 'react'
 import ModalLayout from '../ModalLayout/ModalLayout'
 import { useModal } from '../../hooks/useModal'
 import ServicesGrid from '../ServicesGrid/ServicesGrid'
-import { faqSlides, contactSlides } from '../../data/modalSlides'
+import { faqSlides } from '../../data/modalSlides'
 import AboutModal from '../AboutModal/AboutModal'
+import ContactModal from '../ContactModal/ContactModal'
 
 const ModalManager: React.FC = () => {
   const aboutModal = useModal('about')
@@ -37,12 +38,9 @@ const ModalManager: React.FC = () => {
         slides={faqSlides}
       />
 
-      <ModalLayout 
+      <ContactModal 
         isOpen={contactModal.isOpen} 
         onClose={contactModal.closeModal}
-        title="СВЯЗАТЬСЯ С НАМИ"
-        description="Официальные каналы связи команды CryptoCat. Мы работаем только через проверенные контакты - остерегайтесь мошенников."
-        slides={contactSlides}
       />
     </>
   )
