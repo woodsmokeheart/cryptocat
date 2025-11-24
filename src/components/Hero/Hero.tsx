@@ -75,15 +75,18 @@ const fallbackSlides: Slide[] = [
 ]
 
 const getSlideTransform = (index: number, currentSlide: number, previousSlide: number, direction: 'next' | 'prev'): string => {
+  let translateX = '0%'
   if (index === currentSlide) {
-    return 'translateX(0%)'
+    translateX = '0%'
   } else if (index === previousSlide) {
     // Предыдущий слайд уходит в направлении, противоположном движению
-    return direction === 'next' ? 'translateX(-100%)' : 'translateX(100%)'
+    translateX = direction === 'next' ? '-100%' : '100%'
   } else {
     // Остальные слайды в направлении движения
-    return direction === 'next' ? 'translateX(100%)' : 'translateX(-100%)'
+    translateX = direction === 'next' ? '100%' : '-100%'
   }
+  // Добавляем translateZ(0) для аппаратного ускорения на Android
+  return `translateX(${translateX}) translateZ(0)`
 }
 
 const Hero = () => {
