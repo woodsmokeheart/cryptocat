@@ -28,11 +28,6 @@ const Header = () => {
     closeMenu()
   }
 
-  const navigateToShop = () => {
-    router.push('/shop')
-    closeMenu()
-  }
-
   const navigateToLenta = () => {
     router.push('/lenta')
     closeMenu()
@@ -105,17 +100,6 @@ const Header = () => {
                 <li>
                   <button 
                     className={styles.linkUnderlineMenu} 
-                    onClick={() => {
-                      faqModal.openModal()
-                      closeMenu()
-                    }}
-                  >
-                    FAQ
-                  </button>
-                </li>
-                <li>
-                  <button 
-                    className={styles.linkUnderlineMenu} 
                     onClick={navigateToLenta}
                   >
                     Лента
@@ -124,9 +108,12 @@ const Header = () => {
                 <li>
                   <button 
                     className={styles.linkUnderlineMenu} 
-                    onClick={navigateToShop}
+                    onClick={() => {
+                      faqModal.openModal()
+                      closeMenu()
+                    }}
                   >
-                    Магазин
+                    FAQ
                   </button>
                 </li>
                 <li>
