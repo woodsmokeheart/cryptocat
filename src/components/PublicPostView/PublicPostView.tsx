@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { FaArrowLeft, FaCheck } from 'react-icons/fa'
 import type { Post } from '@/types/post'
 import styles from './PublicPostView.module.css'
@@ -19,7 +20,19 @@ export default function PublicPostView({ post }: PublicPostViewProps) {
       <header className={styles.header}>
         <div className={styles.headerContent}>
           <Link href="/lenta" className={styles.backLink}>
-            <FaArrowLeft /> К ленте
+            <FaArrowLeft />
+            <span className={styles.backText}>К ленте</span>
+          </Link>
+          <Link href="/" className={styles.logoLink}>
+            <Image 
+              className={styles.logoImg} 
+              alt="CryptoCat Logo" 
+              src="/img/textLogo.png"
+              width={40}
+              height={40}
+              sizes="100vw"
+              priority
+            />
           </Link>
         </div>
       </header>

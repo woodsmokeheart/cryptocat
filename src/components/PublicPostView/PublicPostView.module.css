@@ -49,6 +49,25 @@
   transform: translateY(-1px);
 }
 
+.backText {
+  display: inline;
+}
+
+.logoLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease;
+}
+
+.logoLink:hover {
+  opacity: 0.8;
+}
+
+.logoImg {
+  object-fit: contain;
+}
+
 .main {
   max-width: 1040px;
   margin: 0 auto;
@@ -302,13 +321,33 @@
 
   .header {
     margin: -10px -10px 20px;
-    padding: 15px;
+    padding: 16px 20px;
   }
 
   .headerContent {
-    flex-direction: column;
-    gap: 15px;
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .backLink {
+    padding: 8px;
+    min-width: 40px;
+    justify-content: center;
+  }
+
+  .backText {
+    display: none;
+  }
+
+  .logoLink {
+    display: inline-flex;
+  }
+
+  .logoImg {
+    width: 32px;
+    height: 32px;
   }
 
   .article {

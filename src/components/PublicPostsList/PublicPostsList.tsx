@@ -107,7 +107,8 @@ export default function PublicPostsList({ postsData }: PublicPostsListProps) {
       <header className={styles.header}>
         <div className={styles.headerContent}>
           <Link href="/" className={styles.backLink}>
-            <FaArrowLeft /> Назад
+            <FaArrowLeft />
+            <span className={styles.backText}>Назад</span>
           </Link>
           <div className={styles.titleSection}>
             <h1>Лента новостей</h1>

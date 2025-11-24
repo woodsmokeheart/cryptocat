@@ -359,30 +359,39 @@
   cursor: default;
 }
 
+.backText {
+  display: inline;
+}
+
 @media (max-width: 768px) {
   .header {
-    padding: 20px;
+    padding: 16px 20px;
   }
 
   .headerContent {
-    grid-template-columns: 1fr;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     gap: 16px;
-    text-align: center;
   }
 
   .backLink {
-    justify-self: center;
-    order: 1;
+    padding: 8px;
+    min-width: 40px;
+    justify-content: center;
+  }
+
+  .backText {
+    display: none;
   }
 
   .titleSection {
-    order: 2;
-    text-align: center;
-    justify-self: center;
+    text-align: right;
+    flex: 1;
   }
 
   .titleSection h1 {
-    font-size: 28px;
+    font-size: 24px;
   }
 
   .grid {
