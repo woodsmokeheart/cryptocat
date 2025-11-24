@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import Link from 'next/link'
 import { FaArrowLeft, FaCheck } from 'react-icons/fa'
 import type { Post } from '@/types/post'
@@ -10,6 +11,9 @@ interface PublicPostViewProps {
 }
 
 export default function PublicPostView({ post }: PublicPostViewProps) {
+  const [imageLoading, setImageLoading] = useState(true)
+  const [imageError, setImageError] = useState(false)
+
   return (
     <div className={styles.container}>
       <header className={styles.header}>
@@ -25,7 +29,29 @@ export default function PublicPostView({ post }: PublicPostViewProps) {
           <h1 className={styles.title}>{post.title}</h1>
 
           <div className={styles.coverImage}>
-            <img src={post.cover_image} alt={post.title} />
+            {imageLoading && !imageError && (
+              <div className={styles.imageSkeleton}>
+                <div className={styles.skeletonShimmer} />
+              </div>
+            )}
+            {!imageError && (
+              <img
+                src={post.cover_image}
+                alt={post.title}
+                className={`${styles.coverImageEl} ${imageLoading ? styles.imageLoading : styles.imageLoaded}`}
+                loading="lazy"
+                onLoad={() => setImageLoading(false)}
+                onError={() => {
+                  setImageLoading(false)
+                  setImageError(true)
+                }}
+              />
+            )}
+            {imageError && (
+              <div className={styles.imageError}>
+                <span>Изображение не загружено</span>
+              </div>
+            )}
           </div>
 
           <div className={styles.meta}>

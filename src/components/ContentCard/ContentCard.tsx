@@ -1,7 +1,6 @@
 'use client'
 
-import React from 'react'
-import Image from 'next/image'
+import React, { useState } from 'react'
 import styles from './ContentCard.module.css'
 
 interface ContentCardProps {
@@ -25,18 +24,36 @@ const ContentCard: React.FC<ContentCardProps> = ({
   type = 'news',
   onReadMore
 }) => {
+  const [imageLoading, setImageLoading] = useState(true)
+  const [imageError, setImageError] = useState(false)
+
   return (
     <div className={`${styles.contentCard} ${!image ? styles.noImage : ''}`} onClick={onReadMore}>
       {image && (
         <div className={styles.imageContainer}>
-          <Image
-            src={image}
-            alt={title}
-            className={styles.cardImage}
-            width={400}
-            height={200}
-            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-          />
+          {imageLoading && !imageError && (
+            <div className={styles.imageSkeleton}>
+              <div className={styles.skeletonShimmer} />
+            </div>
+          )}
+          {!imageError && (
+            <img
+              src={image}
+              alt={title}
+              className={`${styles.cardImage} ${imageLoading ? styles.imageLoading : styles.imageLoaded}`}
+              loading="lazy"
+              onLoad={() => setImageLoading(false)}
+              onError={() => {
+                setImageLoading(false)
+                setImageError(true)
+              }}
+            />
+          )}
+          {imageError && (
+            <div className={styles.imageError}>
+              <span>Изображение не загружено</span>
+            </div>
+          )}
         </div>
       )}
       <div className={styles.content}>

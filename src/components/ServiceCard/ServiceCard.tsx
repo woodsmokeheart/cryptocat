@@ -1,7 +1,6 @@
 'use client'
 
-import React from 'react'
-import Image from 'next/image'
+import React, { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { Service } from '@/types/service'
 import styles from './ServiceCard.module.css'
@@ -12,6 +11,8 @@ interface ServiceCardProps {
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
   const router = useRouter()
+  const [imageLoading, setImageLoading] = useState(true)
+  const [imageError, setImageError] = useState(false)
 
   const handleClick = () => {
     if (service.detail_page_url) {
@@ -28,13 +29,29 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
   return (
     <div className={styles.serviceCard} onClick={handleClick}>
       <div className={styles.imageContainer}>
-        <Image
-          src={service.image_url}
-          alt={service.title}
-          fill
-          className={styles.image}
-          sizes="(max-width: 768px) 100vw, 50vw"
-        />
+        {imageLoading && !imageError && (
+          <div className={styles.imageSkeleton}>
+            <div className={styles.skeletonShimmer} />
+          </div>
+        )}
+        {!imageError && (
+          <img
+            src={service.image_url}
+            alt={service.title}
+            className={`${styles.image} ${imageLoading ? styles.imageLoading : styles.imageLoaded}`}
+            loading="lazy"
+            onLoad={() => setImageLoading(false)}
+            onError={() => {
+              setImageLoading(false)
+              setImageError(true)
+            }}
+          />
+        )}
+        {imageError && (
+          <div className={styles.imageError}>
+            <span>Изображение не загружено</span>
+          </div>
+        )}
       </div>
       <div className={styles.content}>
         <h3 className={styles.title}>{service.title}</h3>

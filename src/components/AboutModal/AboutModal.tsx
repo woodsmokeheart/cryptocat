@@ -37,6 +37,50 @@ const fetchAboutData = async () => {
 
 const FADE_DURATION = 280
 
+interface TeamMemberCardProps {
+  member: TeamMember
+}
+
+const TeamMemberCard: React.FC<TeamMemberCardProps> = ({ member }) => {
+  const [imageLoading, setImageLoading] = useState(true)
+  const [imageError, setImageError] = useState(false)
+
+  return (
+    <div className={styles.teamCard}>
+      <div className={styles.cardHalo} />
+      <div className={styles.cardImageWrapper}>
+        {imageLoading && !imageError && (
+          <div className={styles.imageSkeleton}>
+            <div className={styles.skeletonShimmer} />
+          </div>
+        )}
+        {!imageError && (
+          <img
+            src={member.image_url}
+            alt={member.name}
+            className={imageLoading ? styles.imageLoading : styles.imageLoaded}
+            loading="lazy"
+            onLoad={() => setImageLoading(false)}
+            onError={() => {
+              setImageLoading(false)
+              setImageError(true)
+            }}
+          />
+        )}
+        {imageError && (
+          <div className={styles.imageError}>
+            <span>Изображение не загружено</span>
+          </div>
+        )}
+      </div>
+      <div className={styles.cardBody}>
+        <h4>{member.name}</h4>
+        <span>{member.role}</span>
+      </div>
+    </div>
+  )
+}
+
 const AboutModal: React.FC<AboutModalProps> = ({ isOpen, onClose }) => {
   const [loadingState, setLoadingState] = useState<LoadingState>('idle')
   const [description, setDescription] = useState<AboutDescription | null>(null)
@@ -210,16 +254,7 @@ const AboutModal: React.FC<AboutModalProps> = ({ isOpen, onClose }) => {
 
                   {loadingState === 'success' && team.length > 0 && (
                     team.map((member) => (
-                      <div key={member.id} className={styles.teamCard}>
-                        <div className={styles.cardHalo} />
-                        <div className={styles.cardImageWrapper}>
-                          <img src={member.image_url} alt={member.name} />
-                        </div>
-                        <div className={styles.cardBody}>
-                          <h4>{member.name}</h4>
-                          <span>{member.role}</span>
-                        </div>
-                      </div>
+                      <TeamMemberCard key={member.id} member={member} />
                     ))
                   )}
                 </div>

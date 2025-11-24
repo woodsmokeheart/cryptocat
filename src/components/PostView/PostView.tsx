@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { FaEdit, FaTrash, FaCheck } from 'react-icons/fa'
@@ -16,6 +15,8 @@ interface PostViewProps {
 export default function PostView({ post }: PostViewProps) {
   const router = useRouter()
   const [deleting, setDeleting] = useState(false)
+  const [imageLoading, setImageLoading] = useState(true)
+  const [imageError, setImageError] = useState(false)
 
   const handleDelete = async () => {
     if (!confirm('Вы уверены, что хотите удалить этот пост? Это действие нельзя отменить.')) {
@@ -72,13 +73,29 @@ export default function PostView({ post }: PostViewProps) {
           <h1 className={styles.title}>{post.title}</h1>
 
           <div className={styles.coverImage}>
-            <Image 
-              src={post.cover_image}
-              alt={post.title}
-              fill
-              className={styles.coverImageEl}
-              sizes="(max-width: 768px) 100vw, 900px"
-            />
+            {imageLoading && !imageError && (
+              <div className={styles.imageSkeleton}>
+                <div className={styles.skeletonShimmer} />
+              </div>
+            )}
+            {!imageError && (
+              <img
+                src={post.cover_image}
+                alt={post.title}
+                className={`${styles.coverImageEl} ${imageLoading ? styles.imageLoading : styles.imageLoaded}`}
+                loading="lazy"
+                onLoad={() => setImageLoading(false)}
+                onError={() => {
+                  setImageLoading(false)
+                  setImageError(true)
+                }}
+              />
+            )}
+            {imageError && (
+              <div className={styles.imageError}>
+                <span>Изображение не загружено</span>
+              </div>
+            )}
           </div>
 
           <div className={styles.meta}>

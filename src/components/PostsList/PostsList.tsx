@@ -1,8 +1,8 @@
 'use client'
 
+import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import Image from 'next/image'
 import { FaCheck, FaEdit } from 'react-icons/fa'
 import type { PostsResponse } from '@/types/post'
 import { generateSmartPagination } from '@/lib/pagination'
@@ -11,6 +11,90 @@ import styles from './PostsList.module.css'
 
 interface PostsListProps {
   postsData: PostsResponse
+}
+
+interface PostCardProps {
+  post: {
+    id: string
+    title: string
+    cover_image: string
+    excerpt: string | null
+    created_at: string
+    published: boolean
+  }
+}
+
+function PostCard({ post }: PostCardProps) {
+  const [imageLoading, setImageLoading] = useState(true)
+  const [imageError, setImageError] = useState(false)
+
+  return (
+    <article className={styles.card}>
+      <div className={styles.cardCover}>
+        {imageLoading && !imageError && (
+          <div className={styles.imageSkeleton}>
+            <div className={styles.skeletonShimmer} />
+          </div>
+        )}
+        {!imageError && (
+          <img
+            src={post.cover_image}
+            alt={post.title}
+            className={`${styles.cardCoverImg} ${imageLoading ? styles.imageLoading : styles.imageLoaded}`}
+            loading="lazy"
+            onLoad={() => setImageLoading(false)}
+            onError={() => {
+              setImageLoading(false)
+              setImageError(true)
+            }}
+          />
+        )}
+        {imageError && (
+          <div className={styles.imageError}>
+            <span>Изображение не загружено</span>
+          </div>
+        )}
+      </div>
+      
+      <div className={styles.cardContent}>
+        <div className={styles.cardHeader}>
+          <h3>{post.title}</h3>
+        </div>
+        
+        <p className={styles.excerpt}>
+          {post.excerpt || 'Нет описания'}
+        </p>
+      
+        <div className={styles.cardFooter}>
+          <div className={styles.dateAndStatus}>
+            <time className={styles.date}>
+              {new Date(post.created_at).toLocaleDateString('ru-RU', {
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric',
+              })}
+            </time>
+            <div className={styles.statusIcon}>
+              {post.published ? (
+                <FaCheck className={styles.publishedIcon} title="Опубликован" />
+              ) : (
+                <FaEdit className={styles.draftIcon} title="Черновик" />
+              )}
+            </div>
+          </div>
+          
+          <div className={styles.actions}>
+            <Link 
+              href={`/admin/posts/${post.id}`}
+              className={styles.viewButton}
+            >
+              Просмотр
+            </Link>
+          </div>
+        </div>
+      </div>
+    </article>
+  )
 }
 
 export default function PostsList({ postsData }: PostsListProps) {
@@ -46,55 +130,7 @@ export default function PostsList({ postsData }: PostsListProps) {
           <>
             <div className={styles.grid}>
               {posts.map((post) => (
-                <article key={post.id} className={styles.card}>
-                <div className={styles.cardCover}>
-                  <Image
-                    src={post.cover_image}
-                    alt={post.title}
-                    fill
-                    className={styles.cardCoverImg}
-                    sizes="(max-width: 900px) 100vw, 350px"
-                  />
-                </div>
-                  
-                  <div className={styles.cardContent}>
-                    <div className={styles.cardHeader}>
-                      <h3>{post.title}</h3>
-                    </div>
-                    
-                    <p className={styles.excerpt}>
-                      {post.excerpt || 'Нет описания'}
-                    </p>
-                  
-                  <div className={styles.cardFooter}>
-                    <div className={styles.dateAndStatus}>
-                      <time className={styles.date}>
-                        {new Date(post.created_at).toLocaleDateString('ru-RU', {
-                          day: 'numeric',
-                          month: 'long',
-                          year: 'numeric',
-                        })}
-                      </time>
-                      <div className={styles.statusIcon}>
-                        {post.published ? (
-                          <FaCheck className={styles.publishedIcon} title="Опубликован" />
-                        ) : (
-                          <FaEdit className={styles.draftIcon} title="Черновик" />
-                        )}
-                      </div>
-                    </div>
-                    
-                    <div className={styles.actions}>
-                      <Link 
-                        href={`/admin/posts/${post.id}`}
-                        className={styles.viewButton}
-                      >
-                        Просмотр
-                      </Link>
-                    </div>
-                  </div>
-                  </div>
-                </article>
+                <PostCard key={post.id} post={post} />
               ))}
             </div>
 

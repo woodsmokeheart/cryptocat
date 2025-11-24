@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { FaCheck, FaEdit, FaArrowLeft } from 'react-icons/fa'
@@ -9,6 +10,85 @@ import styles from './PublicPostsList.module.css'
 
 interface PublicPostsListProps {
   postsData: PostsResponse
+}
+
+interface PostCardProps {
+  post: {
+    id: string
+    title: string
+    cover_image: string
+    excerpt: string | null
+    created_at: string
+  }
+}
+
+function PostCard({ post }: PostCardProps) {
+  const [imageLoading, setImageLoading] = useState(true)
+  const [imageError, setImageError] = useState(false)
+
+  return (
+    <article className={styles.card}>
+      <div className={styles.cardCover}>
+        {imageLoading && !imageError && (
+          <div className={styles.imageSkeleton}>
+            <div className={styles.skeletonShimmer} />
+          </div>
+        )}
+        {!imageError && (
+          <img
+            src={post.cover_image}
+            alt={post.title}
+            className={`${styles.cardCoverImg} ${imageLoading ? styles.imageLoading : styles.imageLoaded}`}
+            loading="lazy"
+            onLoad={() => setImageLoading(false)}
+            onError={() => {
+              setImageLoading(false)
+              setImageError(true)
+            }}
+          />
+        )}
+        {imageError && (
+          <div className={styles.imageError}>
+            <span>Изображение не загружено</span>
+          </div>
+        )}
+      </div>
+
+      <div className={styles.cardContent}>
+        <div className={styles.cardHeader}>
+          <h3>{post.title}</h3>
+        </div>
+        
+        <p className={styles.excerpt}>
+          {post.excerpt || 'Нет описания'}
+        </p>
+      
+        <div className={styles.cardFooter}>
+          <div className={styles.dateAndStatus}>
+            <time className={styles.date}>
+              {new Date(post.created_at).toLocaleDateString('ru-RU', {
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric',
+              })}
+            </time>
+            <div className={styles.statusIcon}>
+              <FaCheck className={styles.publishedIcon} title="Опубликован" />
+            </div>
+          </div>
+          
+          <div className={styles.actions}>
+            <Link 
+              href={`/lenta/${post.id}`}
+              className={styles.viewButton}
+            >
+              Читать
+            </Link>
+          </div>
+        </div>
+      </div>
+    </article>
+  )
 }
 
 export default function PublicPostsList({ postsData }: PublicPostsListProps) {
@@ -45,45 +125,7 @@ export default function PublicPostsList({ postsData }: PublicPostsListProps) {
           <>
             <div className={styles.grid}>
               {posts.map((post) => (
-                      <article key={post.id} className={styles.card}>
-                        <div className={styles.cardCover}>
-                          <img src={post.cover_image} alt={post.title} />
-                        </div>
-                  
-                  <div className={styles.cardContent}>
-                    <div className={styles.cardHeader}>
-                      <h3>{post.title}</h3>
-                    </div>
-                    
-                    <p className={styles.excerpt}>
-                      {post.excerpt || 'Нет описания'}
-                    </p>
-                  
-                    <div className={styles.cardFooter}>
-                      <div className={styles.dateAndStatus}>
-                        <time className={styles.date}>
-                          {new Date(post.created_at).toLocaleDateString('ru-RU', {
-                            day: 'numeric',
-                            month: 'long',
-                            year: 'numeric',
-                          })}
-                        </time>
-                        <div className={styles.statusIcon}>
-                          <FaCheck className={styles.publishedIcon} title="Опубликован" />
-                        </div>
-                      </div>
-                      
-                      <div className={styles.actions}>
-                        <Link 
-                          href={`/lenta/${post.id}`}
-                          className={styles.viewButton}
-                        >
-                          Читать
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </article>
+                <PostCard key={post.id} post={post} />
               ))}
             </div>
 
