@@ -60,8 +60,7 @@ export default function AdminDashboard({
 
       <main className={styles.main}>
         <div className={styles.welcomeCard}>
-          <h2>Добро пожаловать в админ-панель!</h2>
-          <p>Вы успешно вошли в систему управления CryptoCat</p>
+          <h2>Добро пожаловать!</h2>
         </div>
 
         <div className={styles.dashboardGrid}>
